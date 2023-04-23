@@ -39,7 +39,7 @@ export default function CartContent() {
 
 const CartContentContainer = styled.div`
   width: 100%;
-  border: 1px solid var(--grey-2);
+  border: 1px solid rgba(0,0,0,.08);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -53,7 +53,7 @@ const CartContentContainer = styled.div`
     font-size: 3rem;
     font-weight: 700;
     color: var(--text-color);
-    border-bottom: 1px solid var(--grey-2);
+    border-bottom: 1px solid rgba(0,0,0,.08);
     padding: 2rem 0;
     text-transform: uppercase;
   }
@@ -72,7 +72,7 @@ const CartContentContainer = styled.div`
           width: 100%;
           font-size: 1.4rem;
           padding: 2rem 0;
-          border-bottom: 1px solid var(--grey-2);
+          border-bottom: 1px solid rgba(0,0,0,.08);
           font-weight: 700;
           color: var(--dark-1);
           font-family: "Barlow", sans-serif;
@@ -86,7 +86,7 @@ const CartContentContainer = styled.div`
         td {
           text-align: center;
           padding: 2rem 0;
-          border-bottom: 1px solid var(--grey-2);
+          border-bottom: 1px solid rgba(0,0,0,.08);
           font-size: 1.4rem;
           font-weight: 400;
           font-family: "Barlow", sans-serif;
@@ -102,7 +102,7 @@ const CartContentContainer = styled.div`
             justify-content: center;
             cursor: pointer;
             &:hover {
-              background: var(--grey-2);
+              background: rgba(0,0,0,.08);
             }
 
             svg {
@@ -140,19 +140,22 @@ const CartContentContainer = styled.div`
           }
           .btnWrapper {
             width: 100px;
-            border: 1px solid var(--grey-2);
             display: flex;
             align-items: center;
             height: 4rem;
             justify-content: center;
             margin: 0 auto;
-            border-radius: 6px;
             h3 {
               font-size: 1.4rem;
               font-weight: 600;
               color: #333;
               flex: 1;
               font-family: "Barlow", sans-serif;
+              border-bottom: 1px solid rgba(0,0,0,.08);
+              border-top: 1px solid rgba(0,0,0,.08);
+              height: 100%;
+              display: grid;
+              place-items: center;
             }
             .cartBtn {
               border: none;

@@ -44,17 +44,17 @@ export default function Cart() {
   return (
     <>
       <Meta title={"My Cart"} />
-      <CartContainer>
+      <CartContainer className="flex gap-2 column">
         {isLoading ? (
           <LoaderIndex loading={isLoading} />
         ) : isError ? (
           <Message alertText={alertText} alertType={alertType} />
         ) : (
-          <>
+          <div className="flex gap-2 column">
             <Cartindex />
             <Newsletter />
             <Footer />
-          </>
+          </div>
         )}
       </CartContainer>
     </>

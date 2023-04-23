@@ -67,6 +67,9 @@ const CartHolderContainer = styled.div`
       font-size: 1.6rem;
       text-align: center;
       cursor: pointer;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
       &:hover {
         background: var(--blue-1);
       }
@@ -81,19 +84,18 @@ const CartHolderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--dark-1);
-    padding: 1.6rem 0;
+    padding-top: 1.6rem;
     font-family: "Barlow", sans-serif;
     &.subtotal {
       border-top: 1px solid var(--grey-2);
       border-bottom: 1px solid var(--grey-2);
-      padding: 2rem 0;
+      padding: 2.4rem 0;
     }
 
     .subspan {
-      font-size: 1.8rem;
       font-weight: 400;
       color: var(--grey);
       &.span1 {

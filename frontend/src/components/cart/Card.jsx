@@ -49,6 +49,7 @@ export default function Card({ x }) {
             className="cartBtn"
             disabled={x?.quantity === x?.countInStock}
             onClick={() => dispatch(increaseBagQty(x))}
+            style={{borderTopLeftRadius:"20px", borderBottomLeftRadius:"20px"}}
           >
             <BiPlus />
           </button>
@@ -57,6 +58,7 @@ export default function Card({ x }) {
             className="cartBtn"
             disabled={x?.quantity === 1}
             onClick={() => dispatch(decreaseBagQty(x))}
+            style={{borderTopRightRadius:"20px", borderBottomRightRadius:"20px"}}
           >
             <BiMinus />
           </button>

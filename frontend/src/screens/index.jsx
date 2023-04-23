@@ -8,10 +8,7 @@ import Contact from "./Contact";
 import Checkout from "./Checkout";
 import Login from './Login';
 import Register from './Register'
-import PlaceOrder from './PlaceOrder'
 import Profile from './Profile'
-import Payment from './Payment'
-import Order from './Order'
 import {ProtectRoute} from './ProtectRoute'
 import {ProtectAdmin} from './ProtectAdmin'
 import Search from './Search'
@@ -30,12 +27,9 @@ export {
     Checkout,
     Register,
     Login,
-    PlaceOrder,
     ProtectRoute,
     ProtectAdmin,
     Profile,
-    Payment,
-    Order,
     Search,
     Success,
     About,

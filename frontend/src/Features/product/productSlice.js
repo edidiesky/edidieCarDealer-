@@ -19,7 +19,30 @@ const initialState = {
   isError: false,
   product: productData,
   products: null,
-  productDetails: null,
+  productDetails: {
+    createdAt: "1/6/2023",
+    price: "8322.75",
+    countInStock: 8,
+    capacity: 90,
+    percentage: 8,
+    brand: "Tesla",
+    title: "Tesla Racer 2020",
+    image: [
+      { image: "/images/car_3.jpg" },
+      { image: "/images/car_20.jpg" },
+      { image: "/images/ford-1.jpg" },
+    ],
+    info: [
+      { location: "Westmont, Florida 33202", dealerContact: "500-5188 / 5189" },
+    ],
+    colors: "Blue",
+    tags: ["Electric", "Auto", " Blue"],
+    rating: "0",
+    numReviews: "0",
+    reviews: [],
+    description:
+      "Audi S4 2020 comes with a really packed engine, double speed as compared with its previous production. Being famously known as one of the family car product present in the market, Audi is a rare gem",
+  },
 
   totalProduct: 0,
   isLoading: false,
@@ -93,7 +116,7 @@ const productSlice = createSlice({
       state.productAlert = false;
     },
     clearProductDetails: (state, action) => {
-      state.productDetails = null
+      state.productDetails = null;
     },
     handleProductSearch: (state, action) => {
       const productpayload = action.payload;
@@ -285,7 +308,7 @@ export const {
   handleProductSearch,
   getSearch,
   getProduct,
-  clearProductDetails
+  clearProductDetails,
 } = productSlice.actions;
 
 export default productSlice.reducer;

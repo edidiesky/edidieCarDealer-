@@ -29,7 +29,7 @@ width:100%;
   position:relative;
   display:grid;
   grid-template-columns:repeat(2, 1fr);
-  grid-gap:8rem;
+  grid-gap:4rem;
   @media (max-width:980px) {
     grid-template-columns:repeat(1, 1fr);
   }

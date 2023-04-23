@@ -110,7 +110,7 @@ export default function Products() {
                 </tr>
               </thead>
               <tbody>
-                {product?.map((x) => {
+                {product.slice(0,3)?.map((x) => {
                   return <TableCard x={x} key={x?._id} />;
                 })}
               </tbody>

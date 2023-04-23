@@ -54,7 +54,7 @@ export default function App() {
   return (
     <div className="based" style={{ height }}>
       <Routes>
-        <Route path={"/"} element={<Layout />}>
+        <Route path={"/car-dealership"} element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="blog" element={<Blog />} />
@@ -63,6 +63,7 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="cart" element={<Cart />} />
           <Route path="billing" element={<Billing />} />
+          <Route path="cars/:id" element={<Details />} />
         </Route>
         <Route path={"/dashboard"} element={<LayoutList />}>
           <Route index element={<Home />} />

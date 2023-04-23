@@ -94,7 +94,7 @@ export default function Billingindex() {
   };
 
   return (
-    <BillingIndexContainer>
+    <BillingIndexContainer className="flex gap-2 column">
       <h2>Billing Details</h2>
       <form className="formWrapper" onSubmit={handleAddressDetails}>
         <div className="inputWrapper">
@@ -147,17 +147,16 @@ export default function Billingindex() {
 
 const BillingIndexContainer = styled.div`
   width: 100%;
-  border: 1px solid var(--grey-2);
-  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 2rem 3rem;
   h2 {
     font-size: 3rem;
     font-weight: 700;
     color: var(--dark-1);
     text-align: center;
     line-height: 1.5;
-    border-bottom: 1px solid var(--grey-2);
-    padding: 1rem 0;
-    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    padding: 1.4rem 0;
     width: 100%;
     text-align: start;
   }
@@ -177,13 +176,21 @@ const BillingIndexContainer = styled.div`
       .btn {
         border: none;
         outline: none;
-        padding: 1.8rem 3rem;
+        padding: 1.5rem 4rem;
+        background: var(--red);
+        color: #fff;
         font-size: 1.6rem;
-        color: var(--white);
-        background-color: var(--red);
+        border-radius: 40px;
+        text-align: center;
         cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
         &:hover {
-          background-color: var(--blue-1);
+          background: var(--blue-1);
+        }
+        @media (max-width: 980px) {
+          padding: 1.6rem 4rem;
         }
       }
     }

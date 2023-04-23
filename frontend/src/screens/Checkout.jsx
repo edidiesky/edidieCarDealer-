@@ -8,12 +8,13 @@ import {
   CopyRight,
   Meta,
 } from "../components/common";
-import { Billingindex, Links } from "../components/checkout";
+import { Billingindex, Links, PaymentIndex } from "../components/checkout";
 export default function Billing() {
+  const [index, setIndex] = useState(1);
   return (
     <>
       <Meta title="Checkout" />
-      <BillingContainer>
+      <BillingContainer className="flex gap-2 column">
         <Banner title="My Checkout" step1 step2="Billing" />
         <div className="BillingWrapperTop">
           <p>Hello</p>
@@ -21,8 +22,9 @@ export default function Billing() {
           <p>E-mail them at info@yourshop.com</p>
         </div>
         <div className="BillingWrapperCenter">
-          <Links step1={"billing"} />
-          <Billingindex />
+          <Links index={index} setIndex={setIndex}/>
+          {index === 0 && <Billingindex />}
+          {index === 1 && <PaymentIndex/>}
         </div>
         <Newsletter />
         <Footer />
@@ -60,9 +62,9 @@ const BillingContainer = styled.div`
     }
   }
   .BillingWrapperCenter {
-    width: 90%;
+    width: 95%;
     display: grid;
-    grid-template-columns: 16vw 1fr;
+    grid-template-columns: 14vw 1fr;
     margin: 0 auto;
     padding: 2rem 0;
     grid-gap: 3rem;

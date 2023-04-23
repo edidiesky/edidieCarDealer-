@@ -6,7 +6,7 @@ import { Banner } from "../common";
 import SmallCartCard from "./SmallCartCard";
 export default function Cartindex() {
   return (
-    <CartContainer>
+    <CartContainer className="flex gap-2 column">
       <Banner title="My Cart" step1 step2="Cart" />
       <div className="cartHolderWrapper">
         <CartContent />

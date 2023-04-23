@@ -1,74 +1,19 @@
-import React, {useState} from 'react'
-import Styled from 'styled-components'
-import {useNavigate} from 'react-router-dom'
-import { 
-savePaymentType
-} from '../../../Features'
-import {useDispatch} from 'react-redux'
+import React, { useState } from "react";
+import Styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { savePaymentType } from "../../../Features";
+import { useDispatch } from "react-redux";
+import PapmentButton from "../paypal";
 
 export default function PaymentIndex() {
-  const dispatch = useDispatch()
-  const [type, setType] = useState('')
-  // get the cart content
-  console.log(type)
-
-  // initialize navigate
-
-  const navigate = useNavigate()
-  // handling the submission of the address form
-  const handleAdressForm = (e)=> {
-    e.preventDefault()
-    dispatch(savePaymentType(type))
-    if(!type) {
-      navigate('/payment')
-    } else {
-    navigate('/placeorder')
-  }
-  }
-
+  const dispatch = useDispatch();
+  const [type, setType] = useState("")
   return (
     <PaymentIndexContainer>
       <h2>Payment Method</h2>
-      <div className='paymentWrapper'>
-        <h3>Select Payment Method</h3>
-        <form className='radioForm'>
-              <div className='form-radio'>
-               <input 
-                type='radio'
-                name='type'
-                id='Paypal'
-               value={"Paypal"}
-               required='true'
-               checked={type === 'Paypal'}
-               onChange={(e)=> setType(e.target.value)}
-               />
-               <label htmlFor='Paypal' className='form-label'>
-                 <div className='formspan'></div>
-                 Paypal or Credit Card
-               </label>
-              </div>
-              <div className='form-radio'>
-               <input 
-                type='radio'
-                name='type'
-                id='Stripe'
-               value={"Stripe"}
-               required='true'
-               checked={type === 'Stripe'}
-               onChange={(e)=> setType(e.target.value)}
-               />
-               <label htmlFor='Stripe' className='form-label'>
-                 <div className='formspan'></div>
-                 Stripe Payment System
-               </label>
-              </div>
-              <div className='btnWrapper'>
-               <button type='submit' onClick={handleAdressForm}>Continue</button>
-               </div>
-         </form>
-      </div>
+      <PapmentButton/>
     </PaymentIndexContainer>
-  )
+  );
 }
 
 const PaymentIndexContainer = Styled.div`
@@ -192,5 +137,4 @@ gap:3rem;
   }
   }
  }
-`
-
+`;
