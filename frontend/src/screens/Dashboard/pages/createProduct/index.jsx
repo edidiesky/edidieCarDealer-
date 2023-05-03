@@ -19,13 +19,8 @@ export default function CreateProductIndex() {
   // initailizing parameters
   const dispatch = useDispatch();
   const { id } = useParams();
-  const {
-    productDetails,
-    isLoading,
-    alertText,
-    alertType,
-    showAlert,
-  } = useSelector((store) => store.product);
+  const { productDetails, isLoading, alertText, alertType, showAlert } =
+    useSelector((store) => store.product);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -56,13 +51,22 @@ export default function CreateProductIndex() {
   };
   const [uploadimage, setUploadImage] = useState([
     "/images/bmw-2.jpg",
-    "/images/car_2.jpg",
-    "/images/car_1.jpg",
+    "/images/car2.jpg",
+    "/images/car1.jpg",
   ]);
   const [uploading, setUploading] = useState(false);
+  const [tagdata, setTagData] = useState([]);
+  const [colors, setColors] = useState([]);
+
+  const filterColors = [
+    { id: 1, color: "#222222", title: "black" },
+    { id: 2, color: "#BD162D", title: "red" },
+    { id: 4, color: "#f7f7f7", title: "grey" },
+    { id: 3, color: "#23608c", title: "blue" },
+    { id: 5, color: "#fff", title: "White" },
+  ];
 
   const productData = { ...formdata1, ...formdata2, image: uploadimage };
-  console.log(productData);
   const handleAdminProduct = (e) => {
     e.preventDefault();
     if (productDetails) {
@@ -90,7 +94,7 @@ export default function CreateProductIndex() {
           <div className="EditProductWrapperTop">
             <div className="btnWrapper">
               <button className="editBtn" onClick={handleAdminProduct}>
-                {productDetails ? "Edit Product" : "Create your Product"}
+                {productDetails ? "Edit Car" : "Create your Car"}
               </button>
             </div>
           </div>
@@ -105,6 +109,11 @@ export default function CreateProductIndex() {
               uploading={uploading}
               setUploadImage={setUploadImage}
               setUploading={setUploading}
+              tagdata={tagdata}
+              setTagData={setTagData}
+              colors={colors}
+              setColors={setColors}
+              filterColors={filterColors}
             />
           </div>
           <div className="editwrapper">

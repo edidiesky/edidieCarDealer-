@@ -12,14 +12,14 @@ export default function EditProductInfo({
     {
       id: 1,
       name: "title",
-      placeholder: "Add your product name",
+      placeholder: "Add your Car name",
       type: "text",
       text: "Product Name",
     },
     {
       id: 2,
       name: "brand",
-      placeholder: "Add your product brand",
+      placeholder: "Add your Car brand",
       type: "text",
       text: "Product Brand",
     },
@@ -51,7 +51,7 @@ export default function EditProductInfo({
             <textarea
               type="text"
               className="textarea"
-              placeholder="Place a description on the product"
+              placeholder="Place a description on the Car"
               name="description"
               value={formdata2.description}
               onChange={onChange2}
@@ -64,7 +64,7 @@ export default function EditProductInfo({
             <textarea
             className="textarea"
               type="text"
-              placeholder="Place insert Additional Info on the product"
+              placeholder="Place insert Additional Info on the Car"
               id="Additional"
             />
           </label>

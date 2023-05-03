@@ -17,9 +17,6 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
         focused={touched.toString()}
         onChange={onChange}
       />
-      <span className="error item-center gap-1">
-        <AiFillWarning fontSize={"20px"} /> {errorMessage}
-      </span>
     </LabelContainer>
   );
 }

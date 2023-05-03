@@ -17,14 +17,16 @@ export default function Billing() {
       <BillingContainer className="flex gap-2 column">
         <Banner title="My Checkout" step1 step2="Billing" />
         <div className="BillingWrapperTop">
-          <p>Hello</p>
-          <p>Need Assistance? Call customer service at 888-555-5555.</p>
-          <p>E-mail them at info@yourshop.com</p>
+          <p className="fs-20 family1">Hello</p>
+          <p className="fs-20 family1">
+            Need Assistance? Call customer service at 888-555-5555.
+          </p>
+          <p className="fs-20 family1">E-mail them at info@yourshop.com</p>
         </div>
         <div className="BillingWrapperCenter">
-          <Links index={index} setIndex={setIndex}/>
+          <Links index={index} setIndex={setIndex} />
           {index === 0 && <Billingindex />}
-          {index === 1 && <PaymentIndex/>}
+          {index === 1 && <PaymentIndex />}
         </div>
         <Newsletter />
         <Footer />
@@ -49,9 +51,6 @@ const BillingContainer = styled.div`
       flex-direction: column;
     }
     p {
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: var(--grey);
       padding: 2.5rem;
       border-right: 1px solid var(--grey-2);
       @media (max-width: 780px) {

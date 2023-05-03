@@ -5,11 +5,11 @@ export const Table = styled.div`
   padding: 2rem 1.6rem;
   margin-top: 1rem;
   background: var(--white);
-  border-radius: 5px;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
 
   .TableTop {
     padding: 0.4rem 0;

@@ -10,17 +10,13 @@ export default function EditOtherInfo({ onChange1, formdata1, setFormData1 }) {
     if (productDetails) {
       const {
         price,
-        price2,
         countInStock,
-        colors,
         percentage,
         capacity,
       } = productDetails;
       setFormData1({
         price,
-        price2,
         countInStock,
-        colors,
         percentage,
         capacity,
       });

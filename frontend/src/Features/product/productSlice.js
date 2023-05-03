@@ -17,7 +17,7 @@ const products = JSON.parse(localStorage.getItem("products"));
 const initialState = {
   isSuccess: false,
   isError: false,
-  product: productData,
+  product: productData.slice(0,6),
   products: null,
   productDetails: {
     createdAt: "1/6/2023",
@@ -31,6 +31,10 @@ const initialState = {
       { image: "/images/car_3.jpg" },
       { image: "/images/car_20.jpg" },
       { image: "/images/ford-1.jpg" },
+      {
+        image:
+          "https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/02/tesla-4-200x200.jpg",
+      },
     ],
     info: [
       { location: "Westmont, Florida 33202", dealerContact: "500-5188 / 5189" },

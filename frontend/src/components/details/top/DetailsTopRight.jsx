@@ -245,9 +245,9 @@ const DetailsTopRightContainer = styled.div`
         color: var(--blue-1);
       }
       h4 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         color: var(--text-color);
-        font-weight: 600;
+        font-weight: 700;
         span {
           font-weight: 400;
           color: rgb(34, 34, 34);

@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { FaFileUpload } from "react-icons/fa";
-
+import { FaCross, FaFileUpload } from "react-icons/fa";
 import Message from "../../../../components/loaders/Message";
 import LoaderIndex from "../../../../components/loaders/index";
 import { RxCross1 } from "react-icons/rx";
+import { BiTime, BiUpload } from "react-icons/bi";
 
 export default function EditProductImage({
   uploadimage,
   setUploadImage,
   setUploading,
   uploading,
+  tagdata,
+  setTagData,
+  colors,
+  setColors,
+  filterColors,
 }) {
   const handleFileUpload = async (e) => {
     // get the file
@@ -38,54 +43,118 @@ export default function EditProductImage({
     }
   };
 
+  const [coloractive, setColorActive] = useState(false);
+
   const removeUploadedImage = (id) => {
     const outcome = uploadimage.filter((x, index) => index !== id);
     console.log(outcome);
     setUploadImage(outcome);
   };
+  const handleTagInput = (e) => {
+    // check if the entetr key is pressed
+    if (e.key !== "Enter") return;
+    // check if the there is emppty value
+    const value = e.target.value;
+    if (!value.trim()) return;
+    // set the list
+    setTagData([...tagdata, value]);
+  };
+  const deleteTagInput = (id) => {
+    const tagFilterResult = tagdata.filter((x, index) => index !== id);
+    setTagData(tagFilterResult);
+  };
+  const handleColors = (color) => {
+    setColors([...colors, color]);
+    if (colors.includes(color)) {
+      setColorActive(true);
+    }
+  };
   return (
     <EditProductWrapperCenter>
-      <h4 className="family1 fs-14 text-bold">Upload Product Image</h4>
-      {/*upload image*/}
-      {uploadimage.length > 0 ? (
-        <div className="EditProductImageList">
-          {uploadimage.map((x, index) => {
-            return (
-              <div
-                className="imageContainer flex item-center gap-2 justify-space"
-                key={index}
-              >
-                <img src={x} alt="images" className="img" />
+      {/* image upload */}
+      <div className="w-100 flex column gap-1">
+        <h4 className="family1 fs-14 text-bold">Upload Car Image</h4>
+        {/*upload image*/}
+        {uploadimage.length > 0 ? (
+          <div className="EditProductImageList">
+            {uploadimage.map((x, index) => {
+              return (
                 <div
-                  className="icon flex item-center justify-center"
-                  onClick={() => removeUploadedImage(index)}
+                  className="imageContainer flex item-center gap-2 justify-space"
+                  key={index}
                 >
-                  <RxCross1 fontSize={"18px"} />
+                  <img src={x} alt="images" className="img" />
+                  <div
+                    className="icon flex item-center justify-center"
+                    onClick={() => removeUploadedImage(index)}
+                  >
+                    <RxCross1 fontSize={"18px"} />
+                  </div>
                 </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="UploadBtnWrapper">
+            {uploading && <LoaderIndex type="small" />}
+            <label
+              className="fs-15 column gap-2 family1 fs-14 flex gap-1 item-center text-light"
+              htmlFor="upload"
+            >
+            <BiUpload fontSize={'18px'}/>  Upload car image here 
+              <input
+                type="file"
+                id="upload"
+                placeholder="Car Image"
+                autoComplete="off"
+                style={{ display: "none" }}
+                onChange={handleFileUpload}
+                multiple
+              />
+            </label>
+          </div>
+        )}
+      </div>
+      {/* tag upload */}
+      <div className="w-100 flex column gap-1">
+        <h4 className="family1 fs-14 text-bold">Upload Car Tag</h4>
+        <div className="tagForm item-center">
+          {tagdata.map((x, index) => {
+            return (
+              <div className="tagWrapper family1 text-light fs-14 text-bold flex item-center gap-1">
+                {x}{" "}
+                <RxCross1
+                  onClick={() => deleteTagInput(index)}
+                  fontSize={"16px"}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
             );
           })}
+          <input
+            type="text"
+            onKeyDown={handleTagInput}
+            className="taginput"
+            placeholder="Add Car Tags"
+          />
         </div>
-      ) : (
-        <div className="UploadBtnWrapper">
-          {uploading && <LoaderIndex type="small" />}
-          <label
-            className="UploadBtn fs-15 family1 fs-14 flex gap-1 item-center text-light editBtn"
-            htmlFor="upload"
-          >
-            Upload File here <FaFileUpload />
-            <input
-              type="file"
-              id="upload"
-              placeholder="Product Image"
-              autoComplete="off"
-              style={{ display: "none" }}
-              onChange={handleFileUpload}
-              multiple
-            />
-          </label>
+      </div>
+      {/* color  */}
+      <div className="w-100 flex column gap-1">
+        <h4 className="family1 fs-14 text-bold">Upload Car Color</h4>
+        <div className="w-100 colorWrapper flex iitem-center gap-1">
+          {filterColors.map((x) => {
+            const { id, title, color } = x;
+            return (
+              <div
+                onClick={() => handleColors({ id, title, color })}
+                className={coloractive ? "colorSpan active" : "colorSpan"}
+                style={{ background: `${color}` }}
+              ></div>
+            );
+          })}
         </div>
-      )}
+      </div>
     </EditProductWrapperCenter>
   );
 }
@@ -95,13 +164,49 @@ const EditProductWrapperCenter = styled.div`
   border-radius: 4px;
   flex-direction: column;
   width: 100%;
-  gap: 1.6rem;
+  gap: 2rem;
   p {
     font-size: 1.1rem;
     color: var(--grey);
     font-weight: 400;
     &.EditProductWrapperCenterPara {
       padding: 1rem 0;
+    }
+  }
+  .colorSpan {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    &.active {
+      border: 2px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+  .taginput {
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: all 0.2s;
+    font-family: "Barlow", sans-serif;
+    color: var(--dark-1);
+    border: none;
+    height: 100%;
+  }
+  .tagForm {
+    min-height: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    &:hover {
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);
+    }
+    .tagWrapper {
+      padding: 0.5rem 1rem;
+      background-color: rgba(0, 0, 0, 0.08);
+      border-radius: 40px;
     }
   }
   .UploadBtnWrapper {
@@ -117,13 +222,9 @@ const EditProductWrapperCenter = styled.div`
     .UploadBtn {
       padding: 1.6rem 2rem;
       font-weight: 600;
-      background: var(--blue-2);
       color: #fff;
       cursor: pointer;
       z-index: 50;
-      &:hover {
-        background: var(--red);
-      }
     }
   }
 
@@ -145,11 +246,11 @@ const EditProductWrapperCenter = styled.div`
 
     .imageContainer {
       border: 1px solid rgba(0, 0, 0, 0.2);
-      min-height: 7rem;
       padding-left: 1rem;
       position: relative;
       .img {
         width: 8rem;
+        min-height: 7rem;
       }
 
       .uploadLabel {

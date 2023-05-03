@@ -181,7 +181,7 @@ const ProfileContainer = styled.div`
       align-items: center;
       padding: 3.7rem 6rem;
       background: var(--white);
-      box-shadow: 0 2px 2px var(--grey-2);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 6px;
       flex-direction: column;
       .btnWrapper {

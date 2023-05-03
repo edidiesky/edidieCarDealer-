@@ -8,8 +8,14 @@ const LayoutWrapper = styled.div`
   min-height: 100vh;
   width: 100%;
   display: flex;
+  align-items: flex-start;
+  /* display: grid;
+  grid-template-columns: auto 1fr;
+  @media (max-width:780px) {
+    grid-template-columns: 1fr;
+  } */
   .LayoutContainer {
-    width: 100%;
+    flex: 1;
     .OutletWrapper {
       width: 100%;
       padding-bottom: 3.5rem;

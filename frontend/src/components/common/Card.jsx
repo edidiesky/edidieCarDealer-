@@ -38,7 +38,7 @@ export default function Card({ x, index }) {
             )}
             <div className="imageGradient flex item-center justify-center">
               <div className="cardSpanWrapper justify-center flex item-center column gap-1">
-                <h2 className="fs-24 text-bold text-white">{x?.title}</h2>
+                <h2 className="fs-24 text-extra-bold text-white">{x?.title}</h2>
                 {!x?.percentage ? (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
                     ${(x?.price * x?.percentage) / 100}{" "}
@@ -53,7 +53,7 @@ export default function Card({ x, index }) {
             </div>
           </div>
           <header>
-            <Link className="titleDetails" to={`/avada/product/${x._id}`}>
+            <Link className="titleDetails" to={`/car-dealership/cars/${x._id}`}>
               {x?.title}
             </Link>
             <div className="category">

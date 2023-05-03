@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FaCar } from "react-icons/fa";
 
@@ -23,6 +23,14 @@ const data = [
   },
 ];
 export default function ServicesIndex() {
+  const [tag, setTag] = useState([])
+  const handleKeyDown = (e)=> {
+    if (e.key !== "Enter") return
+    const value = e.target.value
+    if (!value.trim()) return
+    setTag([...tag, value])
+  }
+  // <input onKeyDown={handleKeyDown} type='text'/>
   return (
     <ServicesContainer>
       <div className="serviceWrapper">

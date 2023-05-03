@@ -9,17 +9,17 @@ export default function SearchIndex() {
           <input
             placeholder="Car Make / keyword /Model"
             type="text"
-            className="search"
+            className="input family1"
           />
           <input
             placeholder="Car Make / keyword /Model"
             type="text"
-            className="search"
+            className="input family1"
           />
           <input
             placeholder="Car Make / keyword /Model"
             type="text"
-            className="search"
+            className="input family1"
           />
           <button className="btn">Search</button>
         </div>
@@ -67,42 +67,14 @@ const SearchContainer = styled.div`
         width: 75%;
         margin: 0 auto;
       }
-      .search {
-        height: 5.5rem;
-        border-radius: 6px;
-        background:var(--white);
-        padding: 0 2.4rem;
-        width: 100%;
-        font-family:"Barlow", sans-serif;
-        
 
-        &::placeholder {
-          font-size:1.5rem;
-          font-family:"Barlow", sans-serif;
-        }
-        &:focus {
-            border: 1.7px solid #222;
-        }
-        &.inputError {
-          border: 2px solid var(--red);
-        }
-        &:invalid[focused='true'] ~ span {
-          display:block;
-        }
-        &:invalid[focused='true']{
-          border-bottom: 2px solid var(--red);
-        }
-        &:valid[focused='true']{
-          border-left: 3px solid var(--green);
-        }
-      }
       .btn {
         height: 5.5rem;
         @media (max-width: 480px) {
           padding: 1.8rem 2.3rem;
         }
         cursor: pointer;
-        font-size: 2rem;
+        font-size: 1.7rem;
         font-weight: 400;
         color: var(--white);
         background: var(--red);

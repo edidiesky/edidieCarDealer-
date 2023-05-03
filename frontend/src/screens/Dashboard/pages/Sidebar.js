@@ -12,12 +12,11 @@ import { CgProfile } from "react-icons/cg";
 const SidebarWrapper = styled.div`
   width: 247px;
   background: var(--white);
-
   height: 100vh;
   top: 0%;
   position: sticky;
-  border-right: 1px solid #d1d1d1;
-  @media (max-width: 1080px) {
+  border-right: 1px solid rgba(0,0,0,.2);
+  @media (max-width: 780px) {
     display: inline-block;
     position: fixed;
     top: 0;
@@ -62,13 +61,13 @@ const SidebarWrapper = styled.div`
       }
       .nav-link {
         padding: 8px 16px;
-        font-size: 1.45rem;
+        font-size: 1.5rem;
         height: 4.2rem;
         border-radius: 30px;
         font-weight: 600;
         margin: 0 auto;
         width: 100%;
-        color: var(--grey-1);
+        color: var(--dark-1);
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -83,10 +82,9 @@ const SidebarWrapper = styled.div`
           font-size: 2rem;
         }
         &.active {
-          background: #E8EFF9;
+          background: rgb(232 239 249 / 77%);
           position: relative;
-
-          color:var(--dark-1);
+          color:var(--blue-2);
         }
       }
     }

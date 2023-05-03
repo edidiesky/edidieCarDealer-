@@ -11,22 +11,29 @@ import {
 } from "../../Features";
 import { RxCross1 } from "react-icons/rx";
 
-export default function Card({ x }) {
-  const [deletemodal, setDeleteModal] = useState(false);
-
+export default function Card({ x, type }) {
   const dispatch = useDispatch();
+  if (type === "payment") {
+    return (
+      <div key={x?._id} className="flex card w-100 item-center justify-space">
+        <div className="flex item-center gap-2 ">
+          <div className="cartProduct">
+            <div className="imageWrapper">
+              <img src={x?.image[0].image} alt="images" />
+            </div>
+          </div>
+          <div className="title w-100 flex item-center gap-1">
+            {x?.title} <RxCross1 fontSize={"12px"} /> {x?.quantity || 1}
+          </div>
+        </div>
 
-  const offDeleteModal = () => setDeleteModal(false);
-  const handleRemoveBagItem = () => {
-    dispatch(removeBagItem(x));
-    setDeleteModal(false);
-  };
-  const increaseQty = (item) => {
-    dispatch(increaseBagQty({ item }));
-  };
-  const decreaseQty = (item) => {
-    dispatch(decreaseBagQty({ item }));
-  };
+        <div className="price fs-16 family1 text-dark">
+          {x?.price * x?.quantity}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <tr key={x?._id}>
       <td className="svg">
@@ -49,7 +56,10 @@ export default function Card({ x }) {
             className="cartBtn"
             disabled={x?.quantity === x?.countInStock}
             onClick={() => dispatch(increaseBagQty(x))}
-            style={{borderTopLeftRadius:"20px", borderBottomLeftRadius:"20px"}}
+            style={{
+              borderTopLeftRadius: "20px",
+              borderBottomLeftRadius: "20px",
+            }}
           >
             <BiPlus />
           </button>
@@ -58,7 +68,10 @@ export default function Card({ x }) {
             className="cartBtn"
             disabled={x?.quantity === 1}
             onClick={() => dispatch(decreaseBagQty(x))}
-            style={{borderTopRightRadius:"20px", borderBottomRightRadius:"20px"}}
+            style={{
+              borderTopRightRadius: "20px",
+              borderBottomRightRadius: "20px",
+            }}
           >
             <BiMinus />
           </button>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
@@ -11,15 +11,11 @@ import {
   Cart,
   News,
   Contact,
-  Checkout,
   Register,
   Login,
-  PlaceOrder,
   ProtectRoute,
   ProtectAdmin,
   Profile,
-  Payment,
-  Order,
   Search,
   Success,
   About,
@@ -35,7 +31,7 @@ import {
   Customers,
   EditUser,
   EditProductIndex,
-  CreateProductIndex
+  CreateProductIndex,
 } from "./screens/Dashboard/pages";
 import Billing from "./screens/Checkout";
 
@@ -44,7 +40,12 @@ export default function App() {
     AOS.init();
   }, []);
   const [height, setHeight] = useState(0);
-
+  const initialOptions = {
+    "client-id":
+      "AZwhvDm_lNhSOcDkza_6-5Yzi8diCZA-FKB4kbmDq8QyZofI84RMZ5Ao3aXcdao09k6NOl0OMOUfPyNp",
+    currency: "USD",
+    intent: "capture",
+  };
   useEffect(() => {
     const container = document.querySelector(".based");
     const height = container.getBoundingClientRect().height;
@@ -52,6 +53,7 @@ export default function App() {
   }, []);
 
   return (
+    <PayPalScriptProvider options={initialOptions}>
     <div className="based" style={{ height }}>
       <Routes>
         <Route path={"/car-dealership"} element={<Layout />}>
@@ -65,7 +67,7 @@ export default function App() {
           <Route path="billing" element={<Billing />} />
           <Route path="cars/:id" element={<Details />} />
         </Route>
-        <Route path={"/dashboard"} element={<LayoutList />}>
+        <Route path={"/car-dealership/dashboard"} element={<LayoutList />}>
           <Route index element={<Home />} />
           <Route path="product" element={<AdminProductList />} />
           <Route path="create-product" element={<CreateProductIndex />} />
@@ -77,5 +79,6 @@ export default function App() {
         </Route>
       </Routes>
     </div>
+    </PayPalScriptProvider>
   );
 }
