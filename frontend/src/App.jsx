@@ -37,7 +37,9 @@ import Billing from "./screens/Checkout";
 
 export default function App() {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once:true
+    });
   }, []);
   const [height, setHeight] = useState(0);
   const initialOptions = {
