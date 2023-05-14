@@ -25,7 +25,7 @@ const iconsListData = [
 export default function HeaderBottom() {
   return (
     <HeaderBottomContainer>
-      <div className="HeaderBottomWrapper">
+      <div className="HeaderBottomWrapper w-90 auto">
         <ul className="locationListWrapper">
           {data.map((x) => {
             return (
@@ -64,9 +64,6 @@ const HeaderBottomContainer = styled.div`
   }
   .HeaderBottomWrapper {
     display: flex;
-    width: 90%;
-    max-width: 1600px;
-    margin: 0 auto;
     align-items: center;
     background: var(--white);
     justify-content: space-between;

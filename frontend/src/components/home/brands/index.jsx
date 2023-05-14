@@ -14,7 +14,7 @@ const data = [
 export default function Brandindex() {
   return (
     <BrandContainer>
-      <div className="brandWrapper">
+      <div className="brandWrapper w-100 auto">
         <div className="brandTopWrapper">
           <img
             src="/images/car-dealer-footer-logo-2x.png"
@@ -101,8 +101,6 @@ const BrandContainer = styled.div`
       }
     }
     .brandIconWrapper {
-      width: 80%;
-      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       @media (max-width: 980px) {

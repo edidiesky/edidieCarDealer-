@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function SearchIndex() {
   return (
     <SearchContainer>
-      <div className="searchWrapper">
+      <div className="searchWrapper w-90 auto">
         <h2 className="searchText">Search Vehicle Inventory</h2>
         <div className="searchinputcontainer">
           <input
@@ -31,9 +31,6 @@ export default function SearchIndex() {
 const SearchContainer = styled.div`
   width: clamp(60%, 90%, 85%);
   margin: 0 auto;
-  z-index: 3451000;
-  max-width: 1600px;
-  margin: 0 auto;
   padding: 2rem 0;
   .searchWrapper {
     display: flex;
@@ -45,6 +42,7 @@ const SearchContainer = styled.div`
     padding: 4rem 0;
     transform: translateY(-40px);
     position: relative;
+    z-index: 3000;
 
     h2 {
       font-size: 4rem;
