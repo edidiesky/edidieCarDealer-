@@ -7,7 +7,23 @@ export const getAllProduct = createAsyncThunk(
   async (name, thunkAPI) => {
     try {
       const { page, category, search, sort, color, limit } = thunkAPI.getState().product
-      let productUrl = `/api/v1/product?page=${page}&category=${category}&sort=${sort}&color=${color}&limit=${limit}`
+      let productUrl = `/api/v1/product`
+      
+      if (page) {
+        productUrl = productUrl + `?page=${page}`
+      }
+      if (category) {
+        productUrl = productUrl + `?category=${category}`
+      }
+      if (sort) {
+        productUrl = productUrl + `?sort=${sort}`
+      }
+      if (color) {
+        productUrl = productUrl + `?color=${color}`
+      }
+      if (limit) {
+        productUrl = productUrl + `?limit=${limit}`
+      }
       if (search) {
         productUrl = productUrl + `&search=${search}`
       }
