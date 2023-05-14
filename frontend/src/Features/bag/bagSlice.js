@@ -10,7 +10,7 @@ const TotalShoppingPrice = localStorage.getItem('TotalShoppingPrice')
 const initialState = {
   isSuccess: false,
   isError: false,
-  bag: bagItems ? bagItems : productData.slice(0,3),
+  bag: bagItems ? bagItems : null,
   bagDetails: null,
   isLoading: false,
   showAlert: false,

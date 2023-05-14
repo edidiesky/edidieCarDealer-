@@ -1,5 +1,5 @@
 import React from "react";
-import Styled from "styled-components";
+import styled from "styled-components";
 
 const data = [
   {
@@ -46,7 +46,7 @@ export default function Banner4() {
   );
 }
 
-const Banner4Container = Styled.div`
+const Banner4Container = styled.div`
 width:100%;
  .banner4Wrapper {
     width:100%;
@@ -76,7 +76,11 @@ width:100%;
                 position:absolute;
                 height:100%;
                 width:100%;
-                background:linear-gradient(120deg,var(--gradient1) 0,#000000b3 50%,#000000ab 50%);
+                background: linear-gradient(
+    155deg,
+    #081b365d 25%,
+    hsla(215, 74%, 12%, calc(100% - 40%)) 100%
+  );
                 z-index:40;
             }
         .headerContent {
@@ -131,5 +135,5 @@ width:100%;
         }
     }
 }
- }
+ 
 `;

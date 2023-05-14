@@ -104,7 +104,7 @@ const ChoiceContainer = styled.div`
         height: 8rem;
       }
       h2 {
-        font-size: 5.5rem;
+        font-size: 5rem;
         font-weight: 700;
         color: var(--white);
         width: 100%;
@@ -157,7 +157,7 @@ const ChoiceContainer = styled.div`
           }
         }
         h3 {
-          font-size: 2.4rem;
+          font-size: 2.2rem;
           font-weight: 700;
           color: #fff;
           flex: 1;
@@ -165,7 +165,7 @@ const ChoiceContainer = styled.div`
           .choiceSpan {
             display: block;
             padding-top: 1.8rem;
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 400;
             font-family: "Barlow", sans-serif;
             line-height: 30.45px;

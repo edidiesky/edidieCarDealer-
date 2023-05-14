@@ -11,7 +11,6 @@ import Register from './Register'
 import Profile from './Profile'
 import {ProtectRoute} from './ProtectRoute'
 import {ProtectAdmin} from './ProtectAdmin'
-import Search from './Search'
 import Success from './Success'
 import About from './About'
 import Blog from './Blog'
@@ -30,7 +29,6 @@ export {
     ProtectRoute,
     ProtectAdmin,
     Profile,
-    Search,
     Success,
     About,
     Blog,

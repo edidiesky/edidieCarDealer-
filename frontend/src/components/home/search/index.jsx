@@ -31,7 +31,7 @@ export default function SearchIndex() {
 const SearchContainer = styled.div`
   width: clamp(60%, 90%, 85%);
   margin: 0 auto;
-  z-index: 3451000;
+
   max-width: 1600px;
   margin: 0 auto;
   padding: 2rem 0;
@@ -45,7 +45,7 @@ const SearchContainer = styled.div`
     padding: 4rem 0;
     transform: translateY(-40px);
     position: relative;
-
+    z-index: 10000;
     h2 {
       font-size: 4rem;
       font-weight: 700;

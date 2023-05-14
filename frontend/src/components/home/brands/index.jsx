@@ -76,7 +76,7 @@ const BrandContainer = styled.div`
         height: 8rem;
       }
       h2 {
-        font-size: 5.5rem;
+        font-size: 5rem;
         font-weight: 700;
         color: var(--white);
         width: 100%;
@@ -86,7 +86,7 @@ const BrandContainer = styled.div`
         }
       }
       p {
-        font-size: 1.88rem;
+        font-size: 1.8rem;
         color: var(--grey-1);
         font-weight: 400;
         line-height: 2;

@@ -16,7 +16,6 @@ import {
   ProtectRoute,
   ProtectAdmin,
   Profile,
-  Search,
   Success,
   About,
   Blog,
@@ -58,16 +57,16 @@ export default function App() {
     <PayPalScriptProvider options={initialOptions}>
     <div className="based" style={{ height }}>
       <Routes>
-        <Route path={"/car-dealership"} element={<Layout />}>
+        <Route path={"/"} element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="blog" element={<Blog />} />
-          <Route path="latest-offers" element={<Offer />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="billing" element={<Billing />} />
-          <Route path="cars/:id" element={<Details />} />
+          <Route path="car-dealership/about" element={<About />} />
+          <Route path="car-dealership/blog" element={<Blog />} />
+          <Route path="car-dealership/latest-offers" element={<Offer />} />
+          <Route path="car-dealership/about" element={<About />} />
+          <Route path="car-dealership/contact" element={<Contact />} />
+          <Route path="car-dealership/cart" element={<Cart />} />
+          <Route path="car-dealership/billing" element={<Billing />} />
+          <Route path="car-dealership/cars/:id" element={<Details />} />
         </Route>
         <Route path={"/car-dealership/dashboard"} element={<LayoutList />}>
           <Route index element={<Home />} />

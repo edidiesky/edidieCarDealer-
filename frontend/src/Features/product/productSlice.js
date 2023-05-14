@@ -10,43 +10,14 @@ import {
   getAllProductCategory,
   getProductStats,
 } from "./productReducer";
-import { productData } from "../../dummy";
-
 const products = JSON.parse(localStorage.getItem("products"));
 
 const initialState = {
   isSuccess: false,
   isError: false,
-  product: productData.slice(0,6),
+  product: null,
   products: null,
-  productDetails: {
-    createdAt: "1/6/2023",
-    price: "8322.75",
-    countInStock: 8,
-    capacity: 90,
-    percentage: 8,
-    brand: "Tesla",
-    title: "Tesla Racer 2020",
-    image: [
-      { image: "/images/car_3.jpg" },
-      { image: "/images/car_20.jpg" },
-      { image: "/images/ford-1.jpg" },
-      {
-        image:
-          "https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/02/tesla-4-200x200.jpg",
-      },
-    ],
-    info: [
-      { location: "Westmont, Florida 33202", dealerContact: "500-5188 / 5189" },
-    ],
-    colors: "Blue",
-    tags: ["Electric", "Auto", " Blue"],
-    rating: "0",
-    numReviews: "0",
-    reviews: [],
-    description:
-      "Audi S4 2020 comes with a really packed engine, double speed as compared with its previous production. Being famously known as one of the family car product present in the market, Audi is a rare gem",
-  },
+  productDetails: null,
 
   totalProduct: 0,
   isLoading: false,
@@ -296,7 +267,6 @@ const productSlice = createSlice({
   },
 });
 
-// console.log(productSlice);
 export const {
   clearAlert,
   getColor,

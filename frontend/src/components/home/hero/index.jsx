@@ -6,7 +6,7 @@ export default function Heroindex() {
     <HeroContainer>
       <div className="herowrapper">
         <img src="/images/heroImage.jpg" alt="" className="heroImage" />
-        {/* <div className="gradient"></div> */}
+        <div className="gradient"></div>
         <div className="heroSection">
           <div className="hidden">
             <h1
