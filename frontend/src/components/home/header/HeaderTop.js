@@ -109,7 +109,7 @@ export default function HeaderTop() {
 
   return (
     <HeaderTopContainer>
-      <div className="headerTopWrapperContainer">
+      <div className="headerTopWrapperContainer w-90 auto">
         <div className="headerTopWrapperContent">
           <SmallSidebar side={side} toggleSidebar={toggleSidebar} />
           <HeaderTopLeft />
@@ -132,9 +132,6 @@ const HeaderTopContainer = styled.div`
   background: var(--white);
   padding: 1.5rem 0;
   .headerTopWrapperContainer {
-    margin: 0 auto;
-    width: 90%;
-    max-width: 1600px;
     display: flex;
     align-items: center;
     justify-content: space-between;

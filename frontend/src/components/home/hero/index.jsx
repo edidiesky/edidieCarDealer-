@@ -56,6 +56,13 @@ export default function Heroindex() {
 
 const HeroContainer = styled.section`
   width: 100%;
+  .gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 400;
+    background-color: linear-gradient(90deg, #081b36 30%,hsla(215,74%,12%,calc(100% - 100%)) 65%);
+  }
   .herowrapper {
     width: 100%;
     position: relative;

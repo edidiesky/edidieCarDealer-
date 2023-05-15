@@ -10,7 +10,7 @@ const TotalShoppingPrice = localStorage.getItem('TotalShoppingPrice')
 const initialState = {
   isSuccess: false,
   isError: false,
-  bag: bagItems ? bagItems : null,
+  bag: bagItems ? bagItems :[],
   bagDetails: null,
   isLoading: false,
   showAlert: false,

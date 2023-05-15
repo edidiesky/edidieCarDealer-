@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 export default function InventoryIndex() {
   return (
     <InventoryContainer>
-      <div className="inventoryWrapper">
+      <div className="inventoryWrapper w-90 auto">
         <div className="inventoryTop flex item-center gap-2">
           <h1 data-aos="fade-right " className="flex-1">
             Latest Inventory
             <span>
               <img
                 src="/images/heading-separator.png"
-                alt="title-image"
+                alt="title-images"
                 className="titleIcon"
               />
             </span>
@@ -42,9 +42,6 @@ export default function InventoryIndex() {
 const InventoryContainer = styled.div`
   width: 100%;
   .inventoryWrapper {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1600px;
     display: flex;
     flex-direction: column;
     gap: 1.8rem;

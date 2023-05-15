@@ -10,8 +10,6 @@ import {
   getAllProductCategory,
   getProductStats,
 } from "./productReducer";
-const products = JSON.parse(localStorage.getItem("products"));
-
 const initialState = {
   isSuccess: false,
   isError: false,

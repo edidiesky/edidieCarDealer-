@@ -29,7 +29,7 @@ export default function Home() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
-  const { product, isLoading, alertText, alertType, isError } = useSelector(
+  const {} = useSelector(
     (store) => store.product
   );
 
@@ -38,7 +38,7 @@ export default function Home() {
     dispatch(clearProductDetails());
     dispatch(clearProductAlert());
     dispatch(getAllProduct());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
