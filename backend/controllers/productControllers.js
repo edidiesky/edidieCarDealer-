@@ -10,10 +10,21 @@ const GetAllProduct = asyncHandler(async (req, res) => {
   const search = req.query.search;
   const sort = req.query.sort;
   const colors = req.query.colors;
-
+  // const minprice = req.query.minprice;
+  // const category = req.query.category;
+  // const maxprice = req.query.maxprice;
   const queryObject = {};
   let result = Product.find(queryObject);
 
+
+  // minimum price
+  if (minprice) {
+    queryObject.price = { $gt: minprice }
+  }
+  // maxprice
+  if (maxprice) {
+    queryObject.price = { $gt: maxprice }
+  }
   if (search) {
     queryObject.title = { $regex: search, $options: "i" };
   }
@@ -74,6 +85,7 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
     size,
     price,
     countInStock,
+    shortdescription
   } = req.body;
   const { userId } = req.user;
 
@@ -87,6 +99,7 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
     price,
     countInStock,
     user: userId,
+    shortdescription
   });
   res.status(200).json({ product });
 });
@@ -105,6 +118,7 @@ const UpdateProduct = asyncHandler(async (req, res) => {
     size,
     price,
     countInstock,
+    shortdescription
   } = req.body;
   const product = await Product.findById({ _id: req.params.id });
 
@@ -123,6 +137,7 @@ const UpdateProduct = asyncHandler(async (req, res) => {
       size,
       price,
       countInstock,
+      shortdescription
     },
     { new: true }
   );
@@ -200,9 +215,9 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
   // get the total Product based on the title
   let stats = await Product.aggregate([
     // match the users to nothing
-    { $match: { } },
+    { $match: {} },
     // group based on year and month
-    
+
     {
       $group: {
         _id: {
@@ -213,7 +228,7 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
             $month: "$createdAt",
           },
         },
-       count: {$sum:1}
+        count: { $sum: 1 }
       },
     },
     { $sort: { "_id.year": -1, "_id.month": -1 } },
@@ -222,7 +237,7 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
   // // modify the stats
   stats = stats.map((stats) => {
     const {
-        count,
+      count,
       _id: { year, month },
     } = stats;
     const date = moment()
@@ -230,7 +245,7 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
       .year(year)
       .format("MMM Y");
 
-    return { date,count};
+    return { date, count };
   });
 
   res.status(200).json({ stats });
@@ -246,4 +261,3 @@ export {
   CreateSingleProduct,
   AggregateUserProductStats,
 };
-  
