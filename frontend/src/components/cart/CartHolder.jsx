@@ -28,7 +28,7 @@ export default function CartHolder() {
         Total <span className="subspan span1">${TotalShoppingPrice}</span>
       </h4>
       <div className="btnWrapper">
-        <Link to={"/billing"} className="editBtn">
+        <Link to={"/car-dealership/billing"} className="editBtn">
           Proceed to Checkout
         </Link>
       </div>
@@ -38,7 +38,7 @@ export default function CartHolder() {
 
 const CartHolderContainer = styled.div`
   padding: 4rem;
-  border: 1px solid var(--grey-2);
+  border: 1px solid rgba(0,0,0,.08);
   width: clamp(45%, 220px, 90%);
   display: flex;
   flex-direction: column;
@@ -84,14 +84,14 @@ const CartHolderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--dark-1);
-    padding-top: 1.6rem;
+    padding-top: 1rem;
     font-family: "Barlow", sans-serif;
     &.subtotal {
-      border-top: 1px solid var(--grey-2);
-      border-bottom: 1px solid var(--grey-2);
+      border-top: 1px solid rgba(0,0,0,.08);
+      border-bottom: 1px solid rgba(0,0,0,.08);
       padding: 2.4rem 0;
     }
 

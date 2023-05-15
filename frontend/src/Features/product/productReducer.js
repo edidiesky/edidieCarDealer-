@@ -7,7 +7,7 @@ export const getAllProduct = createAsyncThunk(
   async (name, thunkAPI) => {
     try {
       const { page, category, search, sort, color, limit } = thunkAPI.getState().product
-      let productUrl = `/api/v1/product`
+      let productUrl = `api/v1/product`
       const config = {
         headers: {
           "content-type": "application/json"

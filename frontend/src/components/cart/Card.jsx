@@ -19,7 +19,7 @@ export default function Card({ x, type }) {
         <div className="flex item-center gap-2 ">
           <div className="cartProduct">
             <div className="imageWrapper">
-              <img src={x?.image[0].image} alt="images" />
+              <img src={x?.image[0]} alt="images" />
             </div>
           </div>
           <div className="title w-100 flex item-center gap-1">
@@ -44,7 +44,7 @@ export default function Card({ x, type }) {
       <td>
         <div className="cartProduct">
           <div className="imageWrapper">
-            <img src={x?.image[0].image} alt="images" />
+            <img src={x?.image[0]} alt="images" />
           </div>
         </div>
       </td>

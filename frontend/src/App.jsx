@@ -65,6 +65,7 @@ export default function App() {
           <Route path="car-dealership/about" element={<About />} />
           <Route path="car-dealership/contact" element={<Contact />} />
           <Route path="car-dealership/cart" element={<Cart />} />
+          <Route path="car-dealership/cart/:id" element={<Cart />} />
           <Route path="car-dealership/billing" element={<Billing />} />
           <Route path="car-dealership/cars/:id" element={<Details />} />
         </Route>

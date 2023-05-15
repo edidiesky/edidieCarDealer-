@@ -30,15 +30,15 @@ export default function DetailsTopRight() {
       <div className="contentTop">
         <h2>
           {productDetails?.title}
-          <span className="family1">4-Cycle, Turbo Gas, 2.0L, 4WD/AWD</span>
+          <span className="family1">{productDetails?.qualities}</span>
         </h2>
         <div className="ratingWrapper">
           <Rating value={productDetails?.rating} type="review" /> (
           {productDetails?.rating}){" "}
         </div>
         <h3 className="flex item-center gap-1">
-          ${productDetails?.price}
-          <span className="discount">$5000,00</span>
+          <span className="discount">${productDetails?.price}</span>
+          <span className="">${((productDetails?.price * productDetails?.percentage) / 100).toFixed(2)}</span>
         </h3>
       </div>
       <p>
@@ -81,6 +81,7 @@ export default function DetailsTopRight() {
           <div className="btnWrapper">
             <button
               className="cartBtn"
+              onClick={()=> setQty(qty + 1)}
               disabled={
                 productDetails?.quantity === productDetails?.countInStock
               }
@@ -91,10 +92,11 @@ export default function DetailsTopRight() {
             >
               <BiPlus />
             </button>
-            <h3>{productDetails?.quantity & "1"}</h3>
+            <h3>{qty}</h3>
             <button
               className="cartBtn"
-              disabled={productDetails?.quantity === 1}
+              onClick={()=> setQty(qty - 1)}
+              disabled={qty === 1}
               style={{
                 borderTopRightRadius: "20px",
                 borderBottomRightRadius: "20px",
@@ -103,7 +105,7 @@ export default function DetailsTopRight() {
               <BiMinus />
             </button>
           </div>
-          <Link to={`/avada/cart/${id}?qty=${qty}`} className="addBtn family1">
+          <Link to={`/car-dealership/cart/${id}?qty=${qty}`} className="addBtn family1">
             Add to Cart
           </Link>
         </div>

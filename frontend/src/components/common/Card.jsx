@@ -23,15 +23,15 @@ export default function Card({ x, index }) {
   return (
     <div className="w-100 hidden">
       <CardContainer
-        data-aos="fade-up"
-        data-aos-duration="900"
+        data-aos="fade"
+        data-aos-duration="1200"
         data-aos-delay={index * 200}
       >
         <div className="cardWrapper">
-          <div className="FeatImage">
+          <Link to={`/car-dealership/cars/${x._id}`} className="FeatImage">
             {x?.image && (
               <img
-                src={x?.image[0]?.image}
+                src={x?.image[0]}
                 className="cardImage"
                 alt="card-images"
               />
@@ -39,19 +39,19 @@ export default function Card({ x, index }) {
             <div className="imageGradient flex item-center justify-center">
               <div className="cardSpanWrapper justify-center flex item-center column gap-1">
                 <h2 className="fs-24 text-extra-bold text-white">{x?.title}</h2>
-                {!x?.percentage ? (
+                {x?.percentage ? (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
-                    ${(x?.price * x?.percentage) / 100}{" "}
-                    <span className="line">${x?.price}</span>
+                    <span className="line">${((x?.price * x?.percentage) / 100).toFixed(2)}</span>{" "}
+                    <span className="">${x?.price}</span>
                   </p>
                 ) : (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
-                    ${x?.price}{" "}
+                    <span className="">${x?.price}</span>
                   </p>
                 )}
               </div>
             </div>
-          </div>
+          </Link>
           <header>
             <Link className="titleDetails" to={`/car-dealership/cars/${x._id}`}>
               {x?.title}
@@ -125,11 +125,8 @@ const CardContainer = styled.div`
       height: 35rem;
       .cardImage {
         width: 100%;
-        object-fit: cover;
         position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
+        height: 35rem;
       }
       .cardOptions {
         position: absolute;
@@ -214,7 +211,6 @@ const CardContainer = styled.div`
         background: var(--gradient1);
         display: flex;
         top: 100%;
-        opacity: 0.8;
 
         align-items: center;
         justify-content: center;

@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
 import Product from "../models/Product.js";
 import mongoose from "mongoose";
-import moment from "moment/moment.js";
+import moment from "moment/moment.js";  
 // GET All Product
 //  Private
 const GetAllProduct = asyncHandler(async (req, res) => {
@@ -10,9 +10,9 @@ const GetAllProduct = asyncHandler(async (req, res) => {
   const search = req.query.search;
   const sort = req.query.sort;
   const colors = req.query.colors;
-  // const minprice = req.query.minprice;
-  // const category = req.query.category;
-  // const maxprice = req.query.maxprice;
+  const minprice = req.query.minprice;
+  const category = req.query.category;
+  const maxprice = req.query.maxprice;
   const queryObject = {};
   let result = Product.find(queryObject);
 

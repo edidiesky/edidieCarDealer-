@@ -44,7 +44,7 @@ export default function DetailsTopLeft() {
                 key={x?._id}
                 style={{ transform: `translateX(-${tabindex * 100}%)` }}
               >
-                <img src={x?.image} alt="images" />
+                <img src={x} alt="images" />
               </div>
             );
           })}
@@ -59,7 +59,7 @@ export default function DetailsTopLeft() {
               key={x?._id}
               onClick={() => setTabIndex(index)}
             >
-              <img src={x?.image} alt="images" />
+              <img src={x} alt="images" />
               <div
                 className={
                   tabindex === index ? "imageGradient active" : "imageGradient"
