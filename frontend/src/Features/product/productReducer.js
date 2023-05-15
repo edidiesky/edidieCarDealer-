@@ -8,7 +8,11 @@ export const getAllProduct = createAsyncThunk(
     try {
       const { page, category, search, sort, color, limit } = thunkAPI.getState().product
       let productUrl = `/api/v1/product`
-      
+      const config = {
+        headers: {
+          "content-type": "application/json"
+        }
+      }
       if (page) {
         productUrl = productUrl + `?page=${page}`
       }
@@ -27,7 +31,7 @@ export const getAllProduct = createAsyncThunk(
       if (search) {
         productUrl = productUrl + `&search=${search}`
       }
-      const { data } = await axios.get(productUrl);
+      const { data } = await axios.get(productUrl,config);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response && error.response.data.message
@@ -35,9 +39,6 @@ export const getAllProduct = createAsyncThunk(
     }
   }
 );
-
-
-
 
 
 // fetching all product category
@@ -103,7 +104,8 @@ export const adminUpdateProduct = createAsyncThunk(
     try {
       const config = {
         headers: {
-          authorization: `Bearer ${state.user.token}`
+          authorization: `Bearer ${state.user.token}`,
+          "content-type": "application/json"
         }
       }
       const { _id } = state.product.productDetails
