@@ -136,7 +136,9 @@ const HeaderTopContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-
+    @media (max-width: 1280px) {
+      gap: 1rem;
+    }
     @media (max-width: 980px) {
       padding: 0 6rem;
     }
@@ -194,6 +196,9 @@ const HeaderTopContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 3rem;
+      @media (max-width: 1280px) {
+        gap: 1.9rem;
+      }
       @media (max-width: 980px) {
         display: none;
       }
@@ -206,8 +211,8 @@ const HeaderTopContainer = styled.div`
         &:hover {
           color: var(--red);
         }
-        @media (max-width: 1180px) {
-          font-size: 1.6rem;
+        @media (max-width: 1280px) {
+          font-size: 1.8rem;
         }
       }
     }
@@ -370,10 +375,15 @@ const HeaderTopContainer = styled.div`
           background: var(--blue-1);
           color: #fff;
         }
+        @media (max-width: 1280px) {
+          font-size: 1.7rem;
+          padding: 1.6rem 3rem;
+        }
         @media (max-width: 980px) {
           font-size: 1.6rem;
           padding: 1.6rem 3rem;
         }
+       
       }
     }
   }
