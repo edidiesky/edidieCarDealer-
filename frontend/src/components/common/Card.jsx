@@ -38,7 +38,7 @@ export default function Card({ x, index }) {
             )}
             <div className="imageGradient flex item-center justify-center">
               <div className="cardSpanWrapper justify-center flex item-center column gap-1">
-                <h2 className="fs-30 text-extra-bold text-white">{x?.title}</h2>
+                <h2 className="fs-24 text-center text-extra-bold text-white">{x?.title}</h2>
                 {x?.discount ? (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
                     <span className="line">${x?.discount}</span>{" "}
@@ -220,7 +220,7 @@ const CardContainer = styled.div`
 
     header {
       width: 90%;
-      padding: 3rem;
+      padding:4rem 3rem;
       background: var(--white);
       transform: translateY(-45px);
       display: flex;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CollectionIndex from "./collection";
 import { Link } from "react-router-dom";
 
+
 export default function InventoryIndex() {
   return (
     <InventoryContainer>
@@ -52,13 +53,13 @@ const InventoryContainer = styled.div`
       align-items: center;
       justify-content: center;
       .inventoryBtn {
-        padding: 2rem 4rem;
+        padding: 1.7rem 4rem;
         border: none;
         outline: none;
-        font-size: 2.2rem;
+        font-size: 2rem;
         cursor: pointer;
-        font-weight: 400;
-        color: var(--dark-1);
+        font-weight: 500;
+        color: rgb(83, 83, 83);
         border: 1px solid var(--dark-1);
         background: transparent;
         &:hover {

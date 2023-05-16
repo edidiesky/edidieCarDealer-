@@ -46,8 +46,15 @@ export default function ServicesIndex() {
                 data-aos-duration="1100"
                 data-aos-delay={index * 300}
               >
-                <div className="iconImage">
+                <div className="iconImage flex column item-center justify-center">
                   <img src={x.image} alt="" className="icon" />
+                  <span>
+                    <img
+                      src="/images/heading-separator.png"
+                      alt="title-images"
+                      className="titleIcon"
+                    />
+                  </span>
                 </div>
                 <div className="flex column gap-1">
                   <h2>{x.title}</h2>
@@ -78,12 +85,13 @@ const ServicesContainer = styled.div`
     header {
       display: flex;
       flex-direction: column;
-      gap: 4rem;
+      gap: 2rem;
       .iconImage {
         margin: 0 auto;
         .icon {
-          width: 60px;
-          height: 60px;
+          width: 70px;
+          height: 75px;
+          margin: 0 auto;
           filter: brightness(0%);
           transition: all 0.4s ease;
           @media (max-width: 580px) {
@@ -92,6 +100,13 @@ const ServicesContainer = styled.div`
           &:hover {
             filter: brightness(30%);
           }
+        }
+      }
+      span {
+        display: block;
+        .titleIcon {
+          width: 9rem;
+          margin: 2rem auto;
         }
       }
       p {
@@ -113,6 +128,7 @@ const ServicesContainer = styled.div`
         font-weight: 700;
         color: var(--dark-1);
         text-align: center;
+
         @media (max-width: 480px) {
           font-size: 2.8rem;
         }
