@@ -244,7 +244,7 @@ const HeaderTopContainer = styled.div`
           .profileList {
             background: #fff;
             position: absolute;
-            bottom: -280%;
+            bottom: -380%;
             z-index: 1000;
             right: -20%;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);

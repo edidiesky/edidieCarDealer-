@@ -38,7 +38,7 @@ export default function Card({ x, index }) {
             )}
             <div className="imageGradient flex item-center justify-center">
               <div className="cardSpanWrapper justify-center flex item-center column gap-1">
-                <h2 className="fs-24 text-extra-bold text-white">{x?.title}</h2>
+                <h2 className="fs-30 text-extra-bold text-white">{x?.title}</h2>
                 {x?.discount ? (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
                     <span className="line">${x?.discount}</span>{" "}
@@ -231,7 +231,7 @@ const CardContainer = styled.div`
         padding: 4rem 2rem;
       }
       .titleDetails {
-        font-size: 2rem;
+        font-size: 2.4rem;
         font-weight: 700;
         color: var(--text-color);
         &:hover {
@@ -241,7 +241,7 @@ const CardContainer = styled.div`
       .category {
         padding: 1rem 0;
         .tagspan {
-          font-size: 1.6rem;
+          font-size: 1.8rem;
           font-weight: 300;
           color: var(--grey);
           margin: 0.4rem 0.8rem;
@@ -273,7 +273,7 @@ const CardContainer = styled.div`
         @media (max-width: 360px) {
         }
         .cardPrice {
-          font-size: 1.6rem;
+          font-size: 1.8rem;
           color: var(--grey);
           display: flex;
           align-items: center;
@@ -292,7 +292,7 @@ const CardContainer = styled.div`
             font-family: "Barlow", sans-serif;
           }
           .pricespan {
-            font-size: 2.4rem;
+            font-size: 2.8rem;
             color: var(--red);
             font-weight: 600;
             display: inline-block;

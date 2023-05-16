@@ -21,22 +21,24 @@ export default function Brandindex() {
             className="sidebarIcon"
             alt="sidebarIcon"
           />
-          <h2 data-aos="fade-up" data-aos-duration="800">
-            Explore Popular Brands
-          </h2>
-          <p data-aos="zoom-in" data-aos-duration="1000" className="family1">
+          <div className="hidden">
+            <h2 data-aos="fade-up" data-aos-duration="800">
+              Explore Popular Brands
+            </h2>
+          </div>
+          <p data-aos="fade" data-aos-duration="1000" className="family1">
             Incididunt labore dolore magna aliqua enim veniam quis nostrud
             tempor tempor adispecing miny exercitation ullamco laboris nisiut
             aliquip.
           </p>
         </div>
-        <div className="brandIconWrapper w-90 auto">
+        <div className="brandIconWrapper w-85 auto">
           {data.map((x, index) => {
             return (
               <div className="w-100 hidden">
                 <div
                   className="iconwrapper"
-                  data-aos="fade-up"
+                  data-aos="fade"
                   data-aos-duration="1200"
                   data-aos-delay={index * 100}
                   key={x.id}

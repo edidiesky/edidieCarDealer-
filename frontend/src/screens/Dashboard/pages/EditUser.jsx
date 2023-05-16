@@ -167,7 +167,7 @@ export default function EditUser() {
   useEffect(() => {
     if (isSuccess) {
       setTimeout(() => {
-        navigate("/avada/dashboard/users");
+        navigate("/car-dealership/dashboard/customer");
       }, 4000);
     }
   }, [isSuccess]);
@@ -237,6 +237,7 @@ const ProfileContainer = styled.div`
   width: 95%;
   margin: 0 auto;
   padding: 1rem 0;
+  padding-top: 3rem;
   .profileWrapper {
     display: flex;
     flex-direction: column;
@@ -273,11 +274,11 @@ const ProfileContainer = styled.div`
         .editBtn {
           border: none;
           outline: none;
-          font-size: 1.6rem;
+          font-size: 1.4rem;
           font-weight: 600;
           color: #fff;
           background: var(--blue-2);
-          padding: 1.7rem 4rem;
+          padding: 1rem 4rem;
           cursor: pointer;
           &:hover {
             background: var(--red);
@@ -301,7 +302,7 @@ const ProfileContainer = styled.div`
       .profileFormBottom {
         display: grid;
         width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-template-columns: 1fr;
         grid-gap: 1.4rem;
         padding: 0.4rem 0;
       }

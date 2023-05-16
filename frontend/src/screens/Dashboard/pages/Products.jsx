@@ -112,7 +112,7 @@ export default function Products() {
                 </tr>
               </thead>
               <tbody>
-                {product && product?.map((x) => {
+                {product?.map((x) => {
                   return <TableCard x={x} key={x?._id} />;
                 })}
               </tbody>

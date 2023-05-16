@@ -464,7 +464,7 @@ h1 {
   background: #fff;
   padding: 2.4rem;
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   outline: none;
   font-size: 1.5rem;
   font-weight: 400;
@@ -475,11 +475,29 @@ h1 {
 .input:hover,
 .textarea:hover {
   border: 1px solid rgba(0, 0, 0, 0.4);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 .input:focus,
 .textarea:focus {
   border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.select {
+  height: 6rem;
+  border-radius: 6px;
+  background: #fff;
+  width: 100%;
+  padding: 0 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: none;
+  font-size: 1.6rem;
+  font-weight: 400;
+  transition: all 0.2s;
+  font-family: "Barlow", sans-serif;
+  color: var(--dark-1);
+}
+.select option {
+  padding: 1.5rem 0;
 }
 
 .family1 {
