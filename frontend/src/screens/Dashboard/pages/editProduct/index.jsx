@@ -34,7 +34,6 @@ export default function CreateProductIndex() {
     colors: "",
     percentage: 0,
     capacity: 0,
-    
   });
   const [formdata2, setFormData2] = useState({
     title: "",
@@ -44,7 +43,7 @@ export default function CreateProductIndex() {
   });
   const [uploadimage, setUploadImage] = useState([]);
   const [uploading, setUploading] = useState(false);
-  const [tagdata, setTagData] = useState([]);
+  const [tags, setTagData] = useState([]);
   const [colors, setColors] = useState([]);
 
   useEffect(() => {
@@ -76,7 +75,7 @@ export default function CreateProductIndex() {
         description,
         brand,
         title,
-        discount
+        discount,
       } = productDetails;
       setFormData1({
         image,
@@ -86,7 +85,7 @@ export default function CreateProductIndex() {
         price,
         countInStock,
         capacity,
-        discount
+        discount,
       });
       setFormData2({ description, brand, title });
       setUploadImage(image);
@@ -113,7 +112,15 @@ export default function CreateProductIndex() {
     { id: 5, color: "#fff", title: "White" },
   ];
 
-  const productData = { ...formdata1, ...formdata2, image: uploadimage,tagdata,colors };
+  const productData = {
+    ...formdata1,
+    ...formdata2,
+    image: uploadimage,
+    tags,
+    colors,
+  };
+
+  console.log(productData);
 
   const handleAdminProduct = (e) => {
     e.preventDefault();
@@ -153,7 +160,7 @@ export default function CreateProductIndex() {
               uploading={uploading}
               setUploadImage={setUploadImage}
               setUploading={setUploading}
-              tagdata={tagdata}
+              tagdata={tags}
               setTagData={setTagData}
               colors={colors}
               setColors={setColors}

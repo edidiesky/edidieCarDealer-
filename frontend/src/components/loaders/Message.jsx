@@ -32,7 +32,7 @@ export default function Message({
 }
 
 const MessageContent = styled.div`
-  width: 450px;
+  width: 550px;
   padding: 1.6rem 2rem;
   min-height: 6rem;
   background-color: #222;
