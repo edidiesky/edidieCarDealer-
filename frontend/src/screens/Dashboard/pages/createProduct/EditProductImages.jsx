@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { FaCross, FaFileUpload } from "react-icons/fa";
-import Message from "../../../../components/loaders/Message";
 import LoaderIndex from "../../../../components/loaders/index";
 import { RxCross1 } from "react-icons/rx";
-import { BiTime, BiUpload } from "react-icons/bi";
+import { BiUpload } from "react-icons/bi";
 
 export default function EditProductImage({
   uploadimage,
@@ -101,7 +99,7 @@ export default function EditProductImage({
               className="fs-15 column gap-2 family1 fs-14 flex gap-1 item-center text-light"
               htmlFor="upload"
             >
-            <BiUpload fontSize={'18px'}/>  Upload car image here 
+              <BiUpload fontSize={"18px"} /> Upload car image here
               <input
                 type="file"
                 id="upload"
@@ -158,7 +156,6 @@ export default function EditProductImage({
     </EditProductWrapperCenter>
   );
 }
-
 const EditProductWrapperCenter = styled.div`
   display: flex;
   border-radius: 4px;
@@ -232,7 +229,7 @@ const EditProductWrapperCenter = styled.div`
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
+    grid-gap: 3rem;
     @media (max-width: 780px) {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       grid-gap: 1rem;
@@ -249,7 +246,7 @@ const EditProductWrapperCenter = styled.div`
       padding-left: 1rem;
       position: relative;
       .img {
-        width: 8rem;
+        width: 12rem;
         min-height: 7rem;
       }
 

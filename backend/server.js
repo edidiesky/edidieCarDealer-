@@ -49,7 +49,7 @@ const __dirname = path.resolve()
 
 app.use('/public/uploads', express.static(path.join(__dirname, '/public/uploads')))
 
-// console.log((path.join(__dirname, '/public/uploads')))
+console.log((path.join(__dirname, '/public/uploads')))
 
 mongoose.connect(process.env.MONGO_URl, {
     useNewUrlParser: true,

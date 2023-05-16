@@ -13,8 +13,7 @@ import {
 const initialState = {
   isSuccess: false,
   isError: false,
-  product: null,
-  products: null,
+  product: [],
   productDetails: null,
 
   totalProduct: 0,
@@ -93,15 +92,15 @@ const productSlice = createSlice({
     },
     handleProductSearch: (state, action) => {
       const productpayload = action.payload;
-      state.product = state?.product?.filter((product) => {
-        if (
-          product.title.toLowerCase().includes(productpayload) ||
-          product.brand.toLowerCase().includes(productpayload)
-        ) {
-          return true;
-        }
-        return false;
-      });
+      // state.product = state?.product?.filter((product) => {
+      //   if (
+      //     product.title.toLowerCase().includes(productpayload) ||
+      //     product.brand.toLowerCase().includes(productpayload)
+      //   ) {
+      //     return true;
+      //   }
+      //   return false;
+      // });
     },
     clearPage: (state, action) => {
       state.page = 1;

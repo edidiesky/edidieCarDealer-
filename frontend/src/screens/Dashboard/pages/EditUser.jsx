@@ -174,20 +174,11 @@ export default function EditUser() {
 
   return (
     <>
-      <Alert
-        showAlert={showAlert}
-        alertText={alertText}
-        alertType={alertType}
-      />
+      <Message alertText={alertText} alertType={alertType} />
       {isLoading && <LoaderIndex loading={isLoading} />}
-      <Header text={"Customer Profile"} />
+      <Header text={`Edit ${userDetails?.firstname}'s profile`} />
       <ProfileContainer>
         <div className="profileWrapper">
-          {isError && <Message alertText={alertText} alertType={alertType} />}
-          <div className="EditProfileWrapperTopLeft">
-            <h3>Edit Customer Profile</h3>
-          </div>
-
           <form className="profileForm" onSubmit={handleUpdateUserProfile}>
             <div className="profileFormBottom">
               {inputData.slice(0, 6).map((input) => {

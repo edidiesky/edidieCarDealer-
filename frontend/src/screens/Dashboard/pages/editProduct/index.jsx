@@ -119,9 +119,6 @@ export default function CreateProductIndex() {
     tags,
     colors,
   };
-
-  console.log(productData);
-
   const handleAdminProduct = (e) => {
     e.preventDefault();
     dispatch(adminUpdateProduct(productData));

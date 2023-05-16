@@ -1,28 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
 import { Input } from "../../../../components/forms";
 
-export default function EditOtherInfo({ onChange1, formdata1, setFormData1 }) {
-  const { productDetails } = useSelector((store) => store.product);
-
-  useEffect(() => {
-    if (productDetails) {
-      const {
-        price,
-        countInStock,
-        percentage,
-        capacity,
-      } = productDetails;
-      setFormData1({
-        price,
-        countInStock,
-        percentage,
-        capacity,
-      });
-    }
-  }, [setFormData1, productDetails]);
-
+export default function EditOtherInfo({ onChange1, formdata1 }) {
   const inputData = [
     {
       id: 1,
@@ -40,13 +20,6 @@ export default function EditOtherInfo({ onChange1, formdata1, setFormData1 }) {
       text: "Product countInStock",
     },
     {
-      id: 3,
-      name: "percentage",
-      placeholder: "Add your product percentage",
-      type: "number",
-      text: "Product percentage",
-    },
-    {
       id: 4,
       name: "capacity",
       placeholder: "Add your product capacity",
@@ -54,18 +27,11 @@ export default function EditOtherInfo({ onChange1, formdata1, setFormData1 }) {
       text: "Product capacity",
     },
     {
-      id: 5,
-      name: "colors",
-      placeholder: "Add your product colors",
-      type: "text",
-      text: "Product colors",
-    },
-    {
       id: 6,
-      name: "price2",
-      placeholder: "Add your product selling price",
+      name: "discount",
+      placeholder: "Add your product discount price",
       type: "number",
-      text: "Product Selling Price",
+      text: "Product discount price",
     },
   ];
 

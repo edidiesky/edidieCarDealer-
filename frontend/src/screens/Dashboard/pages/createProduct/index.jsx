@@ -19,8 +19,13 @@ export default function CreateProductIndex() {
   // initailizing parameters
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { productDetails, isLoading, alertText, alertType, showAlert } =
-    useSelector((store) => store.product);
+  const {
+    productDetails,
+    isLoading,
+    alertText,
+    alertType,
+    showAlert,
+  } = useSelector((store) => store.product);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -30,17 +35,18 @@ export default function CreateProductIndex() {
 
   const [formdata1, setFormData1] = useState({
     price: "",
-    price2: "",
+    discount: "",
     countInStock: "",
-    colors: "",
-    percentage: 0,
     capacity: 0,
   });
   const [formdata2, setFormData2] = useState({
     title: "",
     brand: "",
     description: "",
+    shortdescription: "",
   });
+
+ 
 
   const onChange1 = (e) => {
     setFormData1({ ...formdata1, [e.target.name]: e.target.value });
@@ -49,13 +55,9 @@ export default function CreateProductIndex() {
   const onChange2 = (e) => {
     setFormData2({ ...formdata2, [e.target.name]: e.target.value });
   };
-  const [uploadimage, setUploadImage] = useState([
-    "/images/bmw-2.jpg",
-    "/images/car2.jpg",
-    "/images/car1.jpg",
-  ]);
+  const [uploadimage, setUploadImage] = useState([]);
   const [uploading, setUploading] = useState(false);
-  const [tagdata, setTagData] = useState([]);
+  const [tags, setTagData] = useState([]);
   const [colors, setColors] = useState([]);
 
   const filterColors = [
@@ -66,14 +68,17 @@ export default function CreateProductIndex() {
     { id: 5, color: "#fff", title: "White" },
   ];
 
-  const productData = { ...formdata1, ...formdata2, image: uploadimage };
+  const productData = {
+    ...formdata1,
+    ...formdata2,
+    image: uploadimage,
+    tags,
+    colors,
+  };
+  // console.log(productData);
   const handleAdminProduct = (e) => {
     e.preventDefault();
-    if (productDetails) {
-      dispatch(adminUpdateProduct(productData));
-    } else {
-      dispatch(CreateSingleProductDetails(productData));
-    }
+    dispatch(CreateSingleProductDetails(productData));
   };
 
   return (
@@ -94,7 +99,7 @@ export default function CreateProductIndex() {
           <div className="EditProductWrapperTop">
             <div className="btnWrapper">
               <button className="editBtn" onClick={handleAdminProduct}>
-                {productDetails ? "Edit Car" : "Create your Car"}
+                Create your Car Collection
               </button>
             </div>
           </div>
@@ -109,7 +114,7 @@ export default function CreateProductIndex() {
               uploading={uploading}
               setUploadImage={setUploadImage}
               setUploading={setUploading}
-              tagdata={tagdata}
+              tagdata={tags}
               setTagData={setTagData}
               colors={colors}
               setColors={setColors}
