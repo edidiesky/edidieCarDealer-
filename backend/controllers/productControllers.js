@@ -93,6 +93,7 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
     discount
   } = req.body;
   const { userId } = req.user;
+  // console.log(...tags);
 
   const product = await Product.create({
     title,
@@ -105,16 +106,13 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
     countInStock,
     user: userId,
     shortdescription,
+    colors,
+    tags,
     qualities,
     capacity,
     discount
   });
 
-  // if (product) {
-  //   colors && !product.colors.includes(colors) && product.colors.push(colors);
-
-  //   tags && !product.tags.includes(tags) && product.tags.push(tags);
-  // }
   res.status(200).json({ product });
 });
 
@@ -131,8 +129,13 @@ const UpdateProduct = asyncHandler(async (req, res) => {
     description,
     size,
     price,
-    countInstock,
-    shortdescription
+    countInStock,
+    shortdescription,
+    colors,
+    tags,
+    qualities,
+    capacity,
+    discount
   } = req.body;
   const product = await Product.findById({ _id: req.params.id });
 
@@ -140,23 +143,10 @@ const UpdateProduct = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Product does not exist");
   }
-  
-
-  // // check for empty values and repeated values
-  // subInfo && !gig.subInfo.includes(subInfo) && gig.subInfo.push(subInfo);
-  // tags && !gig.tags.includes(tags) && gig.tags.push(tags);
-  // category && !gig.category.includes(category) && gig.category.push(category);
-  // await gig.save();
-
-  // const updatedGig = await Gig.findByIdAndUpdate(
-  //   { _id: req.params.id },
-  //   { ...data },
-  //   { new: true }
-  // );
 
   const updatedproduct = await Product.findByIdAndUpdate(
     { _id: req.params.id },
-    {
+     {
       title,
       image,
       brand,
@@ -164,8 +154,13 @@ const UpdateProduct = asyncHandler(async (req, res) => {
       description,
       size,
       price,
-      countInstock,
-      shortdescription
+      countInStock,
+      shortdescription,
+      colors,
+      tags,
+      qualities,
+      capacity,
+      discount
     },
     { new: true }
   );
