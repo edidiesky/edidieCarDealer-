@@ -22,7 +22,25 @@ export default function CreateProductIndex() {
   const { id } = useParams();
   const { productDetails, isLoading, alertText, alertType, showAlert } =
     useSelector((store) => store.product);
-
+    const [formdata1, setFormData1] = useState({
+      price: "",
+      price2: "",
+      countInStock: "",
+      colors: "",
+      percentage: 0,
+      capacity: 0,
+    });
+    const [formdata2, setFormData2] = useState({
+      title: "",
+      brand: "",
+      description: "",
+    });
+    const [uploadimage, setUploadImage] = useState([
+    ]);
+    const [uploading, setUploading] = useState(false);
+    const [tagdata, setTagData] = useState([]);
+    const [colors, setColors] = useState([]);
+  
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch(clearProductDetails());
@@ -38,20 +56,13 @@ export default function CreateProductIndex() {
       }, 4000);
     }
   }, [showAlert, dispatch]);
-
-  const [formdata1, setFormData1] = useState({
-    price: "",
-    price2: "",
-    countInStock: "",
-    colors: "",
-    percentage: 0,
-    capacity: 0,
-  });
-  const [formdata2, setFormData2] = useState({
-    title: "",
-    brand: "",
-    description: "",
-  });
+  // get the data from the product details
+  useEffect(() => {
+   if (productDetails) {
+    const {image} = productDetails
+    setUploadImage(image)
+   }
+  }, [productDetails])
 
   const onChange1 = (e) => {
     setFormData1({ ...formdata1, [e.target.name]: e.target.value });
@@ -60,12 +71,8 @@ export default function CreateProductIndex() {
   const onChange2 = (e) => {
     setFormData2({ ...formdata2, [e.target.name]: e.target.value });
   };
-  const [uploadimage, setUploadImage] = useState([
-    productDetails?.image
-  ]);
-  const [uploading, setUploading] = useState(false);
-  const [tagdata, setTagData] = useState([]);
-  const [colors, setColors] = useState([]);
+
+  // console.log(productDetails);
 
   const filterColors = [
     { id: 1, color: "#222222", title: "black" },
@@ -100,7 +107,7 @@ export default function CreateProductIndex() {
           <div className="EditProductWrapperTop">
             <div className="btnWrapper">
               <button className="editBtn" onClick={handleAdminProduct}>
-              Edit Car
+                Edit Car
               </button>
             </div>
           </div>

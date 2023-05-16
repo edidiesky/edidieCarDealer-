@@ -41,9 +41,6 @@ export default function EditProductImage({
       console.log(err);
     }
   };
-  const {
-    productDetails,
-  } = useSelector((store) => store.product);
 
   const [coloractive, setColorActive] = useState(false);
 
@@ -71,6 +68,7 @@ export default function EditProductImage({
       setColorActive(true);
     }
   };
+  console.log(uploadimage);
   return (
     <EditProductWrapperCenter>
       {/* image upload */}
