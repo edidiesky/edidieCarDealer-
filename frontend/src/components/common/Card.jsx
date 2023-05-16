@@ -33,8 +33,8 @@ export default function Card({ x, index }) {
               <img src={x?.image[0]} className="cardImage" alt="card-images" />
             )}
             <div className="imageGradient flex item-center justify-center">
-              <div className="cardSpanWrapper justify-center flex item-center column gap-1">
-                <h2 className="fs-24 text-center text-extra-bold text-white">
+              <div className="cardSpanWrapper w-100 justify-center flex item-center column">
+                <h2 className="fs-30 w-90 auto text-center text-extra-bold text-white">
                   {x?.title}
                 </h2>
                 {x?.discount ? (

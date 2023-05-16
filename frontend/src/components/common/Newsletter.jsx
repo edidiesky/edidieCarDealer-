@@ -46,7 +46,7 @@ const NewsletterContent = styled.div`
   transform: translateY(50px);
   .newsletterWrapper {
     background: var(--blue-2);
-    padding:6rem 8rem;
+    padding: 6rem 8rem;
     width: 98%;
     display: grid;
     z-index: 50;
@@ -81,19 +81,21 @@ const NewsletterContent = styled.div`
       .startBtn {
         border: none;
         outline: none;
-        padding: 2rem 3.5rem;
-        font-size: 1.6rem;
+        padding: 1.5rem 4rem;
+        font-size: 2rem;
+        text-transform: capitalize;
         color: #fff;
+        font-weight: 500;
         background: var(--red);
         &:hover {
-          opacity: 0.8;
+          background: var(--dark-blue);
         }
       }
     }
     .newsLetterRight {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 1rem;
       @media (max-width: 1080px) {
         gap: 0.3rem;
       }
@@ -102,7 +104,7 @@ const NewsletterContent = styled.div`
         display: flex;
         align-items: center;
         gap: 1.2rem;
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: 400;
         line-height: 30px;
         width: 100%;

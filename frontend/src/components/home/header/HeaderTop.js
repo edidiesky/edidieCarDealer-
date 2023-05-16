@@ -17,7 +17,7 @@ import {
 
 const data = [
   { id: 1, title: "Home", path: "" },
-  { id: 2, title: "Inventory", path: "car-dealership/product" },
+  { id: 2, title: "Inventory", path: "car-dealership/inventory" },
   { id: 3, title: "About Us", path: "car-dealership/about" },
   { id: 3, title: "Latest Offers", path: "car-dealership/latest-offers" },
   { id: 4, title: "Auto News", path: "car-dealership/auto-news" },

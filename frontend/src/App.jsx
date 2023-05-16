@@ -20,7 +20,7 @@ import {
   About,
   Blog,
   Offer,
-  Services
+  Services,
 } from "./screens";
 
 import {
@@ -38,7 +38,7 @@ import Billing from "./screens/Checkout";
 export default function App() {
   useEffect(() => {
     AOS.init({
-      once: true
+      once: true,
     });
   }, []);
   const [height, setHeight] = useState(0);
@@ -61,6 +61,7 @@ export default function App() {
           <Route path={"/"} element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="car-dealership/about" element={<About />} />
+            <Route path="car-dealership/inventory" element={<ProductList />} />
             <Route path="car-dealership/auth/register" element={<Register />} />
             <Route path="car-dealership/auth/login" element={<Login />} />
             <Route path="car-dealership/blog" element={<Blog />} />
@@ -68,9 +69,20 @@ export default function App() {
             <Route path="car-dealership/about" element={<About />} />
             <Route path="car-dealership/contact" element={<Contact />} />
             <Route path="car-dealership/cart" element={<Cart />} />
-            <Route path="car-dealership/workshop-services" element={<Services />} />
+            <Route
+              path="car-dealership/workshop-services"
+              element={<Services />}
+            />
             <Route path="car-dealership/cart/:id" element={<Cart />} />
-            <Route path="car-dealership/billing" element={<ProtectRoute> <Billing /></ProtectRoute>} />
+            <Route
+              path="car-dealership/billing"
+              element={
+                <ProtectRoute>
+                  {" "}
+                  <Billing />
+                </ProtectRoute>
+              }
+            />
             <Route path="car-dealership/cars/:id" element={<Details />} />
           </Route>
           <Route path={"/car-dealership/dashboard"} element={<LayoutList />}>
