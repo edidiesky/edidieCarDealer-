@@ -9,9 +9,6 @@ export default function CartHolder() {
   const {
     bag,
     totalPrice,
-    totalQuantity,
-    shippingPrice,
-    estimatedTax,
     TotalShoppingPrice,
   } = useSelector((store) => store.bag);
 

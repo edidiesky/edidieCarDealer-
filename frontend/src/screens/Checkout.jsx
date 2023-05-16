@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import {
-  Banner3,
   Footer,
   Newsletter,
   Banner,
-  CopyRight,
   Meta,
 } from "../components/common";
 import { Billingindex, Links, PaymentIndex } from "../components/checkout";
 export default function Billing() {
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
+  
   return (
     <>
       <Meta title="Checkout" />

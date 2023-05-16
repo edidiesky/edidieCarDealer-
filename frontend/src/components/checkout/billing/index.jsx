@@ -90,7 +90,6 @@ export default function Billingindex() {
   const handleAddressDetails = (e) => {
     e.preventDefault();
     dispatch(saveShippingAddress(formdata));
-    navigate("/payment");
   };
 
   return (
@@ -136,7 +135,7 @@ export default function Billingindex() {
           })}
         </div>
         <div className="btnWrapper">
-          <button type="submit" className="btn" onClick={handleAddressDetails}>
+          <button type="submit" className="btn">
             Continue
           </button>
         </div>

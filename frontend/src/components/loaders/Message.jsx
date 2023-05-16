@@ -37,7 +37,7 @@ const MessageContent = styled.div`
   min-height: 7rem;
   background-color: #222;
   position: fixed;
-  z-index: 10000;
+  z-index: 100000;
   left: 50%;
   border-radius: 5px;
   transform: translateX(-50%);

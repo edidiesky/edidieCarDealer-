@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Message from "../loaders/Message";
 import Card from "./Card";
+import { BiCart } from "react-icons/bi";
 export default function CartContent() {
   // get the cart content
   const { bag } = useSelector((store) => store.bag);
@@ -10,7 +12,11 @@ export default function CartContent() {
   return (
     <CartContentContainer>
       {bag?.length === 0 ? (
-        <Message alertText="No items in your bag" alertType={"danger"} />
+        <div className="flex gap-2 alerttop item-center justify-space">
+          <h2>You have no items in your cart</h2>
+          <Link to={'/'}>
+            <BiCart fontSize={'24px'}/></Link>
+        </div>
       ) : (
         <>
           <h2>You have {bag?.length} items in your cart</h2>
@@ -50,12 +56,22 @@ const CartContentContainer = styled.div`
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-color);
     border-bottom: 1px solid rgba(0,0,0,.08);
     padding: 2rem 0;
     text-transform: uppercase;
+  }
+
+  .alerttop {
+    padding: 2rem 0;
+    h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-transform: uppercase;
+  }
   }
 
   table {
