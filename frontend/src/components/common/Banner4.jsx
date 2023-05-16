@@ -47,93 +47,88 @@ export default function Banner4() {
 }
 
 const Banner4Container = styled.div`
-width:100%;
- .banner4Wrapper {
-    width:100%;
-    margin:0 auto;
-    z-index:1000;
-    max-width:1600px;  
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
-    @media (max-width:760px) {
-        grid-template-columns:1fr;
-        grid-gap:2rem;
+  width: 100%;
+  .banner4Wrapper {
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1000;
+    max-width: 1600px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    @media (max-width: 760px) {
+      grid-template-columns: 1fr;
+      grid-gap: 2rem;
     }
     header {
-        display:flex;
-       flex-direction:column;
-        gap:1.8rem;
-        width:100%;
-        height:47rem;
-        position:relative;
-            img {
-                width:100%; 
-                position:absolute;
-                height:100%;
-                object-fit:cover;
-            }
-            .banner4Gradient {
-                position:absolute;
-                height:100%;
-                width:100%;
-                background: linear-gradient(
-    155deg,
-    #081b365d 25%,
-    hsla(215, 74%, 12%, calc(100% - 40%)) 100%
-  );
-                z-index:40;
-            }
-        .headerContent {
-            width:80%;
-            height:100%;
-            margin:0 auto;
-            z-index:80;
-            display:flex;
-            justify-content:center;
-            align-items:flex-start;
-            flex-direction:column;
-            gap:1.7rem;
-            .btn {
-                border:none;
-                outline:none;
-                padding:2rem 3rem;
-                font-size:1.8rem;
-                color:#fff;
-                margin:2rem 0;
-                border:1px solid #fff;
-                background:transparent;
-                &:hover {
-                    background:#fff;
-                    color:var(--dark-1);
-                }
-            }
-            p {
-            font-size:2.4rem;
-            font-weight:400;
-            font-family:'Barlow', sans-serif;
-            line-height:1.5;
-            width:80%;
-            color:#f7f7f7;
-            z-index:60;
-             @media (max-width:480px) {
-                font-size:1.8rem;
-            }
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      width: 100%;
+      height: 47rem;
+      position: relative;
+      img {
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        object-fit: cover;
+      }
+      .banner4Gradient {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: hsla(215, 34%, 12%, calc(100% - 40%));
+        z-index: 40;
+      }
+      .headerContent {
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        z-index: 80;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1.7rem;
+        .btn {
+          border: none;
+          outline: none;
+          padding: 1.4rem 3rem;
+          font-size: 1.8rem;
+          color: #fff;
+          margin: 2rem 0;
+          border: 1px solid #fff;
+          background: transparent;
+          &:hover {
+            background: #fff;
+            color: var(--dark-1);
+          }
+        }
+        p {
+          font-size: 2rem;
+          font-weight: 400;
+          font-family: "Barlow", sans-serif;
+          line-height: 1.5;
+          width: 80%;
+          color: #f7f7f7;
+          z-index: 60;
+          @media (max-width: 480px) {
+            font-size: 1.8rem;
+          }
         }
         h2 {
-            font-size:3.5rem;
-            font-weight:700;
-            color:#fff;
-            padding-right:5rem;
-            z-index:60;
-            
-            @media (max-width:980px) {
-                font-size:4rem;
-                width:100%;
-                padding-right:3rem;
-            }
+          font-size: 3.8rem;
+          font-weight: 700;
+          color: #fff;
+          padding-right: 5rem;
+          z-index: 60;
+
+          @media (max-width: 980px) {
+            font-size: 4rem;
+            width: 100%;
+            padding-right: 3rem;
+          }
         }
-        }
+      }
     }
-}
- 
+  }
 `;

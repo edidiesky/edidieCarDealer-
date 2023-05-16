@@ -17,7 +17,7 @@ export default function Brandindex() {
       <div className="brandWrapper w-100 auto">
         <div className="brandTopWrapper">
           <img
-            src="/images/car-dealer-footer-logo-2x.png"
+            src="https://avada.website/car-dealership/wp-content/uploads/sites/165/2021/12/header-icon.png"
             className="sidebarIcon"
             alt="sidebarIcon"
           />
@@ -26,7 +26,7 @@ export default function Brandindex() {
               Explore Popular Brands
             </h2>
           </div>
-          <p data-aos="fade" data-aos-duration="1000" className="family1">
+          <p data-aos="fade" data-aos-duration="1000" className="fs-20 family1">
             Incididunt labore dolore magna aliqua enim veniam quis nostrud
             tempor tempor adispecing miny exercitation ullamco laboris nisiut
             aliquip.
@@ -75,7 +75,7 @@ const BrandContainer = styled.div`
       gap: 2rem;
       justify-content: center;
       .sidebarIcon {
-        height: 8rem;
+        width: 10rem;
       }
       h2 {
         font-size: 5rem;
@@ -88,10 +88,9 @@ const BrandContainer = styled.div`
         }
       }
       p {
-        font-size: 1.8rem;
         color: var(--grey-1);
         font-weight: 400;
-        line-height: 2;
+        line-height: 1.6;
         width: 60%;
         margin: 0 auto;
         font-family: "Barlow", sans-serif;

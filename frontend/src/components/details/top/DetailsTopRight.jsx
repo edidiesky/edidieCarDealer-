@@ -81,13 +81,13 @@ export default function DetailsTopRight() {
           <div className="btnWrapper">
             <button
               className="cartBtn"
-              onClick={()=> setQty(qty + 1)}
+              onClick={() => setQty(qty + 1)}
               disabled={
                 productDetails?.quantity === productDetails?.countInStock
               }
               style={{
-                borderTopLeftRadius: "20px",
-                borderBottomLeftRadius: "20px",
+                borderTopLeftRadius: "40px",
+                borderBottomLeftRadius: "40px",
               }}
             >
               <BiPlus />
@@ -95,17 +95,20 @@ export default function DetailsTopRight() {
             <h3>{qty}</h3>
             <button
               className="cartBtn"
-              onClick={()=> setQty(qty - 1)}
+              onClick={() => setQty(qty - 1)}
               disabled={qty === 1}
               style={{
-                borderTopRightRadius: "20px",
-                borderBottomRightRadius: "20px",
+                borderTopRightRadius: "40px",
+                borderBottomRightRadius: "40px",
               }}
             >
               <BiMinus />
             </button>
           </div>
-          <Link to={`/car-dealership/cart/${id}?qty=${qty}`} className="addBtn family1">
+          <Link
+            to={`/car-dealership/cart/${id}?qty=${qty}`}
+            className="addBtn family1"
+          >
             Add to Cart
           </Link>
         </div>
@@ -172,16 +175,19 @@ const DetailsTopRightContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 2rem;
-      @media (max-width: 480px) {
+      /* @media (max-width: 480px) {
         flex-direction: column;
         align-items: flex-start;
-      }
+      } */
       .btnWrapper {
         display: flex;
         align-items: center;
-        height: 4rem;
+        height: 5.5rem;
         flex: 0.5;
         margin: 2.5rem 0;
+        @media (max-width: 480px) {
+          flex: 1;
+        }
         h3 {
           flex: 1;
           font-family: "Barlow", sans-serif;
@@ -199,6 +205,7 @@ const DetailsTopRightContainer = styled.div`
           height: 100%;
           background: rgb(0 0 0 / 8%);
           display: flex;
+
           align-items: center;
           justify-content: center;
           cursor: pointer;
@@ -222,14 +229,14 @@ const DetailsTopRightContainer = styled.div`
         padding: 1.5rem 4rem;
         background: var(--red);
         color: #fff;
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         border-radius: 40px;
         text-align: center;
         cursor: pointer;
-        text-transform: uppercase;
-        font-weight: 600;
+        text-transform: capitalize;
+        font-weight: 500;
         &:hover {
-          background: var(--blue-1);
+          background: var(--dark-blue);
         }
         @media (max-width: 980px) {
           padding: 1.6rem 4rem;

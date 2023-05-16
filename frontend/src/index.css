@@ -64,7 +64,7 @@ body {
     #081b36 25%,
     hsla(215, 74%, 12%, calc(100% - 40%)) 100%
   );
-  --dark-blue: #081b36;
+  --dark-blue: #081B36;
   --green: #31a24c;
 }
 .textLabel {
@@ -110,7 +110,7 @@ p {
 
 .btn:hover,
 .editBtn:hover {
-  background: var(--red);
+  background: #081B36;
 }
 .text-secondary {
   color: var(--yellow);
@@ -518,9 +518,9 @@ html {
 }
 
 @media (max-width: 1080px) {
-  html {
+  /* html {
     font-size: 50%;
-  }
+  } */
 }
 @media (max-width: 1080px) {
   .grid-2,
@@ -535,5 +535,8 @@ html {
   }
   .w-85 {
     width: 90%;
+  }
+  .w-90 {
+    width: 85%;
   }
 }

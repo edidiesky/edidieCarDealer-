@@ -8,7 +8,7 @@ const blogData = [
     tags: ["Buy Sell Guide", "Car", "Fuel"],
     description:
       "Incididunt labs dolore mags aliqua enim veniam quis noste miniys exc eation ullamco laboris.",
-    image: "../images/buying-awd-hybrid-cars.jpg",
+    image: "https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/03/buying-awd-hybrid-cars-800x505.jpg",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const blogData = [
     tags: ["Buy Sell Guide", "Electric Car", "Fuel"],
     description:
       "Incididunt labs dolore mags aliqua enim veniam quis noste miniys exc eation ullamco laboris.",
-    image: "../images/compact-suvs-rank.jpg",
+    image: "https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/03/compact-suvs-rank-800x505.jpg",
   },
 ];
 export default function Blogindex() {

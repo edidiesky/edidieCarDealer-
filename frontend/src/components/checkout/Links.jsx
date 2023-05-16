@@ -69,7 +69,7 @@ const LinkContainer = styled.div`
   }
   .nav-link {
     background: transparent;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 400;
     padding: 1.4rem;
     color: var(--blue-2);
@@ -82,13 +82,10 @@ const LinkContainer = styled.div`
     }
     @media (max-width: 780px) {
       border-bottom: none;
-      font-size: 2rem;
+      font-size: 1.8rem;
       flex: 1;
       text-align: center;
       padding: 1rem 0;
-    }
-    @media (max-width: 780px) {
-      font-size: 2.4rem;
     }
     &.active {
       color: var(--red);

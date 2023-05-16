@@ -30,15 +30,13 @@ export default function Card({ x, index }) {
         <div className="cardWrapper">
           <Link to={`/car-dealership/cars/${x._id}`} className="FeatImage">
             {x?.image && (
-              <img
-                src={x?.image[0]}
-                className="cardImage"
-                alt="card-images"
-              />
+              <img src={x?.image[0]} className="cardImage" alt="card-images" />
             )}
             <div className="imageGradient flex item-center justify-center">
               <div className="cardSpanWrapper justify-center flex item-center column gap-1">
-                <h2 className="fs-24 text-center text-extra-bold text-white">{x?.title}</h2>
+                <h2 className="fs-24 text-center text-extra-bold text-white">
+                  {x?.title}
+                </h2>
                 {x?.discount ? (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
                     <span className="line">${x?.discount}</span>{" "}
@@ -70,7 +68,8 @@ export default function Card({ x, index }) {
             </div>
             <div className="cardBottom">
               <p className="cardPrice">
-                Price: <span className="pricespan">${x?.price}</span>
+                <span>Price:</span>{" "}
+                <span className="pricespan">${x?.price}</span>
                 {x?.percentage ? (
                   <span className="percentageSpan">
                     {x?.percentage && x?.percentage}% off
@@ -123,6 +122,9 @@ const CardContainer = styled.div`
       place-items: center;
       position: relative;
       height: 35rem;
+      @media (max-width: 580px) {
+        height: 30rem;
+      }
       .cardImage {
         width: 100%;
         position: absolute;
@@ -208,19 +210,19 @@ const CardContainer = styled.div`
         left: 0;
         height: 100%;
         width: 100%;
-        background: var(--gradient1);
+        background: hsla(215, 74%, 12%, calc(100% - 40%));
         display: flex;
         top: 100%;
 
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
+        transition: all 0.5s ease;
       }
     }
 
     header {
       width: 90%;
-      padding:4rem 3rem;
+      padding: 4rem 3rem;
       background: var(--white);
       transform: translateY(-45px);
       display: flex;
@@ -229,6 +231,7 @@ const CardContainer = styled.div`
 
       @media (max-width: 980px) {
         padding: 4rem 2rem;
+        width: 100%;
       }
       .titleDetails {
         font-size: 2.4rem;
@@ -242,13 +245,13 @@ const CardContainer = styled.div`
         padding: 1rem 0;
         .tagspan {
           font-size: 1.8rem;
-          font-weight: 300;
-          color: var(--grey);
+          font-weight: 400;
+          color: var(--dark-1);
           margin: 0.4rem 0.8rem;
           font-family: "Barlow", sans-serif;
           display: inline-block;
           @media (max-width: 480px) {
-            font-size: 2rem;
+            font-size: 1.8rem;
           }
           position: relative;
           &::after {
@@ -281,6 +284,7 @@ const CardContainer = styled.div`
           justify-content: center;
           @media (max-width: 480px) {
             align-items: flex-start;
+            flex-direction: column;
           }
           .percentageSpan {
             display: inline-block;
@@ -297,8 +301,7 @@ const CardContainer = styled.div`
             font-weight: 600;
             display: inline-block;
             @media (max-width: 380px) {
-              margin-left: 6px;
-              font-size: 3.5rem;
+              display: block;
             }
           }
         }

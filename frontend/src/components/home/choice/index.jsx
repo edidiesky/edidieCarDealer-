@@ -42,7 +42,7 @@ export default function ChoiceIndex() {
       <div className="ChoiceWrapper">
         <div className="ChoiceTopWrapper">
           <img
-            src="/images/car-dealer-footer-logo-2x.png"
+            src="https://avada.website/car-dealership/wp-content/uploads/sites/165/2021/12/header-icon.png"
             className="sidebarIcon"
             alt="sidebarIcon"
           />
@@ -73,8 +73,8 @@ export default function ChoiceIndex() {
 
 const ChoiceContainer = styled.div`
   width: 100%;
-  padding: 12rem 0;
-  background:#081b36;
+  padding: 10rem 0;
+  background: #081b36;
   position: relative;
   .BackImage {
     position: absolute;
@@ -83,6 +83,9 @@ const ChoiceContainer = styled.div`
     top: 0;
     width: 100%;
     z-index: 400;
+    @media (max-width: 480px) {
+      left: -20%;
+    }
   }
 
   .ChoiceWrapper {
@@ -101,7 +104,7 @@ const ChoiceContainer = styled.div`
       gap: 2rem;
       justify-content: center;
       .sidebarIcon {
-        height: 8rem;
+        width: 8rem;
       }
       h2 {
         font-size: 5rem;
@@ -113,10 +116,10 @@ const ChoiceContainer = styled.div`
       }
 
       p {
-        font-size: 1.7rem;
+        font-size: 2rem;
         color: var(--grey-1);
         font-weight: 400;
-        line-height: 2;
+        line-height: 1.6;
         width: 60%;
         margin: 0 auto;
         font-family: "Barlow", sans-serif;
@@ -141,6 +144,10 @@ const ChoiceContainer = styled.div`
         display: flex;
         align-items: center;
         gap: 2rem;
+        @media (max-width: 380px) {
+          flex-direction: column;
+          justify-content: center;
+        }
         .iconContent {
           width: 10rem;
           height: 10rem;
@@ -157,16 +164,18 @@ const ChoiceContainer = styled.div`
           }
         }
         h3 {
-          font-size: 2.2rem;
+          font-size: 2.4rem;
           font-weight: 700;
           color: #fff;
           flex: 1;
+          text-align: center;
 
           .choiceSpan {
             display: block;
             padding-top: 1.8rem;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 400;
+            text-align: center;
             font-family: "Barlow", sans-serif;
             line-height: 30.45px;
             color: rgba(255, 255, 255, 0.75);
