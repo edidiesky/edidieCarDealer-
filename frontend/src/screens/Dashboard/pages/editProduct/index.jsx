@@ -20,27 +20,33 @@ export default function CreateProductIndex() {
   // initailizing parameters
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { productDetails, isLoading, alertText, alertType, showAlert } =
-    useSelector((store) => store.product);
-    const [formdata1, setFormData1] = useState({
-      price: "",
-      price2: "",
-      countInStock: "",
-      colors: "",
-      percentage: 0,
-      capacity: 0,
-    });
-    const [formdata2, setFormData2] = useState({
-      title: "",
-      brand: "",
-      description: "",
-    });
-    const [uploadimage, setUploadImage] = useState([
-    ]);
-    const [uploading, setUploading] = useState(false);
-    const [tagdata, setTagData] = useState([]);
-    const [colors, setColors] = useState([]);
-  
+  const {
+    productDetails,
+    isLoading,
+    alertText,
+    alertType,
+    showAlert,
+  } = useSelector((store) => store.product);
+  const [formdata1, setFormData1] = useState({
+    price: "",
+    discount: "",
+    countInStock: "",
+    colors: "",
+    percentage: 0,
+    capacity: 0,
+    
+  });
+  const [formdata2, setFormData2] = useState({
+    title: "",
+    brand: "",
+    description: "",
+    shortdescription: "",
+  });
+  const [uploadimage, setUploadImage] = useState([]);
+  const [uploading, setUploading] = useState(false);
+  const [tagdata, setTagData] = useState([]);
+  const [colors, setColors] = useState([]);
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch(clearProductDetails());
@@ -58,11 +64,36 @@ export default function CreateProductIndex() {
   }, [showAlert, dispatch]);
   // get the data from the product details
   useEffect(() => {
-   if (productDetails) {
-    const {image} = productDetails
-    setUploadImage(image)
-   }
-  }, [productDetails])
+    if (productDetails) {
+      const {
+        image,
+        tags,
+        colors,
+        shortdescription,
+        price,
+        countInStock,
+        capacity,
+        description,
+        brand,
+        title,
+        discount
+      } = productDetails;
+      setFormData1({
+        image,
+        tags,
+        colors,
+        shortdescription,
+        price,
+        countInStock,
+        capacity,
+        discount
+      });
+      setFormData2({ description, brand, title });
+      setUploadImage(image);
+      setTagData(tags);
+      setColors(colors);
+    }
+  }, [productDetails]);
 
   const onChange1 = (e) => {
     setFormData1({ ...formdata1, [e.target.name]: e.target.value });
@@ -82,7 +113,7 @@ export default function CreateProductIndex() {
     { id: 5, color: "#fff", title: "White" },
   ];
 
-  const productData = { ...formdata1, ...formdata2, image: uploadimage };
+  const productData = { ...formdata1, ...formdata2, image: uploadimage,tagdata,colors };
 
   const handleAdminProduct = (e) => {
     e.preventDefault();

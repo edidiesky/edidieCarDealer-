@@ -5,7 +5,7 @@ export const productdata = [
     "price": 80322.75,
     "countInStock": 8,
     "capacity": 90,
-    "percentage": 8,
+    "discount": 40322.75,
     "brand": "Tesla",
     "title": "Tesla Racer 2020",
     "image": [
@@ -31,7 +31,7 @@ export const productdata = [
     "countInStock": 6,
     qualities: "Delivers up to 295 horsepower",
     "capacity": 99,
-    "percentage": 5,
+    "discount": 30322.75,
     "brand": "Tesla",
     "title": "Tesla Model 3",
     "image": [
@@ -51,7 +51,8 @@ export const productdata = [
   },
   {
     "createdAt": "12/22/2022",
-    "price": 15176.65,
+    "price": 150176.65,
+    "discount": 80322.75,
     qualities: "0-60 mph in just 3.1 seconds acceleration",
     "countInStock": 7,
     "capacity": 79,
@@ -76,6 +77,7 @@ export const productdata = [
   {
     "createdAt": "2/1/2023",
     "price": 12732.48,
+    "discount": 10322.75,
     "countInStock": 4,
     "capacity": 100,
     "percentage": 4,
@@ -100,6 +102,7 @@ export const productdata = [
   {
     "createdAt": "1/2/2023",
     "price": 26230.00,
+    "discount": 24322.75,
     "countInStock": 0,
     "capacity": 97,
     "percentage": 5,
@@ -122,6 +125,7 @@ export const productdata = [
   {
     "createdAt": "2/4/2022",
     "price": 32600.00,
+    "discount": 30322.75,
     "countInStock": 10,
     "capacity": 176,
     qualities: 'A200d AMG Line Premium Plus',
@@ -145,6 +149,7 @@ export const productdata = [
   {
     "createdAt": "12/2/2023",
     "price": 35460.00,
+    "discount": 30022.75,
     "countInStock": 2,
     "capacity": 111,
     "percentage": 0,
@@ -167,6 +172,7 @@ export const productdata = [
   {
     "createdAt": "1/3/2023",
     "price": 30783.20,
+    "discount": 28322.75,
     "countInStock": 0,
     "capacity": 134,
     "percentage": 13,
@@ -188,6 +194,7 @@ export const productdata = [
   {
     "createdAt": "1/1/2023",
     "price": 19711.22,
+    "discount": 16322.75,
     "countInStock": 5,
     "capacity": 143,
     "percentage": 11,
@@ -212,6 +219,7 @@ export const productdata = [
   {
     "createdAt": "2/4/2022",
     "price": 32600.00,
+    "discount": 30322.75,
     "countInStock": 10,
     "capacity": 176,
     qualities: 'A200d AMG Line Premium Plus',
@@ -235,6 +243,7 @@ export const productdata = [
   {
     "createdAt": "1/14/2021",
     "price": 26230.00,
+    "discount": 24322.75,
     "countInStock": 7,
     "capacity": 153,
     "percentage": 9,

@@ -39,9 +39,9 @@ export default function Card({ x, index }) {
             <div className="imageGradient flex item-center justify-center">
               <div className="cardSpanWrapper justify-center flex item-center column gap-1">
                 <h2 className="fs-24 text-extra-bold text-white">{x?.title}</h2>
-                {x?.percentage ? (
+                {x?.discount ? (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
-                    <span className="line">${((x?.price * x?.percentage) / 100).toFixed(2)}</span>{" "}
+                    <span className="line">${x?.discount}</span>{" "}
                     <span className="">${x?.price}</span>
                   </p>
                 ) : (

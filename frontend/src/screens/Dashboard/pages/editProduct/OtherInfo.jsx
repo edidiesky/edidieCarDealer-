@@ -35,9 +35,9 @@ export default function EditOtherInfo({ onChange1, formdata1, setFormData1 }) {
     {
       id: 6,
       name: "price2",
-      placeholder: "Add your product selling price",
+      placeholder: "Add your product discount price",
       type: "number",
-      text: "Product Selling Price",
+      text: "Product discount Price",
     },
     {
       id: 2,

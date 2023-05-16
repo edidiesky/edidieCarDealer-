@@ -47,6 +47,18 @@ export default function EditProductInfo({
             );
           })}
           <label htmlFor="text" className="textLabel">
+            Product shortdescription
+            <textarea
+              type="text"
+              className="textarea"
+              placeholder="Place a shortdescription on the Car"
+              name="shortdescription"
+              value={formdata2.shortdescription}
+              onChange={onChange2}
+              id="text"
+            />
+          </label>
+          <label htmlFor="text" className="textLabel">
             Product description
             <textarea
               type="text"

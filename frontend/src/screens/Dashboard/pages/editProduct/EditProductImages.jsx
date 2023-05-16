@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import LoaderIndex from "../../../../components/loaders/index";
@@ -68,7 +68,6 @@ export default function EditProductImage({
       setColorActive(true);
     }
   };
-  console.log(uploadimage);
   return (
     <EditProductWrapperCenter>
       {/* image upload */}
@@ -101,7 +100,7 @@ export default function EditProductImage({
               className="fs-15 column gap-2 family1 fs-14 flex gap-1 item-center text-light"
               htmlFor="upload"
             >
-            <BiUpload fontSize={'18px'}/>  Upload car image here 
+              <BiUpload fontSize={"18px"} /> Upload car image here
               <input
                 type="file"
                 id="upload"
@@ -232,7 +231,7 @@ const EditProductWrapperCenter = styled.div`
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
+    grid-gap: 3rem;
     @media (max-width: 780px) {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       grid-gap: 1rem;
@@ -249,7 +248,7 @@ const EditProductWrapperCenter = styled.div`
       padding-left: 1rem;
       position: relative;
       .img {
-        width: 8rem;
+        width: 12rem;
         min-height: 7rem;
       }
 

@@ -38,7 +38,7 @@ export default function DetailsTopRight() {
         </div>
         <h3 className="flex item-center gap-1">
           <span className="discount">${productDetails?.price}</span>
-          <span className="">${((productDetails?.price * productDetails?.percentage) / 100).toFixed(2)}</span>
+          <span className="">${productDetails?.discount}</span>
         </h3>
       </div>
       <p>
