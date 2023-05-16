@@ -17,11 +17,11 @@ import {
 
 const data = [
   { id: 1, title: "Home", path: "" },
-  { id: 2, title: "Inventory", path: "product" },
-  { id: 3, title: "About Us", path: "about" },
-  { id: 3, title: "Latest Offers", path: "latest-offers" },
-  { id: 4, title: "Auto News", path: "auto-news" },
-  { id: 5, title: "Contact", path: "contact" },
+  { id: 2, title: "Inventory", path: "car-dealership/product" },
+  { id: 3, title: "About Us", path: "car-dealership/about" },
+  { id: 3, title: "Latest Offers", path: "car-dealership/latest-offers" },
+  { id: 4, title: "Auto News", path: "car-dealership/auto-news" },
+  { id: 5, title: "Contact", path: "car-dealership/contact" },
 ];
 export default function HeaderTop() {
   const { thememode } = useSelector((store) => store.toggle);
@@ -124,7 +124,7 @@ export default function HeaderTop() {
 }
 
 const HeaderTopContainer = styled.div`
-  min-height: 12rem;
+  min-height: 10rem;
   width: 100%;
   border: 0.3px solid rgba(0, 0, 0, 0.08);
   display: flex;
@@ -305,7 +305,7 @@ const HeaderTopContainer = styled.div`
             }
           }
           .notifSpan {
-            padding:.4rem .8rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 50%;
             display: flex;
             position: absolute;
@@ -326,7 +326,6 @@ const HeaderTopContainer = styled.div`
             color: var(--text-color);
           }
         }
-
       }
       .darkIcon {
         width: 3.5rem;
@@ -382,7 +381,6 @@ const HeaderTopContainer = styled.div`
           font-size: 1.6rem;
           padding: 1.6rem 3rem;
         }
-       
       }
     }
   }

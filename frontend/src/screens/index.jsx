@@ -15,6 +15,7 @@ import Success from './Success'
 import About from './About'
 import Blog from './Blog'
 import Offer from './Offer'
+import Services from './Services'
 export {
     Home,
     Layout,
@@ -32,5 +33,6 @@ export {
     Success,
     About,
     Blog,
-    Offer
+    Offer,
+    Services
 }

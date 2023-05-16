@@ -20,6 +20,7 @@ import {
   About,
   Blog,
   Offer,
+  Services
 } from "./screens";
 
 import {
@@ -67,6 +68,7 @@ export default function App() {
             <Route path="car-dealership/about" element={<About />} />
             <Route path="car-dealership/contact" element={<Contact />} />
             <Route path="car-dealership/cart" element={<Cart />} />
+            <Route path="car-dealership/workshop-services" element={<Services />} />
             <Route path="car-dealership/cart/:id" element={<Cart />} />
             <Route path="car-dealership/billing" element={<ProtectRoute> <Billing /></ProtectRoute>} />
             <Route path="car-dealership/cars/:id" element={<Details />} />

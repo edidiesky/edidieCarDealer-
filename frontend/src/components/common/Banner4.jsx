@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const data = [
@@ -36,7 +37,9 @@ export default function Banner4() {
               <div className="headerContent">
                 <h2>{x.title}</h2>
                 <p>{x.desc}</p>
-                <button className="btn">{x.btntext}</button>
+                <Link to={"/car-dealership/workshop-services"} className="btn">
+                  {x.btntext}
+                </Link>
               </div>
             </header>
           );

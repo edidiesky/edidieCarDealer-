@@ -26,7 +26,7 @@ const ProductBannerContainer = styled.div`
     align-items: center;
     justify-content: center;
     @media (min-width: 780px) {
-      min-height: 35rem;
+      min-height: 40rem;
     }
     .heroImage {
       width: 100%;
@@ -66,7 +66,7 @@ const ProductBannerContainer = styled.div`
       }
       h2 {
         color: #fff;
-        font-size: 4.4rem;
+        font-size: 4.8rem;
         font-weight: 700;
         z-index: 500;
         line-height: 1.2;

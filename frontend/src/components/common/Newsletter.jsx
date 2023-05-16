@@ -16,11 +16,7 @@ export default function Newsletter() {
   return (
     <NewsletterContent>
       <div className="newsletterWrapper w-90 auto">
-        <div
-          className="newsletterLeft"
-          data-aos="fade-right"
-          data-aos-duration="1200"
-        >
+        <div className="newsletterLeft">
           <h2>
             Trusted Buying Experience
             <span>Incididunt labore magna aliqua veniams</span>
@@ -28,11 +24,7 @@ export default function Newsletter() {
 
           <button className="startBtn family1">Get Started</button>
         </div>
-        <ul
-          className="newsLetterRight"
-          data-aos="fade-left"
-          data-aos-duration="600"
-        >
+        <ul className="newsLetterRight">
           {data.map((x) => {
             return (
               <li key={x.id}>
@@ -65,7 +57,7 @@ const NewsletterContent = styled.div`
       padding: 5rem;
     }
     @media (max-width: 1080px) {
-     width: 100%;
+      width: 100%;
     }
     .newsletterLeft {
       width: 100%;
