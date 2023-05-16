@@ -102,7 +102,7 @@ export default function Auth() {
     if (isSuccess) {
       setTimeout(() => {
         clearUserAlertError();
-        navigate(`/auth/signin`);
+        navigate(`/car-dealership/auth/login`);
       }, 3000);
     }
   }, [navigate, isSuccess]);
@@ -122,16 +122,13 @@ export default function Auth() {
       <AuthContent>
         <div className="authContentWrapper">
           <div className="authContentForm">
-            {isSuccess && (
-              <Message alertText={alertText} alertType={alertType} />
-            )}
-            {isError && <Message alertText={alertText} alertType={alertType} />}
+            <Message alertText={alertText} alertType={alertType} />
             <img
               src="/images/dealer1.png"
               alt="dealer-image"
               className="icon"
             />
-            <h2>
+            <h2 className="family1">
               Create an account
               <span className="userSpan">
                 Let's get started with your 30 day trial
@@ -156,9 +153,9 @@ export default function Auth() {
                 );
               })}
               <button className="submitBtn">SignIn with Avanda</button>
-              <p>
+              <p className="family1">
                 Already have an account?{" "}
-                <Link to={"/auth/signin"}>Login Now</Link>
+                <Link to={"/car-dealership/auth/login"}>Login Now</Link>
               </p>
             </form>
           </div>
@@ -187,10 +184,9 @@ const AuthContent = styled.div`
     .authContentForm {
       margin: 3rem auto;
       display: flex;
-      width: 40%;
+      width: 70%;
       align-items: center;
-      padding: 4.5rem 5.5rem;
-      border-radius: 10px;
+      padding: 2rem 5.5rem;
       flex-direction: column;
       gap: 2rem;
       z-index: 400;
@@ -211,7 +207,7 @@ const AuthContent = styled.div`
         height: 8rem;
       }
       h2 {
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 600;
         color: var(--text-color);
         width: 100%;
@@ -226,7 +222,7 @@ const AuthContent = styled.div`
         }
       }
       p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         font-weight: 600;
         color: var(--grey-2);
         width: 100%;

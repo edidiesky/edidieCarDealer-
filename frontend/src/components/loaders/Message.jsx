@@ -47,7 +47,7 @@ const MessageContent = styled.div`
   color: #fff;
   transition: all 0.6s;
   /* transform: translate3d(0, -100px, 0); */
-  top: -100px;
+  top: -100%;
   &.active {
     top: 20px;
   }

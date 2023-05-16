@@ -38,7 +38,7 @@ const LabelContainer = styled.label`
     background: var(--white);
     padding: 0 2.4rem;
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.09);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     outline: none;
     font-size: 1.6rem;
     font-weight: 400;

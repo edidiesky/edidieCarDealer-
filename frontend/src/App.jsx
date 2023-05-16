@@ -37,7 +37,7 @@ import Billing from "./screens/Checkout";
 export default function App() {
   useEffect(() => {
     AOS.init({
-      once:true
+      once: true
     });
   }, []);
   const [height, setHeight] = useState(0);
@@ -55,32 +55,34 @@ export default function App() {
 
   return (
     <PayPalScriptProvider options={initialOptions}>
-    <div className="based" style={{ height }}>
-      <Routes>
-        <Route path={"/"} element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="car-dealership/about" element={<About />} />
-          <Route path="car-dealership/blog" element={<Blog />} />
-          <Route path="car-dealership/latest-offers" element={<Offer />} />
-          <Route path="car-dealership/about" element={<About />} />
-          <Route path="car-dealership/contact" element={<Contact />} />
-          <Route path="car-dealership/cart" element={<Cart />} />
-          <Route path="car-dealership/cart/:id" element={<Cart />} />
-          <Route path="car-dealership/billing" element={<Billing />} />
-          <Route path="car-dealership/cars/:id" element={<Details />} />
-        </Route>
-        <Route path={"/car-dealership/dashboard"} element={<LayoutList />}>
-          <Route index element={<Home />} />
-          <Route path="product" element={<AdminProductList />} />
-          <Route path="create-product" element={<CreateProductIndex />} />
-          <Route path="product/:id" element={<EditProductIndex />} />
-          <Route path="order" element={<OrderList />} />
-          <Route path="customer" element={<Customers />} />
-          <Route path="profile" element={<ProfileList />} />
-          <Route path="customer/:id" element={<EditUser />} />
-        </Route>
-      </Routes>
-    </div>
+      <div className="based" style={{ height }}>
+        <Routes>
+          <Route path={"/"} element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="car-dealership/about" element={<About />} />
+            <Route path="car-dealership/auth/register" element={<Register />} />
+            <Route path="car-dealership/auth/login" element={<Login />} />
+            <Route path="car-dealership/blog" element={<Blog />} />
+            <Route path="car-dealership/latest-offers" element={<Offer />} />
+            <Route path="car-dealership/about" element={<About />} />
+            <Route path="car-dealership/contact" element={<Contact />} />
+            <Route path="car-dealership/cart" element={<Cart />} />
+            <Route path="car-dealership/cart/:id" element={<Cart />} />
+            <Route path="car-dealership/billing" element={<ProtectRoute> <Billing /></ProtectRoute>} />
+            <Route path="car-dealership/cars/:id" element={<Details />} />
+          </Route>
+          <Route path={"/car-dealership/dashboard"} element={<LayoutList />}>
+            <Route index element={<Home />} />
+            <Route path="product" element={<AdminProductList />} />
+            <Route path="create-product" element={<CreateProductIndex />} />
+            <Route path="product/:id" element={<EditProductIndex />} />
+            <Route path="order" element={<OrderList />} />
+            <Route path="customer" element={<Customers />} />
+            <Route path="profile" element={<ProfileList />} />
+            <Route path="customer/:id" element={<EditUser />} />
+          </Route>
+        </Routes>
+      </div>
     </PayPalScriptProvider>
   );
 }
