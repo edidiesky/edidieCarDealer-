@@ -80,9 +80,9 @@ export default function HeaderTop() {
               <div className="author">{username}</div>
 
               {userInfo?.isAdmin ? (
-                <div className="profileList">
-                  <Link to={"profile"}>Profile</Link>
-                  <Link to={"dashboard"}>Dashboard</Link>
+                <div className="profileList family1">
+                  <Link to={"/car-dealership/profile"}>Profile</Link>
+                  <Link to={"/car-dealership/dashboard"}>Dashboard</Link>
                   <div className="logOut" onClick={handleLogOut}>
                     Sign out
                   </div>
@@ -246,7 +246,7 @@ const HeaderTopContainer = styled.div`
             position: absolute;
             bottom: -280%;
             z-index: 1000;
-            right: -60px;
+            right: -20%;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
@@ -260,25 +260,25 @@ const HeaderTopContainer = styled.div`
             }
             a,
             div {
-              padding: 1.2rem 3rem;
+              padding: 1.4rem 3rem;
               font-size: 1.5rem;
               color: var(--dark-1);
               border-bottom: 1px solid var(--grey-3);
-              font-weight: 600;
+              font-weight: 400;
               cursor: pointer;
               &:hover {
-                background: var(--grey-2);
+                background: #f7f7f7;
               }
             }
           }
           .author {
-            width: 4.8rem;
-            height: 4.8rem;
+            width: 4rem;
+            height: 4rem;
             border-radius: 50%;
             align-items: center;
             display: flex;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             justify-content: center;
             font-weight: 600;
             background: var(--text-color);
@@ -287,8 +287,8 @@ const HeaderTopContainer = styled.div`
         }
         .iconWrapper {
           position: relative;
-          width: 4.8rem;
-          height: 4.8rem;
+          width: 4rem;
+          height: 4rem;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -305,8 +305,7 @@ const HeaderTopContainer = styled.div`
             }
           }
           .notifSpan {
-            width: 2rem;
-            height: 2rem;
+            padding:.4rem .8rem;
             border-radius: 50%;
             display: flex;
             position: absolute;

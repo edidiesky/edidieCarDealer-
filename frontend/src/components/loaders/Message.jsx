@@ -32,18 +32,17 @@ export default function Message({
 }
 
 const MessageContent = styled.div`
-  min-width: 650px;
+  width: 450px;
   padding: 1.6rem 2rem;
-  min-height: 7rem;
+  min-height: 6rem;
   background-color: #222;
   position: fixed;
   z-index: 100000;
   left: 50%;
-  border-radius: 5px;
   transform: translateX(-50%);
   top: 20px;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   color: #fff;
   transition: all 0.6s;
   /* transform: translate3d(0, -100px, 0); */
@@ -57,7 +56,7 @@ const MessageContent = styled.div`
     top: 20px;
   }
   @media (max-width: 780px) {
-    min-width: 300px;
+    width: 300px;
     justify-content: flex-start;
   }
   .flex1 {

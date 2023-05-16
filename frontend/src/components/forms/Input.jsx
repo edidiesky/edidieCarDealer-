@@ -27,7 +27,7 @@ const LabelContainer = styled.label`
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: var(--dark-1);
   font-weight: 600;
   text-transform: capitalize;

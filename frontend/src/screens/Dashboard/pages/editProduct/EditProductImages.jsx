@@ -1,39 +1,22 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import axios from "axios";
-import { Navigate, Link } from "react-router-dom";
 import styled from "styled-components";
-import { ImUpload } from "react-icons/im";
-import { FaFileUpload } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
-
-import Message from "../../../../components/loaders/Message";
 import LoaderIndex from "../../../../components/loaders/index";
+import { RxCross1 } from "react-icons/rx";
+import { useSelector } from "react-redux";
+import { BiUpload } from "react-icons/bi";
 
 export default function EditProductImage({
   uploadimage,
   setUploadImage,
   setUploading,
   uploading,
+  tagdata,
+  setTagData,
+  colors,
+  setColors,
+  filterColors,
 }) {
-  
-const {
-    productDetails,
-  } = useSelector((store) => store.product);
-
-  const [images, setImage] = useState([
-    { id: 1, text: "Upload your first image" },
-    { id: 2, text: "Upload your second image" },
-
-    { id: 3, text: "Upload your third image" },
-    { id: 4, text: "Upload your fourth image" },
-  ]);
-
-  let imageCollection = images.map((x, index) => {
-    const { id, text } = x;
-    return { id, text, image: productDetails?.image[index] };
-  });
-
   const handleFileUpload = async (e) => {
     // get the file
     const file = e.target.files;
@@ -58,90 +41,132 @@ const {
       console.log(err);
     }
   };
+  const {
+    productDetails,
+  } = useSelector((store) => store.product);
 
+  const [coloractive, setColorActive] = useState(false);
+
+  const removeUploadedImage = (id) => {
+    const outcome = uploadimage.filter((x, index) => index !== id);
+    console.log(outcome);
+    setUploadImage(outcome);
+  };
+  const handleTagInput = (e) => {
+    // check if the entetr key is pressed
+    if (e.key !== "Enter") return;
+    // check if the there is empty value
+    const value = e.target.value;
+    if (!value.trim()) return;
+    // set the list
+    setTagData([...tagdata, value]);
+  };
+  const deleteTagInput = (id) => {
+    const tagFilterResult = tagdata.filter((x, index) => index !== id);
+    setTagData(tagFilterResult);
+  };
+  const handleColors = (color) => {
+    setColors([...colors, color]);
+    if (colors.includes(color)) {
+      setColorActive(true);
+    }
+  };
   return (
     <EditProductWrapperCenter>
-      <h3>Upload Product Image</h3>
-      <p>
-        The image format should be in .jpeg .jpg .png and a Minimum of 300 X
-        300px (for optimal images use)
-      </p>
-
-      <p className="EditProductWrapperCenterPara">
-        Select a Product Photo up to 4 photos at one here. Include a Minimum of
-        3 photos or 4 photos for buyers
-      </p>
-
-      {/*upload image*/}
-      <div className="EditProductImageList">
-        {productDetails
-          ? imageCollection?.map((image) => {
+      {/* image upload */}
+      <div className="w-100 flex column gap-1">
+        <h4 className="family1 fs-14 text-bold">Upload Car Image</h4>
+        {/*upload image*/}
+        {uploadimage.length > 0 ? (
+          <div className="EditProductImageList">
+            {uploadimage.map((x, index) => {
               return (
-                <div className="imageContainer" key={image?._id}>
-                  {image?.image ? (
-                    <img
-                      src={image?.image}
-                      alt="images"
-                      className="imageWrapper"
-                    />
-                  ) : (
-                    ""
-                  )}
-                  <div className="imageWrappers"></div>
-                </div>
-              );
-            })
-          : uploadimage.length > 0
-          ? uploadimage.map((image) => {
-              return (
-                <div className="imageContainer" key={image.id}>
-                  <img src={image} alt="images" className="imageWrapper" />
-                </div>
-              );
-            })
-          : uploadimage.map((image) => {
-              return (
-                <div className="imageContainer" key={image.id}>
-                  {
-                    <img
-                      src={image?.path}
-                      alt="images"
-                      className="imageWrapper"
-                    />
-                  }
-                  <div className="imageWrappers"></div>
+                <div
+                  className="imageContainer flex item-center gap-2 justify-space"
+                  key={index}
+                >
+                  <img src={x} alt="images" className="img" />
+                  <div
+                    className="icon flex item-center justify-center"
+                    onClick={() => removeUploadedImage(index)}
+                  >
+                    <RxCross1 fontSize={"18px"} />
+                  </div>
                 </div>
               );
             })}
+          </div>
+        ) : (
+          <div className="UploadBtnWrapper">
+            {uploading && <LoaderIndex type="small" />}
+            <label
+              className="fs-15 column gap-2 family1 fs-14 flex gap-1 item-center text-light"
+              htmlFor="upload"
+            >
+            <BiUpload fontSize={'18px'}/>  Upload car image here 
+              <input
+                type="file"
+                id="upload"
+                placeholder="Car Image"
+                autoComplete="off"
+                style={{ display: "none" }}
+                onChange={handleFileUpload}
+                multiple
+              />
+            </label>
+          </div>
+        )}
       </div>
-      <div className="UploadBtnWrapper">
-        {uploading && <LoaderIndex type="small" />}
-        <label className="UploadBtn" htmlFor="upload">
-          Upload File here <FaFileUpload />
+      {/* tag upload */}
+      <div className="w-100 flex column gap-1">
+        <h4 className="family1 fs-14 text-bold">Upload Car Tag</h4>
+        <div className="tagForm item-center">
+          {tagdata?.map((x, index) => {
+            return (
+              <div className="tagWrapper family1 text-light fs-14 text-bold flex item-center gap-1">
+                {x}{" "}
+                <RxCross1
+                  onClick={() => deleteTagInput(index)}
+                  fontSize={"16px"}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+            );
+          })}
           <input
-            type="file"
-            id="upload"
-            placeholder="Product Image"
-            autoComplete="off"
-            style={{ display: "none" }}
-            onChange={handleFileUpload}
-            multiple
+            type="text"
+            onKeyDown={handleTagInput}
+            className="taginput"
+            placeholder="Add Car Tags"
           />
-        </label>
+        </div>
+      </div>
+      {/* color  */}
+      <div className="w-100 flex column gap-1">
+        <h4 className="family1 fs-14 text-bold">Upload Car Color</h4>
+        <div className="w-100 colorWrapper flex iitem-center gap-1">
+          {filterColors?.map((x) => {
+            const { id, title, color } = x;
+            return (
+              <div
+                onClick={() => handleColors({ id, title, color })}
+                className={coloractive ? "colorSpan active" : "colorSpan"}
+                style={{ background: `${color}` }}
+              ></div>
+            );
+          })}
+        </div>
       </div>
     </EditProductWrapperCenter>
   );
 }
 
 const EditProductWrapperCenter = styled.div`
-  padding: 2rem 3rem;
   display: flex;
-  background: var(--white);
-  box-shadow: 0 2px 3px var(--grey-2);
   border-radius: 4px;
   flex-direction: column;
   width: 100%;
-  gap: 1.6rem;
+  gap: 2rem;
   p {
     font-size: 1.1rem;
     color: var(--grey);
@@ -150,9 +175,47 @@ const EditProductWrapperCenter = styled.div`
       padding: 1rem 0;
     }
   }
+  .colorSpan {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    &.active {
+      border: 2px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+  .taginput {
+    outline: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: all 0.2s;
+    font-family: "Barlow", sans-serif;
+    color: var(--dark-1);
+    border: none;
+    height: 100%;
+  }
+  .tagForm {
+    min-height: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    &:hover {
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);
+    }
+    .tagWrapper {
+      padding: 0.5rem 1rem;
+      background-color: rgba(0, 0, 0, 0.08);
+      border-radius: 40px;
+    }
+  }
   .UploadBtnWrapper {
     width: 100%;
-    padding: 2rem 0;
+    padding: 2rem;
+    padding-top: 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,24 +223,13 @@ const EditProductWrapperCenter = styled.div`
     gap: 1rem;
     .UploadBtn {
       padding: 1.6rem 2rem;
-      font-size: 1.6rem;
       font-weight: 600;
-      background: var(--blue-2);
-      border-radius: 2px;
       color: #fff;
       cursor: pointer;
       z-index: 50;
-      &:hover {
-        background: var(--red);
-      }
     }
   }
 
-  h3 {
-    font-size: 1.7rem;
-    color: var(--text-color);
-    font-weight: 600;
-  }
   .EditProductImageList {
     display: grid;
     width: 100%;
@@ -187,29 +239,20 @@ const EditProductWrapperCenter = styled.div`
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       grid-gap: 1rem;
     }
+    .icon {
+      height: 100%;
+      width: 3.6rem;
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
 
     .imageContainer {
-      border: 1.7px dotted var(--dark-1);
-      height: 20rem;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      padding-left: 1rem;
       position: relative;
-      .imageWrappers {
-        position: absolute;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        z-index: 30;
-      }
-      .imageWrapper {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+      .img {
+        width: 8rem;
+        min-height: 7rem;
       }
 
       .uploadLabel {
@@ -225,8 +268,6 @@ const EditProductWrapperCenter = styled.div`
           color: var(--red);
         }
         span {
-          font-size: 1.45rem;
-          font-weight: 600;
           color: #fff;
           text-decoration: underline;
         }
