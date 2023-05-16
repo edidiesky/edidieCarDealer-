@@ -41,13 +41,13 @@ export default function Newsletter() {
 const NewsletterContent = styled.div`
   width: 100%;
   margin: 0 auto;
-  max-width: 1600px;
   z-index: 50;
   position: relative;
   transform: translateY(50px);
   .newsletterWrapper {
     background: var(--blue-2);
-    padding: 10rem;
+    padding:6rem 8rem;
+    width: 98%;
     display: grid;
     z-index: 50;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -66,16 +66,15 @@ const NewsletterContent = styled.div`
       gap: 3rem;
       align-items: flex-start;
       h2 {
-        font-size: 3.5rem;
+        font-size: 3.8rem;
         font-weight: 700;
         color: #fff;
 
         span {
           display: block;
           font-size: 2rem;
-          padding: 2rem 0;
+          padding: 1.5rem 0;
           font-family: "Barlow", sans-serif;
-          letter-spacing: 1px;
           font-weight: 400;
         }
       }

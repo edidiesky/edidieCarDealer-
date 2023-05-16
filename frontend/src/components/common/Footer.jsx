@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import {
-  FaFacebook,
-  FaInstagram,
-  FaYoutube,
-  FaPinterest,
   FaPhoneAlt,
 } from "react-icons/fa";
-
+import {ImFacebook} from 'react-icons/im'
+import {BsTwitter,BsInstagram} from 'react-icons/bs'
+import {AiFillYoutube} from 'react-icons/ai'
+import {SiFlickr} from 'react-icons/si'
 const iconsListData = [
-  { id: 1, icon: <FaFacebook /> },
-  { id: 2, icon: <FaInstagram /> },
-  { id: 3, icon: <FaYoutube /> },
-  { id: 4, icon: <FaPinterest /> },
+  { id: 1, icon: <ImFacebook /> },
+  { id: 2, icon: <BsTwitter /> },
+  { id: 3, icon: <BsInstagram /> },
+  { id: 4, icon: <AiFillYoutube /> },
+  { id: 4, icon: <SiFlickr /> },
 ];
 
 const data = [
@@ -31,7 +31,8 @@ export default function Footer() {
       <div className="footerWrapper w-90 auto">
         <div className="footerTop flex item-center gap-2">
           <button className="callBtn flex gap-2 item-center">
-            <FaPhoneAlt fontSize={"30px"} /> Call (3033) 1155-20999
+            <FaPhoneAlt fontSize={"25px"} />
+            Call (202) 1155-909
           </button>
           <img src="../images/car-dealer-footer-logo-2x.png" alt="images" />
           <ul className="socialListWrapper flex item-center">
@@ -64,7 +65,7 @@ export default function Footer() {
 
 const FooterContainer = styled.div`
   width: 100%;
-  background:#081b36;
+  background: #081b36;
   z-index: 70;
   padding-top: 12rem;
   .footerWrapper {
@@ -86,7 +87,7 @@ const FooterContainer = styled.div`
           padding: 0;
           display: grid;
           grid-template-columns: 1fr;
-          grid-gap: 3rem;
+          grid-gap: 6rem;
         }
         li {
           font-size: 2rem;
@@ -108,7 +109,7 @@ const FooterContainer = styled.div`
         padding: 0;
         display: grid;
         grid-template-columns: 1fr;
-        grid-gap: 3rem;
+        grid-gap: 5rem;
         place-items: center;
         padding-bottom: 4rem;
       }
@@ -118,7 +119,7 @@ const FooterContainer = styled.div`
         outline: none;
         border-radius: 40px;
         background: transparent;
-        font-size: 3rem;
+        font-size: 2.7rem;
         font-weight: 700;
         color: #fff;
         transition: all 0.5s;
@@ -136,8 +137,8 @@ const FooterContainer = styled.div`
           justify-content: flex-start;
         }
         .icons {
-          width: 4rem;
-          height: 5rem;
+          width: 3.5rem;
+          height: 3.5rem;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -145,8 +146,8 @@ const FooterContainer = styled.div`
           background: var(--blue-2);
           font-size: 2.7rem;
           @media (max-width: 780px) {
-            width: 3.5rem;
-            height: 3.5rem;
+            width: 4rem;
+            height: 4rem;
           }
           &:nth-child(2) {
             background: #55acee;
@@ -156,6 +157,9 @@ const FooterContainer = styled.div`
           }
           &:nth-child(4) {
             background: var(--red);
+            svg {
+              color: #fff;
+            }
           }
           svg {
             color: #fff;
@@ -168,10 +172,10 @@ const FooterContainer = styled.div`
         }
       }
       img {
-        height: 10rem;
+        width: 16rem;
         margin: 0 auto;
-        @media (max-width: 1080px) {
-          margin: 0;
+        @media (max-width: 980px) {
+          width: 12rem;
         }
       }
     }
