@@ -18,45 +18,10 @@ export default function Banner({ title, subtitle, type, step1, step2, step3 }) {
 
 const ProductBannerContainer = styled.div`
   width: 100%;
-  .productTitleWrapper {
-    width: 100%;
-    padding: 1rem 0;
-    background: linear-gradient(to right, #020a18, #fff);
-    .productBanner1 {
-      width: 90%;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      h1 {
-        font-size: 6rem;
-        font-weight: 700;
-        color: #fff;
-        letter-spacing: 2px;
-        text-align: center;
-      }
-      .imageWrapper {
-        width: 12rem;
-        height: 12rem;
-        border-radius: 50%;
-        background: var(--red);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &:hover {
-          background: var(--blue-1);
-        }
-        .icon {
-          width: 4rem;
-          height: 4rem;
-          border: 1px solid #fff;
-        }
-      }
-    }
-  }
   .productBannerWrapper {
     width: 100%;
     position: relative;
-    min-height: 8rem;
+    min-height: 12rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,7 +66,7 @@ const ProductBannerContainer = styled.div`
       }
       h2 {
         color: #fff;
-        font-size: 5rem;
+        font-size: 4.4rem;
         font-weight: 700;
         z-index: 500;
         line-height: 1.2;
