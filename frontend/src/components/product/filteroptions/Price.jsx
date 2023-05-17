@@ -5,18 +5,25 @@ import Range from "./Range";
 
 export default function FilterPrices() {
   const dispatch = useDispatch();
-  const [range, setRange] = useState([23900, 49500]);
+  const [minValue, setMinValue] = useState(23900);
+  const [maxValue, setMaxValue] = useState(49500);
   function handleRangeSlider(range) {
     setRange(range);
   }
   return (
     <FilterPriceContent>
       <h2>Filter By Price</h2>
-      <Range onChange={handleRangeSlider} value={range} />
+      <Range
+        maxValue={maxValue}
+        setMaxValue={setMaxValue}
+        minValue={minValue}
+        setMinValue={setMinValue}
+        value={range}
+      />
       <div className="priceWrapper">
         <button className="filterPriceBtn">Filter</button>
         <p>
-          Price: ${range[0]} - ${range[1]}{" "}
+          Price: ${minValue} - ${maxValue}{" "}
         </p>
       </div>
     </FilterPriceContent>

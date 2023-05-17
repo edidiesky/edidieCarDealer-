@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
 * {
   margin: 0;
@@ -64,7 +64,7 @@ body {
     #081b36 25%,
     hsla(215, 74%, 12%, calc(100% - 40%)) 100%
   );
-  --dark-blue: #081B36;
+  --dark-blue: #081b36;
   --green: #31a24c;
 }
 .textLabel {
@@ -110,7 +110,7 @@ p {
 
 .btn:hover,
 .editBtn:hover {
-  background: #081B36;
+  background: #081b36;
 }
 .text-secondary {
   color: var(--yellow);
@@ -164,7 +164,39 @@ h1 {
   padding-top: 6rem;
   padding-bottom: 6rem;
 }
+/* slider css */
+/* background-color: #2364C4; */
 
+.multi-range-slider {
+  box-shadow: none !important;
+  border: none !important;
+  padding: 1rem !important;
+}
+.multi-range-slider .labels,
+.multi-range-slider .ruler {
+  display: none !important;
+}
+.multi-range-slider .bar-left,
+.multi-range-slider .bar-right,
+.multi-range-slider .bar-inner {
+  box-shadow: none !important;
+}
+.multi-range-slider .bar-left,
+.multi-range-slider .bar-right{
+  box-shadow: none !important;
+  background-color: #dbdbdb !important;
+}
+.multi-range-slider .bar-inner {
+  background-color: #2364c4 !important;
+  border: none !important;
+}
+.multi-range-slider .thumb::before {
+  box-shadow: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.5) !important;
+  width: 1.6rem !important;
+  height: 1.6rem !important;
+}
+/* slider css end */
 .py-4 {
   padding-top: 4rem;
   padding-bottom: 4rem;
