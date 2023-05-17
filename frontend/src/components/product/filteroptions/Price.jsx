@@ -1,22 +1,27 @@
-import React from 'react'
-import Styled from 'styled-components'
-import {useDispatch} from 'react-redux'
-import Range from './Range'
+import React, { useState } from "react";
+import Styled from "styled-components";
+import { useDispatch } from "react-redux";
+import Range from "./Range";
 
 export default function FilterPrices() {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const [range, setRange] = useState([23900, 49500]);
+  function handleRangeSlider(range) {
+    setRange(range);
+  }
   return (
     <FilterPriceContent>
-     <h2>Filter By Price</h2>
-     <Range/>
-     <div className='priceWrapper'>
-         <button className='filterPriceBtn'>Filter</button>
-         <p>Price: $23,900 - $49,500</p>
-     </div>
+      <h2>Filter By Price</h2>
+      <Range onChange={handleRangeSlider} value={range} />
+      <div className="priceWrapper">
+        <button className="filterPriceBtn">Filter</button>
+        <p>
+          Price: ${range[0]} - ${range[1]}{" "}
+        </p>
+      </div>
     </FilterPriceContent>
-  )
+  );
 }
-
 
 const FilterPriceContent = Styled.div`
 width:100%;
@@ -51,4 +56,4 @@ h2 {
     font-weight:600;
    }
  }
-`
+`;
