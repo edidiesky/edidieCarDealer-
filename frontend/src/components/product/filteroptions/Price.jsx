@@ -2,10 +2,6 @@ import React from 'react'
 import Styled from 'styled-components'
 import {useDispatch} from 'react-redux'
 import Range from './Range'
-import {
-    getColor
-} from '../../../Features'
-
 
 export default function FilterPrices() {
     const dispatch = useDispatch()

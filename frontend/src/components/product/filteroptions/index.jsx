@@ -5,9 +5,11 @@ import Price from "./Price";
 export default function FilterOptionsindex() {
   return (
     <FilterOptionsContainer>
-      <h2>Filter By Options</h2>
-      <Filters />
-      <Price />
+      <div className="w-100 filterWrapper flex column gap-2">
+        <h2>Filter By Options</h2>
+        <Filters />
+        <Price />
+      </div>
     </FilterOptionsContainer>
   );
 }
@@ -18,9 +20,7 @@ const FilterOptionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  position: sticky;
-  top: 0%;
-  height: 100vh;
+
   @media (max-width: 760px) {
     position: relative;
     height: 50rem;

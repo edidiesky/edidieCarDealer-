@@ -22,6 +22,7 @@ export default function Productindex() {
         subtitle="Product"
         step1={"Home"}
         step2={"Products"}
+        type={'list'}
       />
       <div className="productIndexWrapper">
         <FilterOptionsindex />
