@@ -1,67 +1,40 @@
-import React from 'react'
-import Styled from 'styled-components'
-import { productData } from '../../dummy'
-import {useSelector, useDispatch} from 'react-redux'
-import { Banner, Card} from '../common'
-import FilterOptionsindex from './filteroptions'
-import SelectOptions from './SelectOptions'
-import LoaderIndex from '../loaders'
-import Message from '../loaders/Message'
+import React from "react";
+import Styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { Banner, Card } from "../common";
+import FilterOptionsindex from "./filteroptions";
+import SelectOptions from "./SelectOptions";
+import LoaderIndex from "../loaders";
+import Message from "../loaders/Message";
 export default function Productindex() {
-  const { 
-  product,
-  isLoading, 
-  isError, 
-  alertText, 
-  alertType
-} = useSelector(store => store.product)
+  const { product, isLoading, isError, alertText, alertType } = useSelector(
+    (store) => store.product
+  );
 
-  // return (
-  //   <ProductIndexContainer>
-  //   {
-  //        isLoading?<LoaderIndex loading={isLoading}/>
-  //        :
-  //         isError? <Message alertText={alertText} alertType={alertType}/> :
-  //         <>
-  //     <Banner title={'Avanda Collections'} subtitle='Product' step1={'Home'} step2={'Products'}/>
-  //     <div className="productIndexWrapper">
-  //       <FilterOptionsindex/>
-  //       <div className="productCardWrapper">
-  //         <SelectOptions/>
-  //         <div className="productCardContainer">
-  // {product?.map((x, index)=> {
-  //       return <Card x={x} key={x._id} index={index}/>
-  //       })}
-  //       </div>
-        
-  //     </div>
-  //     </div>
-  //     </>
-  //   }
-      
-  //   </ProductIndexContainer>
-  // )
-
-    return (
+  return (
     <ProductIndexContainer>
-      <Banner title={'Avanda Collections'} subtitle='Product' step1={'Home'} step2={'Products'}/>
+      {isLoading && <LoaderIndex loading={isLoading} />}
+      <Message alertText={alertText} alertType={alertType} />
+      <Banner
+        title={"Car Dealership"}
+        subtitle="Product"
+        step1={"Home"}
+        step2={"Products"}
+      />
       <div className="productIndexWrapper">
-        <FilterOptionsindex/>
+        <FilterOptionsindex />
         <div className="productCardWrapper">
-          <SelectOptions/>
+          <SelectOptions />
           <div className="productCardContainer">
-        {product?.map((x, index)=> {
-        return <Card x={x} key={x._id} index={index}/>
-        })}
+            {product?.map((x, index) => {
+              return <Card x={x} key={x._id} index={index} />;
+            })}
+          </div>
         </div>
-        
-      </div>
       </div>
     </ProductIndexContainer>
-  )
+  );
 }
-
-
 
 const ProductIndexContainer = Styled.div`
 width:100%;
@@ -97,4 +70,4 @@ min-height:100vh;
   
 }
 
-`
+`;

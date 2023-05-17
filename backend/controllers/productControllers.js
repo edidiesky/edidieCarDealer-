@@ -45,7 +45,7 @@ const GetAllProduct = asyncHandler(async (req, res) => {
     result = result.sort("-rating");
   }
 
-  const limit = req.query.limit || 6;
+  const limit = req.query.limit || 15;
   const page = req.query.page || 1;
   const skip = (page - 1) * limit;
 
