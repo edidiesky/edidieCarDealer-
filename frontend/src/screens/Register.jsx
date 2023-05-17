@@ -67,8 +67,6 @@ export default function Auth() {
       errorMessage:
         "Password should be 8-20 characters Long and should include 1 letter and 1 special Character",
       required: true,
-      pattern:
-        "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[#$@!%&*?])[a-zA-Z0-9!#$@!%&*]{8,30}$",
     },
     {
       id: 5,
@@ -245,15 +243,16 @@ const AuthContent = styled.div`
           width: 100%;
           border: none;
           outline: none;
-          padding: 2rem 3rem;
-          font-size: 1.6rem;
+          padding: 1.7rem 3rem;
+          font-size: 1.8rem;
           margin: 1.4rem 0;
           font-weight: 600;
           color: #fff;
           background-color: var(--blue-1);
-          border-radius: 40px;
-          cursor: pointer;
+          border-radius: 45px;
           transition: all 0.5s;
+          text-transform: capitalize;
+          cursor: pointer;
           &:hover {
             background-color: var(--red);
           }

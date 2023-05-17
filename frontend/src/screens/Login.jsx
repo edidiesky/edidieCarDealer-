@@ -35,8 +35,6 @@ export default function Auth() {
       errorMessage:
         "Password should be 8-20 characters Long and should include 1 letter and 1 special Character",
       required: true,
-      pattern:
-        "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[#$@!%&*?])[a-zA-Z0-9!#$@!%&*]{8,30}$",
     },
   ];
 
@@ -46,8 +44,14 @@ export default function Auth() {
 
   // getting the state from the slice
   const dispatch = useDispatch();
-  const { isLoading, isSuccess, userInfo, isError, alertText, alertType } =
-    useSelector((store) => store.user);
+  const {
+    isLoading,
+    isSuccess,
+    userInfo,
+    isError,
+    alertText,
+    alertType,
+  } = useSelector((store) => store.user);
 
   // performing form submission to backend
   const handleSubmit = (e) => {
@@ -81,7 +85,7 @@ export default function Auth() {
       <AuthContent>
         <div className="authContentWrapper">
           <div className="authContentForm">
-          <Message alertText={alertText} alertType={alertType} />
+            <Message alertText={alertText} alertType={alertType} />
             <img
               src="/images/dealer1.png"
               alt="dealer-image"
@@ -112,7 +116,8 @@ export default function Auth() {
               })}
               <button className="editBtn family2">SignUp with Avanda</button>
               <p className="family1">
-                Not yet a Member? <Link to={"/car-dealership/auth/register"}>Register Now</Link>
+                Not yet a Member?{" "}
+                <Link to={"/car-dealership/auth/register"}>Register Now</Link>
               </p>
             </form>
           </div>
@@ -202,14 +207,15 @@ const AuthContent = styled.div`
           width: 100%;
           border: none;
           outline: none;
-          padding: 2rem 3rem;
-          font-size: 1.4rem;
+          padding: 1.7rem 3rem;
+          font-size: 1.8rem;
           margin: 1.4rem 0;
           font-weight: 600;
           color: #fff;
           background-color: var(--blue-1);
           border-radius: 45px;
           transition: all 0.5s;
+          text-transform: capitalize;
           cursor: pointer;
           &:hover {
             background-color: var(--red);

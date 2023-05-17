@@ -72,7 +72,7 @@ export default function HeaderTop() {
       <div className="headerTopRight">
         {userInfo ? (
           <div className="headerTopProfile">
-            <Link to={"cart"} className="iconWrapper">
+            <Link to={"/car-dealership/cart"} className="iconWrapper">
               <BiCart />
               <span className="notifSpan">{totalQuantity}</span>
             </Link>
@@ -80,17 +80,25 @@ export default function HeaderTop() {
               <div className="author">{username}</div>
 
               {userInfo?.isAdmin ? (
-                <div className="profileList family1">
-                  <Link to={"/car-dealership/profile"}>Profile</Link>
-                  <Link to={"/car-dealership/dashboard"}>Dashboard</Link>
-                  <div className="logOut" onClick={handleLogOut}>
+                <div className="profileList ">
+                  <Link className="link" to={"/car-dealership/profile"}>
+                    Profile
+                  </Link>
+                  <Link className="link" to={"/car-dealership/dashboard"}>
+                    Dashboard
+                  </Link>
+                  <div className="logOut link" onClick={handleLogOut}>
                     Sign out
                   </div>
                 </div>
               ) : (
                 <div className="profileList list1">
-                  <Link to={"profile"}>Profile</Link>
-                  <div onClick={handleLogOut}>Sign out</div>
+                  <Link className="link" to={"profile"}>
+                    Profile
+                  </Link>
+                  <div className="link logOut" onClick={handleLogOut}>
+                    Sign out
+                  </div>
                 </div>
               )}
             </div>
@@ -239,7 +247,7 @@ const HeaderTopContainer = styled.div`
           &:hover .profileList {
             visibility: visible;
             opacity: 1;
-            transform: scale(1);
+            transform: translate3d(0,0px, 0);
           }
           .profileList {
             background: #fff;
@@ -247,19 +255,19 @@ const HeaderTopContainer = styled.div`
             bottom: -380%;
             z-index: 1000;
             right: -20%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
             visibility: hidden;
             opacity: 0;
-            transform: scale(0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transform: translate3d(0, 100px, 0);
             transition: all 0.4s;
             min-width: 200px;
             &.list1 {
-              bottom: -230%;
+              bottom: -240%;
+              z-index: 2341000;
             }
-            a,
-            div {
+            .link {
               padding: 1.4rem 3rem;
               font-size: 1.5rem;
               color: var(--dark-1);

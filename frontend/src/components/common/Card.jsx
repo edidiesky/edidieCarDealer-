@@ -1,31 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { addProductToCart } from "../../Features";
-import { useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Card({ x, index }) {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleAddToCart = (x) => {
-    const payload = {
-      title: x.title,
-      _id: x._id,
-      image: x.image,
-      price: x.price,
-      countInstock: x.countInstock,
-      brand: x.brand,
-      quantity: 1,
-    };
-    dispatch(addProductToCart(payload));
-  };
-
   return (
     <div className="w-100 hidden">
       <CardContainer
         data-aos="fade"
         data-aos-duration="1200"
-        data-aos-delay={index * 200}
+        data-aos-delay={index * 350}
+        key={index}
       >
         <div className="cardWrapper">
           <Link to={`/car-dealership/cars/${x._id}`} className="FeatImage">
@@ -39,12 +22,12 @@ export default function Card({ x, index }) {
                 </h2>
                 {x?.discount ? (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
-                    <span className="line">${x?.discount}</span>{" "}
-                    <span className="">${x?.price}</span>
+                    <span className="">${x?.discount}</span>{" "}
+                    <span className="line">${x?.price}</span>
                   </p>
                 ) : (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
-                    <span className="">${x?.price}</span>
+                    <span className="line">${x?.price}</span>
                   </p>
                 )}
               </div>
