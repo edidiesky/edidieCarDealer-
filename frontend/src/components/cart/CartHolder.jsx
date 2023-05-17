@@ -41,7 +41,7 @@ const CartHolderContainer = styled.div`
   flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
-  @media (max-width: 980px) {
+  @media (max-width: 680px) {
     width: 100%;
   }
   h2 {

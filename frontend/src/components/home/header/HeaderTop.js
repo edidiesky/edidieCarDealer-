@@ -184,7 +184,7 @@ const HeaderTopContainer = styled.div`
         justify-content: center;
         cursor: pointer;
         transition: all 0.4s;
-        @media (min-width: 780px) {
+        @media (min-width: 980px) {
           display: none;
         }
         &:hover {

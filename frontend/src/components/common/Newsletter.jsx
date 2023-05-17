@@ -24,15 +24,6 @@ export default function Newsletter() {
 
           <button className="startBtn family1">Get Started</button>
         </div>
-        <ul className="newsLetterRight">
-          {data.map((x) => {
-            return (
-              <li key={x.id}>
-                <BiCheck /> {x.title}
-              </li>
-            );
-          })}
-        </ul>
       </div>
     </NewsletterContent>
   );
