@@ -261,11 +261,22 @@ const HeaderTopContainer = styled.div`
             opacity: 0;
             border: 1px solid rgba(0, 0, 0, 0.1);
             transform: translate3d(0, 100px, 0);
-            transition: all 0.4s;
+            transition: all 0.2s;
             min-width: 200px;
+            z-index: 2341000;
+            /* &::after {
+              position: absolute;
+              width: 3rem;
+              height: 3rem;
+              content: '';
+              right: 5%;
+              top: -5%;
+              background-color: #fff;
+              transform: rotate(45deg);
+            } */
             &.list1 {
               bottom: -240%;
-              z-index: 2341000;
+              
             }
             .link {
               padding: 1.4rem 3rem;
