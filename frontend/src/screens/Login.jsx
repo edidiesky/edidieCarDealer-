@@ -85,7 +85,7 @@ export default function Auth() {
       <AuthContent>
         <div className="authContentWrapper">
           <div className="authContentForm">
-            <Message alertText={alertText} alertType={alertType} />
+            <Message alertText={alertText} alertType={alertType} handleClearAlert={clearUserAlertError}/>
             <img
               src="/images/dealer1.png"
               alt="dealer-image"

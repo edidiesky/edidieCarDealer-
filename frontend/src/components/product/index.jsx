@@ -6,15 +6,17 @@ import FilterOptionsindex from "./filteroptions";
 import SelectOptions from "./SelectOptions";
 import LoaderIndex from "../loaders";
 import Message from "../loaders/Message";
+import { clearProductAlert } from "../../Features";
 export default function Productindex() {
   const { product, isLoading, isError, alertText, alertType } = useSelector(
     (store) => store.product
   );
 
+
   return (
     <ProductIndexContainer>
       {isLoading && <LoaderIndex loading={isLoading} />}
-      <Message alertText={alertText} alertType={alertType} />
+      <Message alertText={alertText} alertType={alertType} handleClearAlert={clearProductAlert}/>
       <Banner
         title={"Car Dealership"}
         subtitle="Product"

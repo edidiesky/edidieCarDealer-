@@ -32,9 +32,9 @@ export default function Newsletter() {
 const NewsletterContent = styled.div`
   width: 100%;
   margin: 0 auto;
-  z-index: 50;
+  z-index: 4440;
   position: relative;
-  transform: translateY(50px);
+  transform: translateY(150px);
   .newsletterWrapper {
     background: var(--blue-2);
     padding: 6rem 8rem;

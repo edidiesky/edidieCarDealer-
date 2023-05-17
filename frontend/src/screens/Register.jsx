@@ -7,14 +7,6 @@ import { registerCustomer, clearUserAlertError } from "../Features";
 import LoaderIndex from "../components/loaders";
 import { CopyRight } from "../components/common";
 import Message from "../components/loaders/Message";
-
-// HiOutlineHome
-// HiOutlineUsers
-// SiFacebookgaming
-// HiOutlineMenuAlt1
-// AiFillMessage
-// BsBellFill
-
 export default function Auth() {
   const navigate = useNavigate();
 
@@ -25,7 +17,6 @@ export default function Auth() {
     password: "",
     password2: "",
   });
-
   const inputData = [
     {
       id: 1,
@@ -79,15 +70,20 @@ export default function Auth() {
       pattern: formdata.password,
     },
   ];
-
   const onChange = (e) => {
     setFormData({ ...formdata, [e.target.name]: e.target.value });
   };
 
   // getting the state from the slice
   const dispatch = useDispatch();
-  const { isLoading, isSuccess, userInfo, isError, alertText, alertType } =
-    useSelector((store) => store.user);
+  const {
+    isLoading,
+    isSuccess,
+    userInfo,
+    isError,
+    alertText,
+    alertType,
+  } = useSelector((store) => store.user);
 
   // performing form submission to backend
   const handleSubmit = (e) => {
@@ -120,7 +116,11 @@ export default function Auth() {
       <AuthContent>
         <div className="authContentWrapper">
           <div className="authContentForm">
-            <Message alertText={alertText} alertType={alertType} />
+            <Message
+              alertText={alertText}
+              alertType={alertType}
+              handleClearAlert={clearUserAlertError}
+            />
             <img
               src="/images/dealer1.png"
               alt="dealer-image"

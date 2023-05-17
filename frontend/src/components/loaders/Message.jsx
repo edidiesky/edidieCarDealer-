@@ -22,10 +22,17 @@ export default function Message({
           : "family1 gap-1 flex item-center justify-space"
       }
     >
-      {alertType === "danger" && <CgDanger className="fs-24" />}
-      <div className="flex flex1">{alertText}</div>
-      <div className="icon" onClick={() => dispatch(handleClearAlert())}>
-        <RxCross1 />
+      <div className="flex w-100 item-center gap-1">
+        {alertType === "danger" && <CgDanger className="fs-24" />}
+        <div className="flex">{alertText}</div>
+      </div>
+      <div className="flex-1">
+        <div
+          className="icon1 flex item-center justify-center"
+          onClick={() => dispatch(handleClearAlert())}
+        >
+          <RxCross1 />
+        </div>
       </div>
     </MessageContent>
   );
@@ -33,7 +40,7 @@ export default function Message({
 
 const MessageContent = styled.div`
   width: 550px;
-  padding: 1.6rem 2rem;
+  padding: 1rem 2rem;
   min-height: 6rem;
   background-color: #222;
   position: fixed;
@@ -62,7 +69,18 @@ const MessageContent = styled.div`
   .flex1 {
     flex: 1;
   }
-  .icon {
+  .icon1 {
+    cursor: pointer;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    transition: all 0.4s;
+    &:hover {
+      background-color: #f7f7f7;
+      svg {
+        color: #222;
+      }
+    }
     svg {
       font-size: 20px;
       color: var(--grey-2);

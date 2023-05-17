@@ -31,7 +31,7 @@ export default function InventoryIndex() {
           data-aos="slide-up"
           data-aos-duration="700"
         >
-          <Link to={"/avada/product"} className="inventoryBtn family1">
+          <Link to={"/car-dealership/inventory"} className="inventoryBtn family1">
             Search for all Cars
           </Link>
         </div>
