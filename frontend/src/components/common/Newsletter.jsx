@@ -57,6 +57,9 @@ const NewsletterContent = styled.div`
     @media (max-width: 1080px) {
       width: 100%;
     }
+    @media (max-width: 780px) {
+      padding: 5rem 2rem;
+    }
     .newsletterLeft {
       width: 100%;
       display: flex;

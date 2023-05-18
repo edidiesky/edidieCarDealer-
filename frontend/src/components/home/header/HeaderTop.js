@@ -147,9 +147,7 @@ const HeaderTopContainer = styled.div`
     @media (max-width: 1280px) {
       gap: 1rem;
     }
-    @media (max-width: 980px) {
-      padding: 0 6rem;
-    }
+
     @media (max-width: 780px) {
       padding: 2rem 3rem;
       width: 100%;

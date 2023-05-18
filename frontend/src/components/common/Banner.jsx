@@ -127,7 +127,7 @@ const ProductBannerContainer = styled.div`
       height: 100%;
       align-items: center;
       flex-direction: column;
-      gap: 1.7rem;
+      gap: 1rem;
       z-index: 30000;
       @media (max-width: 1080px) {
         width: 90%;
@@ -144,7 +144,7 @@ const ProductBannerContainer = styled.div`
         text-align: center;
 
         @media (max-width: 780px) {
-          font-size: 5rem;
+          font-size: 4rem;
         }
       }
     }

@@ -65,11 +65,11 @@ const PaymentIndexContainer = styled.div`
     padding-top: 1rem;
     font-family: "Barlow", sans-serif;
     @media (max-width: 780px) {
-      font-size: 2.4rem;
+      font-size: 1.8rem;
     }
     &.subtotal {
       padding: 1.4rem 0;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .subspan {
@@ -92,5 +92,8 @@ const PaymentIndexContainer = styled.div`
     padding: 1rem 0;
     width: 100%;
     text-align: start;
+    @media (max-width: 380px) {
+      font-size: 2.6rem;
+    }
   }
 `;

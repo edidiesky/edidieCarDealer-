@@ -14,8 +14,9 @@ export default function CartContent() {
       {bag?.length === 0 ? (
         <div className="flex gap-2 alerttop item-center justify-space">
           <h2>You have no items in your cart</h2>
-          <Link to={'/'}>
-            <BiCart fontSize={'24px'}/></Link>
+          <Link to={"/"}>
+            <BiCart fontSize={"24px"} />
+          </Link>
         </div>
       ) : (
         <>
@@ -45,7 +46,7 @@ export default function CartContent() {
 
 const CartContentContainer = styled.div`
   width: 100%;
-  border: 1px solid rgba(0,0,0,.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -55,11 +56,12 @@ const CartContentContainer = styled.div`
     display: none;
   }
 
+
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-color);
-    border-bottom: 1px solid rgba(0,0,0,.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding: 2rem 0;
     text-transform: uppercase;
   }
@@ -67,11 +69,11 @@ const CartContentContainer = styled.div`
   .alerttop {
     padding: 2rem 0;
     h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--text-color);
-    text-transform: uppercase;
-  }
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-color);
+      text-transform: uppercase;
+    }
   }
 
   table {
@@ -88,7 +90,7 @@ const CartContentContainer = styled.div`
           width: 100%;
           font-size: 1.8rem;
           padding: 2rem 0;
-          border-bottom: 1px solid rgba(0,0,0,.08);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           font-weight: 600;
           color: var(--dark-1);
           font-family: "Barlow", sans-serif;
@@ -102,7 +104,7 @@ const CartContentContainer = styled.div`
         td {
           text-align: center;
           padding: 2rem 0;
-          border-bottom: 1px solid rgba(0,0,0,.08);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           font-size: 1.7rem;
           font-weight: 400;
           font-family: "Barlow", sans-serif;
@@ -118,7 +120,7 @@ const CartContentContainer = styled.div`
             justify-content: center;
             cursor: pointer;
             &:hover {
-              background: rgba(0,0,0,.08);
+              background: rgba(0, 0, 0, 0.08);
             }
 
             svg {
@@ -166,8 +168,8 @@ const CartContentContainer = styled.div`
               color: #333;
               flex: 1;
               font-family: "Barlow", sans-serif;
-              border-bottom: 1px solid rgba(0,0,0,.08);
-              border-top: 1px solid rgba(0,0,0,.08);
+              border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+              border-top: 1px solid rgba(0, 0, 0, 0.08);
               height: 100%;
               display: grid;
               place-items: center;

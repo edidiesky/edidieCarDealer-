@@ -91,9 +91,6 @@ html {
   font-size: 62.5%;
 }
 
-p {
-  line-height: 35px;
-}
 .editBtn {
   border-radius: 40px;
   font-family: "Barlow", sans-serif;
@@ -182,7 +179,7 @@ h1 {
   box-shadow: none !important;
 }
 .multi-range-slider .bar-left,
-.multi-range-slider .bar-right{
+.multi-range-slider .bar-right {
   box-shadow: none !important;
   background-color: #dbdbdb !important;
 }

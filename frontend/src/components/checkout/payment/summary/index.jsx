@@ -46,7 +46,7 @@ const CartContentContainer = styled.div`
     flex: 1;
     justify-content: center;
     @media (max-width: 780px) {
-      font-size: 2.4rem;
+      font-size: 2rem;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
@@ -66,24 +66,20 @@ const CartContentContainer = styled.div`
     padding: 2rem 0;
   }
   .title {
-    font-size: 1.45rem;
+    font-size: 1.6rem;
     font-weight: 400;
     color: var(--dark-1);
     font-family: "Barlow", sans-serif;
-    @media (max-width: 780px) {
-      font-size: 2.4rem;
-    }
   }
 
   h4 {
     text-align: center;
     padding: 2rem 0;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.7rem;
+    font-weight: 600;
     font-family: "Barlow", sans-serif;
     color: var(--dark-1);
     @media (max-width: 780px) {
-      font-size: 2rem;
     }
   }
 
