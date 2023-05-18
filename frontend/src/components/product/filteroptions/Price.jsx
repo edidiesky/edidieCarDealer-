@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import Range from "./Range";
 
 export default function FilterPrices() {
-  const dispatch = useDispatch();
   const [minValue, setMinValue] = useState(23900);
   const [maxValue, setMaxValue] = useState(49500);
   // function handleRangeSlider(range) {

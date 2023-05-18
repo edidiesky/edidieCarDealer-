@@ -81,7 +81,7 @@ const SmallSidebarContent = styled.div`
     display: none;
   }
   .gradient1 {
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.1);
     position: absolute;
     width: 100%;
     height: 100%;

@@ -56,7 +56,6 @@ const CartContentContainer = styled.div`
     display: none;
   }
 
-
   h2 {
     font-size: 2.5rem;
     font-weight: 700;

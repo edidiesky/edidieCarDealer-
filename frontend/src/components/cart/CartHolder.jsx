@@ -6,11 +6,9 @@ import { calculateBagItem } from "../../Features";
 export default function CartHolder() {
   const dispatch = useDispatch();
   const { productDetails } = useSelector((store) => store.product);
-  const {
-    bag,
-    totalPrice,
-    TotalShoppingPrice,
-  } = useSelector((store) => store.bag);
+  const { bag, totalPrice, TotalShoppingPrice } = useSelector(
+    (store) => store.bag
+  );
 
   useEffect(() => {
     dispatch(calculateBagItem());
@@ -26,7 +24,7 @@ export default function CartHolder() {
       </h4>
       <div className="btnWrapper">
         <Link to={"/car-dealership/billing"} className="editBtn">
-          Proceed to Checkout
+          Place Order
         </Link>
       </div>
     </CartHolderContainer>
@@ -35,7 +33,7 @@ export default function CartHolder() {
 
 const CartHolderContainer = styled.div`
   padding: 4rem;
-  border: 1px solid rgba(0,0,0,.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   width: clamp(55%, 270px, 90%);
   display: flex;
   flex-direction: column;
@@ -87,8 +85,8 @@ const CartHolderContainer = styled.div`
     padding-top: 1rem;
     font-family: "Barlow", sans-serif;
     &.subtotal {
-      border-top: 1px solid rgba(0,0,0,.08);
-      border-bottom: 1px solid rgba(0,0,0,.08);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
       padding: 2.4rem 0;
     }
 
