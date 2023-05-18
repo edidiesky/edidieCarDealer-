@@ -8,28 +8,6 @@ export default function SliderSizes({
   setMaxValue
 }) {
 
-  // return (
-  //   <Box width={"100%"}>
-  //     {/* <Slider
-  //       valueLabelDisplay="auto"
-  //       value={value}
-  //       onChange={onChange}
-  //       aria-labelledby="range-slider"
-  //       getAriaValueText = {() => {
-  //         return `${value}`;
-  //      }}
-  //     /> */}
-  //     <Slider
-  //       getAriaLabel={() => "Select Range"}
-  //       value={value}
-  //       onChange={onChange}
-  //       valueLabelDisplay="auto"
-  //       getAriaValueText={() => {
-  //         return `${value}`;
-  //       }}
-  //     />
-  //   </Box>
-  // );
   return (
     <form className="w-100 flex">
       <div className=" w-100">

@@ -82,16 +82,20 @@ const FormContainer = styled.form`
   flex-direction: column;
   gap: 3rem;
   width: 100%;
+  .textarea {
+    height: 20rem;
+  }
 
   .submitReviewBtn {
     border: none;
     outline: none;
-    padding: 1.4rem 2rem;
+    padding: 1.4rem 6rem;
     background: var(--red);
     color: #fff;
     width: 250px;
     margin-top: 2rem;
     font-size: 1.6rem;
+    border-radius: none;
     color: #fff;
     cursor: pointer;
     &:hover {

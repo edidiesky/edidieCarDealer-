@@ -7,9 +7,9 @@ export default function FilterPrices() {
   const dispatch = useDispatch();
   const [minValue, setMinValue] = useState(23900);
   const [maxValue, setMaxValue] = useState(49500);
-  function handleRangeSlider(range) {
-    setRange(range);
-  }
+  // function handleRangeSlider(range) {
+  //   setRange(range);
+  // }
   return (
     <FilterPriceContent>
       <h2>Filter By Price</h2>
@@ -18,7 +18,6 @@ export default function FilterPrices() {
         setMaxValue={setMaxValue}
         minValue={minValue}
         setMinValue={setMinValue}
-        value={range}
       />
       <div className="priceWrapper">
         <button className="filterPriceBtn">Filter</button>
