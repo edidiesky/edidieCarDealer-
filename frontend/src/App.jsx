@@ -60,13 +60,13 @@ export default function App() {
         <Routes>
           <Route path={"/"} element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="car-dealership/auto-news" element={<News />} />
             <Route path="car-dealership/about" element={<About />} />
             <Route path="car-dealership/inventory" element={<ProductList />} />
             <Route path="car-dealership/auth/register" element={<Register />} />
             <Route path="car-dealership/auth/login" element={<Login />} />
             <Route path="car-dealership/blog" element={<Blog />} />
             <Route path="car-dealership/latest-offers" element={<Offer />} />
-            <Route path="car-dealership/about" element={<About />} />
             <Route path="car-dealership/contact" element={<Contact />} />
             <Route path="car-dealership/cart" element={<Cart />} />
             <Route
