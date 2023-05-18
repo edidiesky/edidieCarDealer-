@@ -91,7 +91,7 @@ import {
     updateCustomersOrderToIsDelivered,
     getCustomerOrderStats,
     handleStripeCheckout,
-    handleStripeKey
+    handlePaypalKey
 } from './order/orderReducer'
 import {
     orderPayReset,
@@ -163,7 +163,7 @@ export {
     updateCustomersOrderToIsDelivered,
     getCustomerOrderStats,
     handleStripeCheckout,
-    handleStripeKey,
+    handlePaypalKey,
 
     toggleStorageTheme,
     onloader,

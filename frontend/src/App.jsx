@@ -34,25 +34,34 @@ import {
   CreateProductIndex,
 } from "./screens/Dashboard/pages";
 import Billing from "./screens/Checkout";
+import { handlePaypalKey } from "./Features";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function App() {
+  const dispatch = useDispatch();
+  const { key } = useSelector((store) => store.order);
+
+
   useEffect(() => {
     AOS.init({
       once: true,
     });
-  }, []);
-  const [height, setHeight] = useState(0);
-  const initialOptions = {
-    "client-id":
-      "AZwhvDm_lNhSOcDkza_6-5Yzi8diCZA-FKB4kbmDq8QyZofI84RMZ5Ao3aXcdao09k6NOl0OMOUfPyNp",
-    currency: "USD",
-    intent: "capture",
-  };
-  useEffect(() => {
+    dispatch(handlePaypalKey());
     const container = document.querySelector(".based");
     const height = container.getBoundingClientRect().height;
     setHeight(height);
   }, []);
+  console.log(key);
+
+  
+  const [height, setHeight] = useState(0);
+
+  const initialOptions = {
+    "client-id":
+      "AesGwTDKvKuttIeVwpNrSRixe-sA7bnQuWG3MtEZZGQlgBCNVbOl5OfT__GWpXtW7uOiSh79OaSZDSa_",
+    currency: "USD",
+    intent: "capture",
+  };
 
   return (
     <PayPalScriptProvider options={initialOptions}>

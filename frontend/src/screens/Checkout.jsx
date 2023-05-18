@@ -76,20 +76,20 @@ export default function Billing() {
   };
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const handleAddressDetails = (e,type) => {
-    console.log(type)
+  const handleAddressDetails = (e, type) => {
+    console.log(type);
     e.preventDefault();
     dispatch(saveShippingAddress(formdata));
-    if (type ==='payment') {
-      setIndex(1)
+    if (type === "payment") {
+      setIndex(1);
     }
   };
 
   return (
     <>
       <Meta title="Checkout" />
-      <BillingContainer className="flex gap-2 column">
-        <Banner title="My Checkout" step1 step2="Billing" />
+      <Banner title="My Checkout" step1 step2="Billing" />
+      <BillingContainer className="flex w-90 auto gap-2 column">
         <div className="BillingWrapperTop">
           <p className="fs-18 family1">Hello</p>
           <p className="fs-18 family1">
@@ -122,9 +122,6 @@ export default function Billing() {
 const BillingContainer = styled.div`
   width: 100%;
   .BillingWrapperTop {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1600px;
     display: flex;
     align-items: center;
     justify-content: center;
