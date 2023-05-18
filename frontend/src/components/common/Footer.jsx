@@ -37,7 +37,10 @@ export default function Footer() {
             <FaPhoneAlt fontSize={"25px"} />
             Call (202) 1155-909
           </button>
-          <img src="../images/car-dealer-footer-logo-2x.png" alt="images" />
+          <img
+            src="https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/08/car-dealer-footer-logo-2x-200x123.png"
+            alt="images"
+          />
           <ul className="socialListWrapper flex item-center">
             {iconsListData.map((x) => {
               return (
