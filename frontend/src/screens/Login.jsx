@@ -85,7 +85,11 @@ export default function Auth() {
       <AuthContent>
         <div className="authContentWrapper">
           <div className="authContentForm">
-            <Message alertText={alertText} alertType={alertType} handleClearAlert={clearUserAlertError}/>
+            <Message
+              alertText={alertText}
+              alertType={alertType}
+              handleClearAlert={clearUserAlertError}
+            />
             <img
               src="/images/dealer1.png"
               alt="dealer-image"
@@ -123,7 +127,6 @@ export default function Auth() {
           </div>
         </div>
       </AuthContent>
-      <CopyRight />
     </>
   );
 }

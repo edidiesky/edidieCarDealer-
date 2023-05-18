@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Styled from 'styled-components'
-import { Banner3, Banner4, Footer, Newsletter } from '../components/common'
+import { Banner3, Banner4 } from '../components/common'
 import Contactindex from '../components/contact'
 export default function Contact() {
   useEffect(() => {
@@ -11,8 +11,6 @@ export default function Contact() {
       <Contactindex />
       <Banner3 />
       <Banner4 />
-      <Newsletter />
-      <Footer />
     </ContactContainer>
   )
 }

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import {
-  Footer,
-  Newsletter,
   Banner,
   Meta,
 } from "../components/common";
@@ -27,8 +25,6 @@ export default function Billing() {
           {index === 0 && <Billingindex />}
           {index === 1 && <PaymentIndex />}
         </div>
-        <Newsletter />
-        <Footer />
       </BillingContainer>
     </>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { Footer, Newsletter, Meta } from "../components/common";
+import { Meta } from "../components/common";
 import {
   getAllProduct,
   clearProductAlert,
@@ -26,11 +26,9 @@ export default function ProductList() {
 
   return (
     <>
-      <Meta title="Shop - Car Collection" />
+      <Meta title="Inventories - Car Collection" />
       <ProductListContainer>
         <Productindex />
-        <Newsletter />
-        <Footer />
       </ProductListContainer>
     </>
   );

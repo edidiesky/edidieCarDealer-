@@ -9,7 +9,7 @@ import { useParams, useLocation, useNavigate } from "react-router-dom";
 import LoaderIndex from "../components/loaders";
 import Message from "../components/loaders/Message";
 
-import { Footer, Newsletter, Meta } from "../components/common";
+import {  Meta } from "../components/common";
 import { CopyRight } from "../components/common";
 export default function Cart() {
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function Cart() {
 
   return (
     <>
-      <Meta title={"My Cart"} />
+      <Meta title={"Cart | Car Dealership"} />
       <CartContainer className="flex gap-2 column">
         {isLoading ? (
           <LoaderIndex loading={isLoading} />
@@ -52,8 +52,6 @@ export default function Cart() {
         ) : (
           <div className="flex gap-2 column">
             <Cartindex />
-            <Newsletter />
-            <Footer />
           </div>
         )}
       </CartContainer>

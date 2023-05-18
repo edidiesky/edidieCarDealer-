@@ -54,8 +54,7 @@ export default function Home() {
           <Banner3 />
           <Banner4 />
           <Blogindex />
-          <Newsletter />
-          <Footer />
+          
         </>
       </HomeContainer>
     </>
