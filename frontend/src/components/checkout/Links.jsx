@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 export default function Links({ index, setIndex, type, step1, step2, step3 }) {
   const { addressData, userInfo } = useSelector((store) => store.user);
-  console.log(addressData);
   if (type === "Details") {
     return (
       <LinkContainer>
@@ -44,7 +43,13 @@ export default function Links({ index, setIndex, type, step1, step2, step3 }) {
       </div>
       <div
         onClick={() => setIndex(1)}
-        className={index === 1 ? "nav-link family1 active" : addressData !== null ? "nav-link family1 disable" : "nav-link family1 disable"}
+        className={
+          index === 1
+            ? "nav-link family1 active"
+            : addressData !== null
+            ? "nav-link family1 disable"
+            : "nav-link family1 disable"
+        }
       >
         Review Payment
       </div>
