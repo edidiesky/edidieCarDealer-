@@ -15,7 +15,7 @@ const SidebarWrapper = styled.div`
   height: 100vh;
   top: 0%;
   position: sticky;
-  border-right: 1px solid rgba(0,0,0,.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
   @media (max-width: 780px) {
     display: inline-block;
     position: fixed;
@@ -84,7 +84,7 @@ const SidebarWrapper = styled.div`
         &.active {
           background: rgb(232 239 249 / 77%);
           position: relative;
-          color:var(--blue-2);
+          color: var(--blue-2);
         }
       }
     }
@@ -92,12 +92,12 @@ const SidebarWrapper = styled.div`
 `;
 
 export const sidebarData = [
-  {
-    id: 1,
-    icon1: <MdDashboard />,
-    title: "Dashboard",
-    path: "statistics",
-  },
+  // {
+  //   id: 1,
+  //   icon1: <MdDashboard />,
+  //   title: "Dashboard",
+  //   path: "statistics",
+  // },
   {
     id: 2,
     icon1: <HiOutlineShoppingCart />,

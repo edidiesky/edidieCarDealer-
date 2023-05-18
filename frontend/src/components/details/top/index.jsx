@@ -26,7 +26,7 @@ width:100%;
   width:90%;
   margin:0 auto;
   max-width:1600px;
-  padding:5rem 0;
+  padding:2rem 0;
   position:relative;
   display:grid;
   grid-template-columns:repeat(2, 1fr);
