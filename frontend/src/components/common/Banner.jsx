@@ -133,7 +133,7 @@ const ProductBannerContainer = styled.div`
         width: 90%;
       }
       @media (max-width: 780px) {
-        width: 90%;
+        width: 95%;
       }
       h2 {
         color: #fff;
