@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import { Input } from "../../forms";
-import { useDispatch } from "react-redux";
 
 import { inputData } from "../../../data/billingData";
 
@@ -14,7 +12,7 @@ export default function Billingindex({
   return (
     <BillingIndexContainer className="flex gap-2 column">
       <h2>Billing Details</h2>
-      <div className="formWrapper">
+      <form className="formWrapper" onSubmit={handleAddressDetails}>
         <div className="inputWrapper">
           {inputData.slice(0, 2).map((input, index) => {
             return (
@@ -54,11 +52,11 @@ export default function Billingindex({
           })}
         </div>
         <div className="btnWrapper">
-          <button type="submit" onClick={handleAddressDetails} className="btn">
+          <button type="submit"  className="btn">
             Continue
           </button>
         </div>
-      </div>
+      </form>
     </BillingIndexContainer>
   );
 }
@@ -80,7 +78,7 @@ const BillingIndexContainer = styled.div`
     padding: 1.4rem 0;
     width: 100%;
     text-align: start;
-    @media (max-width: 380px) {
+    @media (max-width: 480px) {
       font-size: 2.6rem;
     }
   }

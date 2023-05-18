@@ -38,8 +38,6 @@ export default function HeaderTop() {
   }, [thememode]);
 
   const [side, setSide] = useState(false);
-  const [toggle, setToggle] = useState(false);
-  const [task, setTask] = useState(false);
 
   const toggleSidebar = () => setSide(!side);
 
@@ -182,7 +180,7 @@ const HeaderTopContainer = styled.div`
         justify-content: center;
         cursor: pointer;
         transition: all 0.4s;
-        @media (min-width: 980px) {
+        @media (min-width: 880px) {
           display: none;
         }
         &:hover {
@@ -205,7 +203,7 @@ const HeaderTopContainer = styled.div`
       @media (max-width: 1280px) {
         gap: 1.9rem;
       }
-      @media (max-width: 980px) {
+      @media (max-width: 880px) {
         display: none;
       }
       .link {

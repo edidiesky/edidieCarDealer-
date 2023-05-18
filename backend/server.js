@@ -19,7 +19,6 @@ import userRoute from "./routes/userRoute.js";
 
 import uploadRoute from "./routes/uploadRoute.js";
 import orderRoute from "./routes/orderRoutes.js";
-// import { Stripepayment, getAllStripePaymentIntent } from './controllers/stripeController.js';
 
 app.use("/api/v1/product", productRoute);
 app.use("/api/v1/auth", userRoute);
@@ -30,12 +29,6 @@ app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
 
-app.get("/stripekey", (req, res) => {
-  res.send(process.env.STRIPE_KEY);
-});
-
-// app.post('/stripe', Stripepayment)
-// app.get('/payment_intents', getAllStripePaymentIntent)
 const __dirname = path.resolve();
 
 app.use(
