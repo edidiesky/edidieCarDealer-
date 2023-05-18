@@ -23,7 +23,6 @@ const FilterOptionsContainer = styled.div`
 
   @media (max-width: 760px) {
     position: relative;
-    height: 50rem;
   }
   h2 {
     font-size: 1.8rem;

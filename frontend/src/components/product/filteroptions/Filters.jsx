@@ -44,6 +44,7 @@ const FilterContent = styled.div`
   @media (max-width: 780px) {
     flex-wrap: wrap;
     flex-direction: row;
+    gap: 1rem;
   }
   .filterContentWrapper {
     display: flex;

@@ -36,7 +36,7 @@ export default function CartHolder() {
 const CartHolderContainer = styled.div`
   padding: 4rem;
   border: 1px solid rgba(0,0,0,.08);
-  width: clamp(45%, 220px, 90%);
+  width: clamp(55%, 270px, 90%);
   display: flex;
   flex-direction: column;
   gap: 2rem;

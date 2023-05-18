@@ -142,7 +142,8 @@ const CartContentContainer = styled.div`
 
             .imageWrapper {
               img {
-                width: 18rem;
+                width: 100%;
+                height: 15rem;
                 position: relative;
                 border-radius: 5px;
                 object-fit: cover;

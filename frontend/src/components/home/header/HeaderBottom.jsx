@@ -61,6 +61,7 @@ const HeaderBottomContainer = styled.div`
   background: var(--white);
   @media (max-width: 780px) {
     width: 90%;
+    padding: 1rem 0;
   }
   .HeaderBottomWrapper {
     display: flex;
@@ -70,7 +71,7 @@ const HeaderBottomContainer = styled.div`
     @media (max-width: 480px) {
       width: 100%;
       flex-direction: column;
-      padding: 3rem 2.4rem;
+      padding: 1.6rem 2rem;
       gap: 2rem;
       align-items: flex-start;
     }
@@ -109,7 +110,7 @@ const HeaderBottomContainer = styled.div`
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
       @media (max-width: 480px) {
         margin: 0;
         text-align: start;
