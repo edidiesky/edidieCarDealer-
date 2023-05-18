@@ -39,8 +39,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function App() {
   const dispatch = useDispatch();
-  const { key } = useSelector((store) => store.order);
-
+  const { keys } = useSelector((store) => store.order);
 
   useEffect(() => {
     AOS.init({
@@ -51,18 +50,14 @@ export default function App() {
     const height = container.getBoundingClientRect().height;
     setHeight(height);
   }, []);
-  console.log(key);
 
-  
   const [height, setHeight] = useState(0);
 
   const initialOptions = {
-    "client-id":
-      "AesGwTDKvKuttIeVwpNrSRixe-sA7bnQuWG3MtEZZGQlgBCNVbOl5OfT__GWpXtW7uOiSh79OaSZDSa_",
+    "client-id": keys,
     currency: "USD",
     intent: "capture",
   };
-
   return (
     <PayPalScriptProvider options={initialOptions}>
       <div className="based" style={{ height }}>

@@ -31,7 +31,7 @@ const initialState = {
   isStatError: false,
   isStatSuccess: false,
   keys: "",
-  stripeKey: "",
+  keys: "",
   orderpage: 1,
   ordernoOfpage: 0,
   totalorder: 0,
@@ -114,7 +114,7 @@ const orderSlice = createSlice({
     },
     [handlePaypalKey.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.stripeKey = action.payload;
+      state.keys = action.payload;
     },
     [handlePaypalKey.rejected]: (state, action) => {
       state.isLoading = false;

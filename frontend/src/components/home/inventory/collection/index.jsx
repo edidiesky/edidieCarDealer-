@@ -9,11 +9,10 @@ export default function CollectionIndex() {
   return (
     <CollectionContainer>
       {product?.map((x, index) => {
-        return <Card x={x} key={x.id} index={index}/>;
+        return <Card x={x} key={index} index={index} />;
       })}
     </CollectionContainer>
   );
-
 }
 
 const CollectionContainer = Styled.div`
