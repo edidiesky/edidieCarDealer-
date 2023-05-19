@@ -28,7 +28,7 @@ export default function TableCards({ x, type }) {
 
   // edit product function
   const handleEditProduct = () => {
-    navigate(`/dashboard/product/${x?._id}`);
+    navigate(`/car-dealership/dashboard/product/${x?._id}`);
   };
 
   // delete user function
@@ -38,7 +38,7 @@ export default function TableCards({ x, type }) {
 
   // edit user function
   const handleEditUser = () => {
-    navigate(`/dashboard/users/${x?._id}`);
+    navigate(`/car-dealership/dashboard/customer/${x?._id}`);
   };
 
   if (type === "users") {
@@ -135,7 +135,7 @@ export default function TableCards({ x, type }) {
         <td>
           <div className="cartProduct">
             <div className="imageWrapper">
-              {x?.image && <img src={x?.image[0]?.image} alt="images" />}
+              {x?.image && <img src={x?.image[0]} alt="images" />}
             </div>
           </div>
         </td>

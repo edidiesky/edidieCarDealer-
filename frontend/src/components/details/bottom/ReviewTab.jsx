@@ -63,7 +63,7 @@ export default function ReviewTab({ tabIndex }) {
             </div>
           )}
           {/*Check if the user is in the data base in order to leave a review*/}
-          {!userInfo ? (
+          {userInfo ? (
             <>
               <SelectReview />
               <Form />

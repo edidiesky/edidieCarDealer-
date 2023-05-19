@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
 import Product from "../models/Product.js";
 import mongoose from "mongoose";
-import moment from "moment/moment.js";
+import moment from "moment/moment.js";  
 // GET All Product
 //  Private
 const GetAllProduct = asyncHandler(async (req, res) => {
@@ -10,10 +10,21 @@ const GetAllProduct = asyncHandler(async (req, res) => {
   const search = req.query.search;
   const sort = req.query.sort;
   const colors = req.query.colors;
-
+  const minprice = req.query.minprice;
+  const category = req.query.category;
+  const maxprice = req.query.maxprice;
   const queryObject = {};
   let result = Product.find(queryObject);
 
+
+  // minimum price
+  if (minprice) {
+    queryObject.price = { $gt: minprice }
+  }
+  // maxprice
+  if (maxprice) {
+    queryObject.price = { $gt: maxprice }
+  }
   if (search) {
     queryObject.title = { $regex: search, $options: "i" };
   }
@@ -34,7 +45,7 @@ const GetAllProduct = asyncHandler(async (req, res) => {
     result = result.sort("-rating");
   }
 
-  const limit = req.query.limit || 6;
+  const limit = req.query.limit || 15;
   const page = req.query.page || 1;
   const skip = (page - 1) * limit;
 
@@ -74,8 +85,15 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
     size,
     price,
     countInStock,
+    shortdescription,
+    colors,
+    tags,
+    qualities,
+    capacity,
+    discount
   } = req.body;
   const { userId } = req.user;
+  // console.log(...tags);
 
   const product = await Product.create({
     title,
@@ -87,7 +105,14 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
     price,
     countInStock,
     user: userId,
+    shortdescription,
+    colors,
+    tags,
+    qualities,
+    capacity,
+    discount
   });
+
   res.status(200).json({ product });
 });
 
@@ -104,7 +129,13 @@ const UpdateProduct = asyncHandler(async (req, res) => {
     description,
     size,
     price,
-    countInstock,
+    countInStock,
+    shortdescription,
+    colors,
+    tags,
+    qualities,
+    capacity,
+    discount
   } = req.body;
   const product = await Product.findById({ _id: req.params.id });
 
@@ -112,9 +143,10 @@ const UpdateProduct = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Product does not exist");
   }
+
   const updatedproduct = await Product.findByIdAndUpdate(
     { _id: req.params.id },
-    {
+     {
       title,
       image,
       brand,
@@ -122,7 +154,13 @@ const UpdateProduct = asyncHandler(async (req, res) => {
       description,
       size,
       price,
-      countInstock,
+      countInStock,
+      shortdescription,
+      colors,
+      tags,
+      qualities,
+      capacity,
+      discount
     },
     { new: true }
   );
@@ -200,9 +238,9 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
   // get the total Product based on the title
   let stats = await Product.aggregate([
     // match the users to nothing
-    { $match: { } },
+    { $match: {} },
     // group based on year and month
-    
+
     {
       $group: {
         _id: {
@@ -213,7 +251,7 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
             $month: "$createdAt",
           },
         },
-       count: {$sum:1}
+        count: { $sum: 1 }
       },
     },
     { $sort: { "_id.year": -1, "_id.month": -1 } },
@@ -222,7 +260,7 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
   // // modify the stats
   stats = stats.map((stats) => {
     const {
-        count,
+      count,
       _id: { year, month },
     } = stats;
     const date = moment()
@@ -230,7 +268,7 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
       .year(year)
       .format("MMM Y");
 
-    return { date,count};
+    return { date, count };
   });
 
   res.status(200).json({ stats });

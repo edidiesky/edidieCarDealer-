@@ -7,14 +7,6 @@ import { registerCustomer, clearUserAlertError } from "../Features";
 import LoaderIndex from "../components/loaders";
 import { CopyRight } from "../components/common";
 import Message from "../components/loaders/Message";
-
-// HiOutlineHome
-// HiOutlineUsers
-// SiFacebookgaming
-// HiOutlineMenuAlt1
-// AiFillMessage
-// BsBellFill
-
 export default function Auth() {
   const navigate = useNavigate();
 
@@ -25,7 +17,6 @@ export default function Auth() {
     password: "",
     password2: "",
   });
-
   const inputData = [
     {
       id: 1,
@@ -67,8 +58,6 @@ export default function Auth() {
       errorMessage:
         "Password should be 8-20 characters Long and should include 1 letter and 1 special Character",
       required: true,
-      pattern:
-        "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[#$@!%&*?])[a-zA-Z0-9!#$@!%&*]{8,30}$",
     },
     {
       id: 5,
@@ -81,15 +70,20 @@ export default function Auth() {
       pattern: formdata.password,
     },
   ];
-
   const onChange = (e) => {
     setFormData({ ...formdata, [e.target.name]: e.target.value });
   };
 
   // getting the state from the slice
   const dispatch = useDispatch();
-  const { isLoading, isSuccess, userInfo, isError, alertText, alertType } =
-    useSelector((store) => store.user);
+  const {
+    isLoading,
+    isSuccess,
+    userInfo,
+    isError,
+    alertText,
+    alertType,
+  } = useSelector((store) => store.user);
 
   // performing form submission to backend
   const handleSubmit = (e) => {
@@ -102,7 +96,7 @@ export default function Auth() {
     if (isSuccess) {
       setTimeout(() => {
         clearUserAlertError();
-        navigate(`/auth/signin`);
+        navigate(`/car-dealership/auth/login`);
       }, 3000);
     }
   }, [navigate, isSuccess]);
@@ -122,16 +116,17 @@ export default function Auth() {
       <AuthContent>
         <div className="authContentWrapper">
           <div className="authContentForm">
-            {isSuccess && (
-              <Message alertText={alertText} alertType={alertType} />
-            )}
-            {isError && <Message alertText={alertText} alertType={alertType} />}
+            <Message
+              alertText={alertText}
+              alertType={alertType}
+              handleClearAlert={clearUserAlertError}
+            />
             <img
               src="/images/dealer1.png"
               alt="dealer-image"
               className="icon"
             />
-            <h2>
+            <h2 className="family1">
               Create an account
               <span className="userSpan">
                 Let's get started with your 30 day trial
@@ -156,15 +151,14 @@ export default function Auth() {
                 );
               })}
               <button className="submitBtn">SignIn with Avanda</button>
-              <p>
+              <p className="family1">
                 Already have an account?{" "}
-                <Link to={"/auth/signin"}>Login Now</Link>
+                <Link to={"/car-dealership/auth/login"}>Login Now</Link>
               </p>
             </form>
           </div>
         </div>
       </AuthContent>
-      <CopyRight />
     </>
   );
 }
@@ -187,10 +181,9 @@ const AuthContent = styled.div`
     .authContentForm {
       margin: 3rem auto;
       display: flex;
-      width: 40%;
+      width: 70%;
       align-items: center;
-      padding: 4.5rem 5.5rem;
-      border-radius: 10px;
+      padding: 2rem 5.5rem;
       flex-direction: column;
       gap: 2rem;
       z-index: 400;
@@ -211,7 +204,7 @@ const AuthContent = styled.div`
         height: 8rem;
       }
       h2 {
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 600;
         color: var(--text-color);
         width: 100%;
@@ -226,7 +219,7 @@ const AuthContent = styled.div`
         }
       }
       p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         font-weight: 600;
         color: var(--grey-2);
         width: 100%;
@@ -249,15 +242,16 @@ const AuthContent = styled.div`
           width: 100%;
           border: none;
           outline: none;
-          padding: 2rem 3rem;
-          font-size: 1.6rem;
+          padding: 1.7rem 3rem;
+          font-size: 1.8rem;
           margin: 1.4rem 0;
           font-weight: 600;
           color: #fff;
           background-color: var(--blue-1);
-          border-radius: 40px;
-          cursor: pointer;
+          border-radius: 45px;
           transition: all 0.5s;
+          text-transform: capitalize;
+          cursor: pointer;
           &:hover {
             background-color: var(--red);
           }

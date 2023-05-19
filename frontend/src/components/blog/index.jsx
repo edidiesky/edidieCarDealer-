@@ -10,8 +10,18 @@ export default function BlogIndex() {
           className="w-85 py-6 auto flex column gap-4"
           style={{ width: "65%" }}
         >
+          <div
+            className="imagewrappper1"
+            style={{ transform: "translateY(-30px)", zIndex: "3000" }}
+          >
+            <img
+              src="https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/03/compact-suvs-rank.jpg"
+              alt=""
+              className="w-100 h-100"
+            />
+          </div>
           <div className="flex column w-100 gap-2">
-            <p className="family1 fs-20 text-dark text-light">
+            <p className="family1 fs-18 text-dark text-light">
               A lacus vestibulum sed arcu non odio euismod. Accumsan in nisl
               nisi scelerisque eu ultrices. Duis ut diam quam nulla. Nascetur
               ridiculus mus mauris vitae ultricies leo integer malesuada.
@@ -21,7 +31,7 @@ export default function BlogIndex() {
               laoreet suspendisse. Sit amet luctus venenatis lectus magna.
               Curabitur gravida arcu ac tortor dignissim convallis aenean et.
             </p>
-            <p className="family1 fs-20 text-dark text-light">
+            <p className="family1 fs-18 text-dark text-light">
               Vel pretium lectus quam id leo in. Viverra nibh cras pulvinar
               mattis nunc sed blandit libero. Sit amet facilisis magna etiam
               tempor orci eu lobortis elementum. Pulvinar neque laoreet
@@ -33,7 +43,7 @@ export default function BlogIndex() {
             <h3 className="fs-35 text-extra-bold text-dark">
               Some Highlights About Car Buying
             </h3>
-            <p className="family1 fs-20 text-dark text-light">
+            <p className="family1 fs-18 text-dark text-light">
               Vel pretium lectus quam id leo in. Viverra nibh cras pulvinar
               mattis nunc sed blandit libero. Sit amet facilisis magna etiam
               tempor orci eu lobortis elementum. Pulvinar neque laoreet
@@ -46,7 +56,7 @@ export default function BlogIndex() {
             <h3 className="fs-35 text-extra-bold text-dark">
               What’s Trending In 2022
             </h3>
-            <p className="family1 fs-20 text-dark text-light">
+            <p className="family1 fs-18 text-dark text-light">
               Vel pretium lectus quam id leo in. Viverra nibh cras pulvinar
               mattis nunc sed blandit libero. Sit amet facilisis magna etiam
               tempor orci eu lobortis elementum. Pulvinar neque laoreet
@@ -54,7 +64,7 @@ export default function BlogIndex() {
               erat imperdiet sed.
             </p>
             {/* images */}
-            <p className="family1 fs-20 text-dark text-light">
+            <p className="family1 fs-18 text-dark text-light">
               Duis ut diam quam nulla. Nascetur ridiculus mus mauris vitae
               ultricies leo integer malesuada. Elementum nibh tellus molestie
               nunc non blandit massa enim nec. Cursus risus at ultrices mi
@@ -67,15 +77,17 @@ export default function BlogIndex() {
           </div>
 
           <div className="flex w-100 gap-1 column">
-            <h3 className="fs-20 text-extra-bold text-dark">Leave A Comment</h3>
+            <h3 className="fs-18 text-extra-bold text-dark">Leave A Comment</h3>
             <textarea className="textarea" placeholder="Send a message" />
             <div className="flex w-100 gap-1 item-center">
-              <input type="text" placeholder="Name (required)" />
-              <input type="text" placeholder="Email (required)" />
-              <input type="text" placeholder="Message" />
+              <input className="input family1" type="text" placeholder="Name (required)" />
+              <input className="input family1" type="text" placeholder="Email (required)" />
+              <input className="input family1" type="text" placeholder="Message" />
             </div>
             <div className="w-100 py-2">
-              <button className="btn red fs-16 py-2 px-2 text-white text-bold">Post Comment</button>
+              <button className="btn red fs-16 py-2 px-2 text-white text-bold">
+                Post Comment
+              </button>
             </div>
           </div>
         </div>

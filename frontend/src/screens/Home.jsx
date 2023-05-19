@@ -29,9 +29,7 @@ export default function Home() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
-  const {} = useSelector(
-    (store) => store.product
-  );
+  const {} = useSelector((store) => store.product);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -47,7 +45,6 @@ export default function Home() {
       <HomeContainer>
         <>
           <Heroindex />
-          <CartSidebar />
           <SearchIndex />
           <ServicesIndex />
           <Brandindex />
@@ -57,8 +54,7 @@ export default function Home() {
           <Banner3 />
           <Banner4 />
           <Blogindex />
-          <Newsletter />
-          <Footer />
+          
         </>
       </HomeContainer>
     </>

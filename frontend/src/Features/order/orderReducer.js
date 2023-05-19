@@ -58,6 +58,25 @@ export const handleStripeKey = createAsyncThunk(
   }
 );
 
+export const handlePaypalKey = createAsyncThunk(
+  '/order/api/config/paypal',
+  async (orderItems, thunkAPI) => {
+    const state = thunkAPI.getState()
+    try {
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`
+        }
+      }
+      const { data } = await axios.get('/api/config/paypal', orderItems, config);
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response && error.response.data.message
+        ? error.response.data.message : error.message);
+    }
+  }
+);
 
 
 export const getCustomerOrderById = createAsyncThunk(

@@ -1,57 +1,38 @@
 import React from "react";
 import styled from "styled-components";
-import { addProductToCart } from "../../Features";
-import { useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Card({ x, index }) {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleAddToCart = (x) => {
-    const payload = {
-      title: x.title,
-      _id: x._id,
-      image: x.image,
-      price: x.price,
-      countInstock: x.countInstock,
-      brand: x.brand,
-      quantity: 1,
-    };
-    dispatch(addProductToCart(payload));
-  };
-
   return (
     <div className="w-100 hidden">
       <CardContainer
-        data-aos="fade-up"
-        data-aos-duration="900"
-        data-aos-delay={index * 200}
+        data-aos="fade"
+        data-aos-duration="1200"
+        data-aos-delay={index * 350}
+        key={index}
       >
         <div className="cardWrapper">
-          <div className="FeatImage">
+          <Link to={`/car-dealership/cars/${x._id}`} className="FeatImage">
             {x?.image && (
-              <img
-                src={x?.image[0]?.image}
-                className="cardImage"
-                alt="card-images"
-              />
+              <img src={x?.image[0]} className="cardImage" alt="card-images" />
             )}
             <div className="imageGradient flex item-center justify-center">
-              <div className="cardSpanWrapper justify-center flex item-center column gap-1">
-                <h2 className="fs-24 text-extra-bold text-white">{x?.title}</h2>
-                {!x?.percentage ? (
+              <div className="cardSpanWrapper w-100 justify-center flex item-center column">
+                <h2 className="fs-30 w-90 auto text-center text-extra-bold text-white">
+                  {x?.title}
+                </h2>
+                {x?.discount ? (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
-                    ${(x?.price * x?.percentage) / 100}{" "}
+                    <span className="">${x?.discount}</span>{" "}
                     <span className="line">${x?.price}</span>
                   </p>
                 ) : (
                   <p className="fs-24 text-white justify-center flex item-center gap-1 family1">
-                    ${x?.price}{" "}
+                    <span className="line">${x?.price}</span>
                   </p>
                 )}
               </div>
             </div>
-          </div>
+          </Link>
           <header>
             <Link className="titleDetails" to={`/car-dealership/cars/${x._id}`}>
               {x?.title}
@@ -70,7 +51,8 @@ export default function Card({ x, index }) {
             </div>
             <div className="cardBottom">
               <p className="cardPrice">
-                Price: <span className="pricespan">${x?.price}</span>
+                <span>Price:</span>{" "}
+                <span className="pricespan">${x?.price}</span>
                 {x?.percentage ? (
                   <span className="percentageSpan">
                     {x?.percentage && x?.percentage}% off
@@ -123,13 +105,13 @@ const CardContainer = styled.div`
       place-items: center;
       position: relative;
       height: 35rem;
+      @media (max-width: 580px) {
+        height: 30rem;
+      }
       .cardImage {
         width: 100%;
-        object-fit: cover;
         position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
+        height: 35rem;
       }
       .cardOptions {
         position: absolute;
@@ -211,20 +193,19 @@ const CardContainer = styled.div`
         left: 0;
         height: 100%;
         width: 100%;
-        background: var(--gradient1);
+        background: hsla(215, 74%, 12%, calc(100% - 40%));
         display: flex;
         top: 100%;
-        opacity: 0.8;
 
         align-items: center;
         justify-content: center;
-        transition: all 0.3s ease;
+        transition: all 0.5s ease;
       }
     }
 
     header {
       width: 90%;
-      padding: 3rem;
+      padding: 4rem 3rem;
       background: var(--white);
       transform: translateY(-45px);
       display: flex;
@@ -233,9 +214,10 @@ const CardContainer = styled.div`
 
       @media (max-width: 980px) {
         padding: 4rem 2rem;
+        width: 100%;
       }
       .titleDetails {
-        font-size: 2rem;
+        font-size: 2.4rem;
         font-weight: 700;
         color: var(--text-color);
         &:hover {
@@ -245,14 +227,14 @@ const CardContainer = styled.div`
       .category {
         padding: 1rem 0;
         .tagspan {
-          font-size: 1.6rem;
-          font-weight: 300;
-          color: var(--grey);
+          font-size: 1.8rem;
+          font-weight: 400;
+          color: var(--dark-1);
           margin: 0.4rem 0.8rem;
           font-family: "Barlow", sans-serif;
           display: inline-block;
           @media (max-width: 480px) {
-            font-size: 2rem;
+            font-size: 1.8rem;
           }
           position: relative;
           &::after {
@@ -277,7 +259,7 @@ const CardContainer = styled.div`
         @media (max-width: 360px) {
         }
         .cardPrice {
-          font-size: 1.6rem;
+          font-size: 1.8rem;
           color: var(--grey);
           display: flex;
           align-items: center;
@@ -285,6 +267,7 @@ const CardContainer = styled.div`
           justify-content: center;
           @media (max-width: 480px) {
             align-items: flex-start;
+            flex-direction: column;
           }
           .percentageSpan {
             display: inline-block;
@@ -296,13 +279,12 @@ const CardContainer = styled.div`
             font-family: "Barlow", sans-serif;
           }
           .pricespan {
-            font-size: 2.4rem;
+            font-size: 2.8rem;
             color: var(--red);
             font-weight: 600;
             display: inline-block;
             @media (max-width: 380px) {
-              margin-left: 6px;
-              font-size: 3.5rem;
+              display: block;
             }
           }
         }

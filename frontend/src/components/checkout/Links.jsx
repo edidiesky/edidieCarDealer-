@@ -1,6 +1,17 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-export default function Links({ index, setIndex, type, step1, step2, step3 }) {
+export default function Links({
+  handleAddressDetails,
+  index,
+  setIndex,
+  type,
+  step1,
+  step2,
+  step3,
+}) {
+  const { addressData } = useSelector((store) => store.user);
+
   if (type === "Details") {
     return (
       <LinkContainer>
@@ -39,12 +50,14 @@ export default function Links({ index, setIndex, type, step1, step2, step3 }) {
       >
         Billing Details
       </div>
-      <div
-        onClick={() => setIndex(1)}
-        className={index === 1 ? "nav-link family1 active" : "nav-link family1"}
+      <form
+        onClick={(e) => handleAddressDetails(e, "payment")}
+        className={
+          index === 1 ? "nav-link family1 active" : "nav-link family1 disable"
+        }
       >
         Review Payment
-      </div>
+      </form>
     </LinksContainer>
   );
 }
@@ -66,20 +79,23 @@ const LinkContainer = styled.div`
   }
   .nav-link {
     background: transparent;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 400;
     padding: 1.4rem;
     color: var(--blue-2);
     cursor: pointer;
+    &.disable {
+      z-index: -1;
+      &:hover {
+        color: red;
+      }
+    }
     @media (max-width: 780px) {
       border-bottom: none;
-      font-size: 2rem;
+      font-size: 1.8rem;
       flex: 1;
       text-align: center;
       padding: 1rem 0;
-    }
-    @media (max-width: 780px) {
-      font-size: 2.4rem;
     }
     &.active {
       color: var(--red);
@@ -109,13 +125,10 @@ const LinksContainer = styled.div`
       cursor: pointer;
       @media (max-width: 780px) {
         border-bottom: none;
-        font-size: 2rem;
+        font-size: 1.8rem;
         flex: 1;
         text-align: center;
         padding: 1rem 0;
-      }
-      @media (max-width: 780px) {
-        font-size: 2.4rem;
       }
       &.active {
         color: var(--red);
@@ -126,9 +139,6 @@ const LinksContainer = styled.div`
     flex-direction: row;
     gap: 0;
     align-items: center;
-  }
-  @media (max-width: 780px) {
-    font-size: 2.4rem;
   }
   .nav-link {
     padding: 1.4rem 0;
@@ -144,13 +154,10 @@ const LinksContainer = styled.div`
     cursor: pointer;
     @media (max-width: 780px) {
       border-bottom: none;
-      font-size: 2rem;
+      font-size: 1.9rem;
       flex: 1;
       text-align: center;
       padding: 1rem 0;
-    }
-    @media (max-width: 780px) {
-      font-size: 2.4rem;
     }
     &.active {
       color: var(--red);

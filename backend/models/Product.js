@@ -58,6 +58,13 @@ const ProductSchema = new mongoose.Schema({
 		type:String,
 		required:true,
 	},
+	qualities:{
+		type:String,
+	},
+	shortdescription:{
+		type:String,
+		required:true,
+	},
 	rating:{
 		type:Number,
 		required:true,
@@ -66,6 +73,9 @@ const ProductSchema = new mongoose.Schema({
 	price:{
 		type:Number,
 		required:true,
+	},
+	discount:{
+		type:Number,
 	},
 	countInStock:{
 		type:Number,

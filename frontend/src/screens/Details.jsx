@@ -52,7 +52,6 @@ export default function Details() {
         <DeatailsTopindex />
         <DetailsBottomindex />
         <RecentProductindex />
-        <CopyRight />
       </DetailsContainer>
     </>
   );

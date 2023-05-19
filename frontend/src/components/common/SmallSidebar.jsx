@@ -5,10 +5,10 @@ import {RxCross2} from 'react-icons/rx'
 
 const sidebarData = [
   {id:1, title:'Home', path:''},
-  {id:2, title:'Product', path:'/avada/product'},
-  {id:3, title:'About Us', path:""},
-  {id:4, title:'Latest News', path:"auto-news"},
-  {id:5, title:'Contact', path:'avada/contact'},
+  {id:2, title:'Product', path:'/car-dealership/inventory'},
+  {id:3, title:'About Us', path:"/car-dealership/about"},
+  {id:4, title:'Latest Offer', path:"/car-dealership/latest-offers"},
+  {id:5, title:'Contact', path:'/car-dealership/contact'},
 ]
 export default function SmallSidebar({side, toggleSidebar}) {
 
@@ -18,7 +18,7 @@ export default function SmallSidebar({side, toggleSidebar}) {
         <div className="barWrapper1">
             <RxCross2 onClick={toggleSidebar}/>
         </div>
-        <div className="smallSidebarWrapper">
+        <div className="smallSidebarWrapper family1">
             {
             sidebarData.map(x=> {
                     return <Link to={`${x.path}`} key={x.id} onClick={toggleSidebar}>

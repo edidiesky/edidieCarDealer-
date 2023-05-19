@@ -4,8 +4,8 @@ import { FaSearch, FaLink } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export default function BlogCard({ x }) {
   return (
-    <CardContainer key={x.id}>
-      <Link to={'/blog'} className="imageWrapper">
+    <CardContainer key={x.id} className="flex column gap-2">
+      <Link to={"/car-dealership/blog"} className="imageWrapper">
         <img src={x.image} className="cardImage" alt="blog-images" />
         <div className="imageDetails">
           <FaLink />
@@ -37,12 +37,12 @@ export default function BlogCard({ x }) {
 
 const CardContainer = styled.div`
   width: 100%;
+  position: relative;
   .imageWrapper {
     width: 100%;
     position: relative;
     height: 40rem;
-    position: relative;
-    overflow-y: hidden;
+    overflow: hidden;
     &:hover .imageDetails {
       top: 0;
     }
@@ -86,8 +86,7 @@ const CardContainer = styled.div`
     gap: 2rem;
     align-items: flex-start;
     @media (max-width: 980px) {
-      padding: 2rem 2rem;
-      width: 95%;
+      width: 100%;
     }
     .btnWrapper {
       width: 100%;
@@ -115,12 +114,16 @@ const CardContainer = styled.div`
       color: var(--text-color);
     }
     p {
-      font-size: 1.89rem;
+      font-size: 1.8rem;
       font-weight: 400;
       z-index: 400;
       line-height: 1.7;
       text-align: start;
       font-family: "Barlow", sans-serif;
+      @media (max-width: 580px) {
+        font-size: 1.6rem;
+        padding: 0;
+      }
     }
     .category {
       display: flex;
@@ -137,7 +140,7 @@ const CardContainer = styled.div`
         color: var(--grey);
         font-family: "Barlow", sans-serif;
         @media (max-width: 480px) {
-          font-size: 2rem;
+          font-size: 1.6rem;
         }
       }
       .categoryWrapper {
@@ -148,12 +151,6 @@ const CardContainer = styled.div`
           color: var(--blue-1);
           margin: 0.6rem 0.8rem;
           display: inline-block;
-          @media (max-width: 480px) {
-            font-size: 2rem;
-          }
-          @media (max-width: 480px) {
-            font-size: 2rem;
-          }
           position: relative;
           &::after {
             position: absolute;

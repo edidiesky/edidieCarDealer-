@@ -28,7 +28,7 @@ export default function SmallCard({ x, type }) {
           <RxCross2 className="icon" />
         </div>
         <div className="imageWrapper">
-          <img src={x?.image[0].image} alt="images" />
+          <img src={x?.image[0]} alt="images" />
         </div>
 
         <div className="cartSidebarCCenter">

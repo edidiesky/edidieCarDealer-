@@ -10,16 +10,20 @@ import {
   onCartAlert,
 } from "../../Features";
 import { RxCross1 } from "react-icons/rx";
+import styled from "styled-components";
 
 export default function Card({ x, type }) {
   const dispatch = useDispatch();
   if (type === "payment") {
     return (
-      <div key={x?._id} className="flex card w-100 item-center justify-space">
-        <div className="flex item-center gap-2 ">
+      <CardContent2
+        key={x?._id}
+        className="flex card w-100 item-center justify-space"
+      >
+        <div className="flex item-center cardTop2 gap-2 ">
           <div className="cartProduct">
             <div className="imageWrapper">
-              <img src={x?.image[0].image} alt="images" />
+              <img src={x?.image[0]} alt="images" />
             </div>
           </div>
           <div className="title w-100 flex item-center gap-1">
@@ -30,7 +34,7 @@ export default function Card({ x, type }) {
         <div className="price fs-16 family1 text-dark">
           {x?.price * x?.quantity}
         </div>
-      </div>
+      </CardContent2>
     );
   }
 
@@ -44,7 +48,7 @@ export default function Card({ x, type }) {
       <td>
         <div className="cartProduct">
           <div className="imageWrapper">
-            <img src={x?.image[0].image} alt="images" />
+            <img src={x?.image[0]} alt="images" />
           </div>
         </div>
       </td>
@@ -81,3 +85,11 @@ export default function Card({ x, type }) {
     </tr>
   );
 }
+
+const CardContent2 = styled.div`
+  .cardTop2 {
+    @media (max-width: 450px) {
+      flex-direction: column;
+    }
+  }
+`;

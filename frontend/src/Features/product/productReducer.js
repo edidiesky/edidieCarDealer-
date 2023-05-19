@@ -7,11 +7,31 @@ export const getAllProduct = createAsyncThunk(
   async (name, thunkAPI) => {
     try {
       const { page, category, search, sort, color, limit } = thunkAPI.getState().product
-      let productUrl = `/api/v1/product?page=${page}&category=${category}&sort=${sort}&color=${color}&limit=${limit}`
+      let productUrl = `/api/v1/product`
+      const config = {
+        headers: {
+          "content-type": "application/json"
+        }
+      }
+      if (page) {
+        productUrl = productUrl + `?page=${page}`
+      }
+      if (category) {
+        productUrl = productUrl + `?category=${category}`
+      }
+      if (sort) {
+        productUrl = productUrl + `?sort=${sort}`
+      }
+      if (color) {
+        productUrl = productUrl + `?color=${color}`
+      }
+      if (limit) {
+        productUrl = productUrl + `?limit=${limit}`
+      }
       if (search) {
         productUrl = productUrl + `&search=${search}`
       }
-      const { data } = await axios.get(productUrl);
+      const { data } = await axios.get(productUrl,config);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response && error.response.data.message
@@ -19,9 +39,6 @@ export const getAllProduct = createAsyncThunk(
     }
   }
 );
-
-
-
 
 
 // fetching all product category
@@ -87,7 +104,8 @@ export const adminUpdateProduct = createAsyncThunk(
     try {
       const config = {
         headers: {
-          authorization: `Bearer ${state.user.token}`
+          authorization: `Bearer ${state.user.token}`,
+          "content-type": "application/json"
         }
       }
       const { _id } = state.product.productDetails

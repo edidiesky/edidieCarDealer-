@@ -5,7 +5,7 @@ export const ProtectRoute =({children})=> {
   // const navigate = useNavigate()
  const {userInfo} = useSelector(store=> store.user)
  if (!userInfo) {
-  return <Navigate to='/auth/signin'/>
+  return <Navigate to='/car-dealership/auth/login'/>
  }
 
  return (

@@ -42,7 +42,6 @@ const PaymentIndexContainer = styled.div`
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
   .payment {
     width: 40%;
     @media (max-width: 680px) {
@@ -62,14 +61,13 @@ const PaymentIndexContainer = styled.div`
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--dark-1);
-    padding-top: 1rem;
     font-family: "Barlow", sans-serif;
     @media (max-width: 780px) {
-      font-size: 2.4rem;
+      font-size: 1.8rem;
     }
     &.subtotal {
       padding: 1.4rem 0;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .subspan {
@@ -92,5 +90,8 @@ const PaymentIndexContainer = styled.div`
     padding: 1rem 0;
     width: 100%;
     text-align: start;
+    @media (max-width: 380px) {
+      font-size: 2.6rem;
+    }
   }
 `;

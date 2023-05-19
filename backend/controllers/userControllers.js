@@ -86,7 +86,7 @@ const LoginUser = asyncHandler(async (req, res) => {
       lastname: user.lastname,
     },
     process.env.JWT_CODE,
-    { expiresIn: "3d" }
+    { expiresIn: "2d" }
   );
 
   res.status(200).json({ user, token });

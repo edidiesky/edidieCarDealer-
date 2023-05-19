@@ -8,7 +8,7 @@ export default function Cartindex() {
   return (
     <CartContainer className="flex gap-2 column">
       <Banner title="My Cart" step1 step2="Cart" />
-      <div className="cartHolderWrapper">
+      <div className="cartHolderWrapper w-90 auto">
         <CartContent />
         <SmallCartCard />
         <CartHolder />
@@ -21,9 +21,6 @@ const CartContainer = styled.div`
   width: 100%;
 
   .cartHolderWrapper {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1600px;
     display: flex;
     align-items: flex-end;
     flex-direction: column;

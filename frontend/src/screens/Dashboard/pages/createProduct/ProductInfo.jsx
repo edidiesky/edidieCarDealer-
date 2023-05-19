@@ -7,7 +7,6 @@ export default function EditProductInfo({
   formdata2,
   setFormData2,
 }) {
-
   const inputData1 = [
     {
       id: 1,
@@ -58,11 +57,22 @@ export default function EditProductInfo({
               id="text"
             />
           </label>
-
+          <label htmlFor="text" className="textLabel">
+            Product shortdescription
+            <textarea
+              type="text"
+              className="textarea"
+              placeholder="Place a shortdescription on the Car"
+              name="shortdescription"
+              value={formdata2.shortdescription}
+              onChange={onChange2}
+              id="text"
+            />
+          </label>
           <label htmlFor="Additional" className="textLabel">
             Product Additional Info
             <textarea
-            className="textarea"
+              className="textarea"
               type="text"
               placeholder="Place insert Additional Info on the Car"
               id="Additional"

@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Message from "../loaders/Message";
 import Card from "./Card";
+import { BiCart } from "react-icons/bi";
 export default function CartContent() {
   // get the cart content
   const { bag } = useSelector((store) => store.bag);
@@ -10,7 +12,12 @@ export default function CartContent() {
   return (
     <CartContentContainer>
       {bag?.length === 0 ? (
-        <Message alertText="No items in your bag" alertType={"danger"} />
+        <div className="flex gap-2 alerttop item-center justify-space">
+          <h2>You have no items in your cart</h2>
+          <Link to={"/"}>
+            <BiCart fontSize={"24px"} />
+          </Link>
+        </div>
       ) : (
         <>
           <h2>You have {bag?.length} items in your cart</h2>
@@ -39,7 +46,7 @@ export default function CartContent() {
 
 const CartContentContainer = styled.div`
   width: 100%;
-  border: 1px solid rgba(0,0,0,.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -50,12 +57,22 @@ const CartContentContainer = styled.div`
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-color);
-    border-bottom: 1px solid rgba(0,0,0,.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding: 2rem 0;
     text-transform: uppercase;
+  }
+
+  .alerttop {
+    padding: 2rem 0;
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-color);
+      text-transform: uppercase;
+    }
   }
 
   table {
@@ -70,10 +87,10 @@ const CartContentContainer = styled.div`
         padding: 2rem 0;
         th {
           width: 100%;
-          font-size: 1.4rem;
+          font-size: 1.8rem;
           padding: 2rem 0;
-          border-bottom: 1px solid rgba(0,0,0,.08);
-          font-weight: 700;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          font-weight: 600;
           color: var(--dark-1);
           font-family: "Barlow", sans-serif;
         }
@@ -86,8 +103,8 @@ const CartContentContainer = styled.div`
         td {
           text-align: center;
           padding: 2rem 0;
-          border-bottom: 1px solid rgba(0,0,0,.08);
-          font-size: 1.4rem;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          font-size: 1.7rem;
           font-weight: 400;
           font-family: "Barlow", sans-serif;
           color: var(--grey);
@@ -102,7 +119,7 @@ const CartContentContainer = styled.div`
             justify-content: center;
             cursor: pointer;
             &:hover {
-              background: rgba(0,0,0,.08);
+              background: rgba(0, 0, 0, 0.08);
             }
 
             svg {
@@ -111,7 +128,7 @@ const CartContentContainer = styled.div`
           }
 
           &.title {
-            font-size: 1.4rem;
+            font-size: 1.7rem;
             font-weight: 400;
             color: var(--blue-1);
           }
@@ -124,9 +141,9 @@ const CartContentContainer = styled.div`
 
             .imageWrapper {
               img {
-                width: 10rem;
+                width: 100%;
+                height: 15rem;
                 position: relative;
-                height: 10rem;
                 border-radius: 5px;
                 object-fit: cover;
               }
@@ -146,13 +163,13 @@ const CartContentContainer = styled.div`
             justify-content: center;
             margin: 0 auto;
             h3 {
-              font-size: 1.4rem;
+              font-size: 1.7rem;
               font-weight: 600;
               color: #333;
               flex: 1;
               font-family: "Barlow", sans-serif;
-              border-bottom: 1px solid rgba(0,0,0,.08);
-              border-top: 1px solid rgba(0,0,0,.08);
+              border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+              border-top: 1px solid rgba(0, 0, 0, 0.08);
               height: 100%;
               display: grid;
               place-items: center;

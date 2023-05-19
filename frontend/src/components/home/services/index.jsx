@@ -6,34 +6,37 @@ const data = [
   {
     id: 1,
     title: "Extensive Inventory",
+    image: "https://v2.brittanychiang.com/img/icons/settings.png",
     desc:
       "Incididunt labore dolore magna aliqua enim veniam quis nostrud ad miniys exercitation ullamco laboris nisiut aliquip.",
   },
   {
     id: 2,
     title: "Secure Car Financing",
+    image: "https://v2.brittanychiang.com/img/icons/repair-tools.png",
     desc:
       "Incididunt labore dolore magna aliqua enim veniam quis nostrud ad miniys exercitation ullamco laboris nisiut aliquip.",
   },
   {
     id: 3,
     title: "Extensive Dealer Network",
+    image: "https://v2.brittanychiang.com/img/icons/light-bulb.png",
     desc:
       "Incididunt labore dolore magna aliqua enim veniam quis nostrud ad miniys exercitation ullamco laboris nisiut aliquip.",
   },
 ];
 export default function ServicesIndex() {
-  const [tag, setTag] = useState([])
-  const handleKeyDown = (e)=> {
-    if (e.key !== "Enter") return
-    const value = e.target.value
-    if (!value.trim()) return
-    setTag([...tag, value])
-  }
+  const [tag, setTag] = useState([]);
+  const handleKeyDown = (e) => {
+    if (e.key !== "Enter") return;
+    const value = e.target.value;
+    if (!value.trim()) return;
+    setTag([...tag, value]);
+  };
   // <input onKeyDown={handleKeyDown} type='text'/>
   return (
     <ServicesContainer>
-      <div className="serviceWrapper">
+      <div className="serviceWrapper w-90 auto">
         {data.map((x, index) => {
           return (
             <div className="w-100 hidden">
@@ -43,11 +46,20 @@ export default function ServicesIndex() {
                 data-aos-duration="1100"
                 data-aos-delay={index * 300}
               >
-                <div className="iconImage">
-                  <FaCar />
+                <div className="iconImage flex column item-center justify-center">
+                  <img src={x.image} alt="" className="icon" />
+                  <span>
+                    <img
+                      src="/images/heading-separator.png"
+                      alt="title-images"
+                      className="titleIcon"
+                    />
+                  </span>
                 </div>
-                <h2>{x.title}</h2>
-                <p>{x.desc}</p>
+                <div className="flex column gap-1">
+                  <h2>{x.title}</h2>
+                  <p>{x.desc}</p>
+                </div>
               </header>
             </div>
           );
@@ -58,18 +70,14 @@ export default function ServicesIndex() {
 }
 
 const ServicesContainer = styled.div`
-  width: 95%;
-  margin: 0 auto;
   z-index: 1000;
   padding: 4rem 0;
   padding-bottom: 8rem;
-  max-width: 1600px;
-  margin: 0 auto;
   .serviceWrapper {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
+    grid-gap: 4rem;
     @media (max-width: 780px) {
       grid-template-columns: repeat(1, 1fr);
       grid-row-gap: 4rem;
@@ -77,15 +85,28 @@ const ServicesContainer = styled.div`
     header {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 2rem;
       .iconImage {
-        width: 15rem;
-        height: 16rem;
         margin: 0 auto;
-        svg {
-          width: 90%;
-          height: 90%;
-          color: var(--blue-2);
+        .icon {
+          width: 70px;
+          height: 75px;
+          margin: 0 auto;
+          filter: brightness(0%);
+          transition: all 0.4s ease;
+          @media (max-width: 580px) {
+            width: 40px;
+          }
+          &:hover {
+            filter: brightness(30%);
+          }
+        }
+      }
+      span {
+        display: block;
+        .titleIcon {
+          width: 9rem;
+          margin: 2rem auto;
         }
       }
       p {
@@ -107,6 +128,7 @@ const ServicesContainer = styled.div`
         font-weight: 700;
         color: var(--dark-1);
         text-align: center;
+
         @media (max-width: 480px) {
           font-size: 2.8rem;
         }

@@ -14,18 +14,6 @@ const users = [
     postalCode: "78764",
   },
   {
-    lastname: "Boram",
-    email: "rboram0@drupal.org",
-    phone: "612 484 7315",
-    firstname: "Rora",
-    address: "3449 Northland Alley",
-    country: "Guatemala",
-    postalCode: "16005",
-    createdAt: "8/6/2022",
-    password: bcrypt.hashSync("eAdg145%1", 10),
-    isAdmin: false,
-  },
-  {
     lastname: "McRobert",
     email: "emcrobert1@yolasite.com",
     phone: "639 404 8339",

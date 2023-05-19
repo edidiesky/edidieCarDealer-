@@ -32,6 +32,7 @@ export default function Products() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    dispatch(clearProductDetails());
     dispatch(getAllProduct());
   }, [page, dispatch]);
 
@@ -48,12 +49,13 @@ export default function Products() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    dispatch(clearProductDetails());
     dispatch(handleProductSearch(search));
     if (!search) {
       dispatch(getAllProduct());
     }
   }, [search, dispatch]);
+
+  console.log(product);
 
   return (
     <>
@@ -110,7 +112,7 @@ export default function Products() {
                 </tr>
               </thead>
               <tbody>
-                {product.slice(0,3)?.map((x) => {
+                {product?.map((x) => {
                   return <TableCard x={x} key={x?._id} />;
                 })}
               </tbody>

@@ -1,104 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import { Input } from "../../forms";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  UpdateProfile,
-  clearUserAlertError,
-  getSingleCustomer,
-  saveShippingAddress,
-} from "../../../Features";
-import Message from "../../loaders/Message";
-import LoaderIndex from "../../loaders";
+
 import { inputData } from "../../../data/billingData";
 
-export default function Billingindex() {
-  const { addressData, userInfo } = useSelector((store) => store.user);
-  const [formdata, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    company: "",
-    country: "",
-    address: "",
-    city: "",
-    phone: "",
-    postalCode: "",
-  });
-
-  useEffect(() => {
-    // get the main users data once the profile page mounts
-    if (addressData) {
-      const {
-        firstname,
-        lastname,
-        email,
-        phone,
-        city,
-        address,
-        postalCode,
-      } = addressData;
-
-      setFormData({
-        firstname,
-        lastname,
-        email,
-        phone,
-        city,
-        address,
-        postalCode,
-      });
-    }
-  }, [setFormData, addressData]);
-
-  useEffect(() => {
-    // get the main users data once the profile page mounts
-    if (userInfo) {
-      const {
-        firstname,
-        lastname,
-        email,
-        city,
-        address,
-        postalCode,
-        phone,
-        country,
-      } = userInfo;
-      setFormData({
-        firstname,
-        lastname,
-        email,
-        city,
-        address,
-        postalCode,
-        phone,
-        country,
-      });
-    }
-  }, [setFormData, userInfo]);
-
-  const onChange = (e) => {
-    setFormData({ ...formdata, [e.target.name]: e.target.value });
-  };
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  console.log(formdata);
-
-  const handleAddressDetails = (e) => {
-    e.preventDefault();
-    dispatch(saveShippingAddress(formdata));
-    navigate("/payment");
-  };
-
+export default function Billingindex({
+  handleAddressDetails,
+  onChange,
+  formdata,
+}) {
   return (
     <BillingIndexContainer className="flex gap-2 column">
       <h2>Billing Details</h2>
       <form className="formWrapper" onSubmit={handleAddressDetails}>
         <div className="inputWrapper">
-          {inputData.slice(0, 2).map((input) => {
+          {inputData.slice(0, 2).map((input, index) => {
             return (
               <Input
                 id={input.text}
@@ -108,7 +24,7 @@ export default function Billingindex() {
                 name={input.name}
                 value={formdata[input.name]}
                 input={input}
-                key={input.id}
+                key={index}
                 required={input.required}
                 pattern={input.pattern}
                 errorMessage={input.errorMessage}
@@ -117,7 +33,7 @@ export default function Billingindex() {
           })}
         </div>
         <div className="inputWrapper">
-          {inputData.slice(2, 8).map((input) => {
+          {inputData.slice(2, 8).map((input, index) => {
             return (
               <Input
                 id={input.text}
@@ -127,7 +43,7 @@ export default function Billingindex() {
                 name={input.name}
                 value={formdata[input.name]}
                 input={input}
-                key={input.id}
+                key={index}
                 required={input.required}
                 pattern={input.pattern}
                 errorMessage={input.errorMessage}
@@ -136,7 +52,7 @@ export default function Billingindex() {
           })}
         </div>
         <div className="btnWrapper">
-          <button type="submit" className="btn" onClick={handleAddressDetails}>
+          <button type="submit"  className="btn">
             Continue
           </button>
         </div>
@@ -149,6 +65,9 @@ const BillingIndexContainer = styled.div`
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 2rem 3rem;
+  @media (max-width: 480px) {
+    padding: 2rem 1rem;
+  }
   h2 {
     font-size: 3rem;
     font-weight: 700;
@@ -159,6 +78,9 @@ const BillingIndexContainer = styled.div`
     padding: 1.4rem 0;
     width: 100%;
     text-align: start;
+    @media (max-width: 480px) {
+      font-size: 2.6rem;
+    }
   }
 
   .formWrapper {
@@ -180,7 +102,6 @@ const BillingIndexContainer = styled.div`
         background: var(--red);
         color: #fff;
         font-size: 1.6rem;
-        border-radius: 40px;
         text-align: center;
         cursor: pointer;
         text-transform: uppercase;

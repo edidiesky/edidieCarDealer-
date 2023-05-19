@@ -17,26 +17,28 @@ export default function Brandindex() {
       <div className="brandWrapper w-100 auto">
         <div className="brandTopWrapper">
           <img
-            src="/images/car-dealer-footer-logo-2x.png"
+            src="https://avada.website/car-dealership/wp-content/uploads/sites/165/2021/12/header-icon.png"
             className="sidebarIcon"
             alt="sidebarIcon"
           />
-          <h2 data-aos="fade-up" data-aos-duration="800">
-            Explore Popular Brands
-          </h2>
-          <p data-aos="zoom-in" data-aos-duration="1000" className="family1">
+          <div className="hidden">
+            <h2 data-aos="fade-up" data-aos-duration="800">
+              Explore Popular Brands
+            </h2>
+          </div>
+          <p data-aos="fade" data-aos-duration="1000" className="fs-20 family1">
             Incididunt labore dolore magna aliqua enim veniam quis nostrud
             tempor tempor adispecing miny exercitation ullamco laboris nisiut
             aliquip.
           </p>
         </div>
-        <div className="brandIconWrapper w-90 auto">
+        <div className="brandIconWrapper w-85 auto">
           {data.map((x, index) => {
             return (
               <div className="w-100 hidden">
                 <div
                   className="iconwrapper"
-                  data-aos="fade-up"
+                  data-aos="fade"
                   data-aos-duration="1200"
                   data-aos-delay={index * 100}
                   key={x.id}
@@ -73,10 +75,10 @@ const BrandContainer = styled.div`
       gap: 2rem;
       justify-content: center;
       .sidebarIcon {
-        height: 8rem;
+        width: 10rem;
       }
       h2 {
-        font-size: 5.5rem;
+        font-size: 5rem;
         font-weight: 700;
         color: var(--white);
         width: 100%;
@@ -86,10 +88,9 @@ const BrandContainer = styled.div`
         }
       }
       p {
-        font-size: 1.88rem;
         color: var(--grey-1);
         font-weight: 400;
-        line-height: 2;
+        line-height: 1.6;
         width: 60%;
         margin: 0 auto;
         font-family: "Barlow", sans-serif;

@@ -17,11 +17,11 @@ import {
 
 const data = [
   { id: 1, title: "Home", path: "" },
-  { id: 2, title: "Inventory", path: "product" },
-  { id: 3, title: "About Us", path: "about" },
-  { id: 3, title: "Latest Offers", path: "latest-offers" },
-  { id: 4, title: "Auto News", path: "auto-news" },
-  { id: 5, title: "Contact", path: "contact" },
+  { id: 2, title: "Inventory", path: "car-dealership/inventory" },
+  { id: 3, title: "About Us", path: "car-dealership/about" },
+  { id: 3, title: "Latest Offers", path: "car-dealership/latest-offers" },
+  { id: 4, title: "Auto News", path: "car-dealership/auto-news" },
+  { id: 5, title: "Contact", path: "car-dealership/contact" },
 ];
 export default function HeaderTop() {
   const { thememode } = useSelector((store) => store.toggle);
@@ -38,8 +38,6 @@ export default function HeaderTop() {
   }, [thememode]);
 
   const [side, setSide] = useState(false);
-  const [toggle, setToggle] = useState(false);
-  const [task, setTask] = useState(false);
 
   const toggleSidebar = () => setSide(!side);
 
@@ -72,7 +70,7 @@ export default function HeaderTop() {
       <div className="headerTopRight">
         {userInfo ? (
           <div className="headerTopProfile">
-            <Link to={"cart"} className="iconWrapper">
+            <Link to={"/car-dealership/cart"} className="iconWrapper">
               <BiCart />
               <span className="notifSpan">{totalQuantity}</span>
             </Link>
@@ -80,17 +78,25 @@ export default function HeaderTop() {
               <div className="author">{username}</div>
 
               {userInfo?.isAdmin ? (
-                <div className="profileList">
-                  <Link to={"profile"}>Profile</Link>
-                  <Link to={"dashboard"}>Dashboard</Link>
-                  <div className="logOut" onClick={handleLogOut}>
+                <div className="profileList ">
+                  <Link className="link" to={"/car-dealership/profile"}>
+                    Profile
+                  </Link>
+                  <Link className="link" to={"/car-dealership/dashboard"}>
+                    Dashboard
+                  </Link>
+                  <div className="logOut link" onClick={handleLogOut}>
                     Sign out
                   </div>
                 </div>
               ) : (
                 <div className="profileList list1">
-                  <Link to={"profile"}>Profile</Link>
-                  <div onClick={handleLogOut}>Sign out</div>
+                  <Link className="link" to={"profile"}>
+                    Profile
+                  </Link>
+                  <div className="link logOut" onClick={handleLogOut}>
+                    Sign out
+                  </div>
                 </div>
               )}
             </div>
@@ -124,7 +130,7 @@ export default function HeaderTop() {
 }
 
 const HeaderTopContainer = styled.div`
-  min-height: 12rem;
+  min-height: 10rem;
   width: 100%;
   border: 0.3px solid rgba(0, 0, 0, 0.08);
   display: flex;
@@ -136,10 +142,10 @@ const HeaderTopContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-
-    @media (max-width: 980px) {
-      padding: 0 6rem;
+    @media (max-width: 1280px) {
+      gap: 1rem;
     }
+
     @media (max-width: 780px) {
       padding: 2rem 3rem;
       width: 100%;
@@ -174,7 +180,7 @@ const HeaderTopContainer = styled.div`
         justify-content: center;
         cursor: pointer;
         transition: all 0.4s;
-        @media (min-width: 780px) {
+        @media (min-width: 880px) {
           display: none;
         }
         &:hover {
@@ -194,7 +200,10 @@ const HeaderTopContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 3rem;
-      @media (max-width: 980px) {
+      @media (max-width: 1280px) {
+        gap: 1.9rem;
+      }
+      @media (max-width: 880px) {
         display: none;
       }
       .link {
@@ -206,8 +215,8 @@ const HeaderTopContainer = styled.div`
         &:hover {
           color: var(--red);
         }
-        @media (max-width: 1180px) {
-          font-size: 1.6rem;
+        @media (max-width: 1280px) {
+          font-size: 1.8rem;
         }
       }
     }
@@ -234,46 +243,57 @@ const HeaderTopContainer = styled.div`
           &:hover .profileList {
             visibility: visible;
             opacity: 1;
-            transform: scale(1);
+            transform: translate3d(0,0px, 0);
           }
           .profileList {
             background: #fff;
             position: absolute;
-            bottom: -280%;
+            bottom: -380%;
             z-index: 1000;
-            right: -60px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            right: -20%;
             display: flex;
             flex-direction: column;
             visibility: hidden;
             opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.4s;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transform: translate3d(0, 100px, 0);
+            transition: all 0.2s;
             min-width: 200px;
+            z-index: 2341000;
+            /* &::after {
+              position: absolute;
+              width: 3rem;
+              height: 3rem;
+              content: '';
+              right: 5%;
+              top: -5%;
+              background-color: #fff;
+              transform: rotate(45deg);
+            } */
             &.list1 {
-              bottom: -230%;
+              bottom: -240%;
+              
             }
-            a,
-            div {
-              padding: 1.2rem 3rem;
+            .link {
+              padding: 1.4rem 3rem;
               font-size: 1.5rem;
               color: var(--dark-1);
               border-bottom: 1px solid var(--grey-3);
-              font-weight: 600;
+              font-weight: 400;
               cursor: pointer;
               &:hover {
-                background: var(--grey-2);
+                background: #f7f7f7;
               }
             }
           }
           .author {
-            width: 4.8rem;
-            height: 4.8rem;
+            width: 4rem;
+            height: 4rem;
             border-radius: 50%;
             align-items: center;
             display: flex;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             justify-content: center;
             font-weight: 600;
             background: var(--text-color);
@@ -282,8 +302,8 @@ const HeaderTopContainer = styled.div`
         }
         .iconWrapper {
           position: relative;
-          width: 4.8rem;
-          height: 4.8rem;
+          width: 4rem;
+          height: 4rem;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -300,8 +320,7 @@ const HeaderTopContainer = styled.div`
             }
           }
           .notifSpan {
-            width: 2rem;
-            height: 2rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 50%;
             display: flex;
             position: absolute;
@@ -322,7 +341,6 @@ const HeaderTopContainer = styled.div`
             color: var(--text-color);
           }
         }
-
       }
       .darkIcon {
         width: 3.5rem;
@@ -369,6 +387,10 @@ const HeaderTopContainer = styled.div`
         &:hover {
           background: var(--blue-1);
           color: #fff;
+        }
+        @media (max-width: 1280px) {
+          font-size: 1.7rem;
+          padding: 1.6rem 3rem;
         }
         @media (max-width: 980px) {
           font-size: 1.6rem;

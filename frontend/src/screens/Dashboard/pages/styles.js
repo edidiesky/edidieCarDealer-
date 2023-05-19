@@ -127,6 +127,7 @@ export const Table = styled.div`
       width: 100%;
       min-width: 1000px;
 
+
       thead {
         tr {
           text-align: start;

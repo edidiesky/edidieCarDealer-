@@ -1,21 +1,28 @@
+import React, { useState } from "react";
+import MultiRangeSlider, { ChangeResult } from "multi-range-slider-react";
 
-import React, {useState} from 'react';
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
+export default function SliderSizes({
+  minValue,
+  setMinValue,
+  maxValue,
+  setMaxValue
+}) {
 
-export default function SliderSizes() {
-	const [price, setPrice] = useState(23900)
   return (
-    <Box width={'100%'}>
-      <Slider
-        defaultValue={30000}
-        aria-label="Small"
-        size='large'
-        valueLabelDisplay="auto"
-        value={price}
-        onChange={(e)=> setPrice(e.target.value)}
-        min={23900} max={49500}
-      />
-    </Box>
+    <form className="w-100 flex">
+      <div className=" w-100">
+        <MultiRangeSlider
+          min={0}
+          max={100000}
+          step={5}
+          minValue={minValue}
+          maxValue={maxValue}
+          onInput={(e) => {
+            setMinValue(e.minValue);
+            setMaxValue(e.maxValue);
+          }}
+        ></MultiRangeSlider>
+      </div>
+    </form>
   );
 }

@@ -11,11 +11,11 @@ import Register from './Register'
 import Profile from './Profile'
 import {ProtectRoute} from './ProtectRoute'
 import {ProtectAdmin} from './ProtectAdmin'
-import Search from './Search'
 import Success from './Success'
 import About from './About'
 import Blog from './Blog'
 import Offer from './Offer'
+import Services from './Services'
 export {
     Home,
     Layout,
@@ -30,9 +30,9 @@ export {
     ProtectRoute,
     ProtectAdmin,
     Profile,
-    Search,
     Success,
     About,
     Blog,
-    Offer
+    Offer,
+    Services
 }
