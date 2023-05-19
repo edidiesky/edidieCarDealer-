@@ -101,7 +101,7 @@ const FooterContainer = styled.div`
           padding: 0;
           display: grid;
           grid-template-columns: 1fr;
-          grid-gap: 6rem;
+          grid-gap: 4rem;
         }
         li {
           font-size: 2rem;

@@ -18,14 +18,6 @@ export default function PapmentButton() {
   const { order, successPay } = useSelector((store) => store.order);
   const [paidFor, setPaidFor] = useState(false);
 
-  console.log({
-    orderItems: bag,
-    estimatedTax,
-    shippingAddress: addressData,
-    TotalShoppingPrice,
-    paymentMethod: payment,
-    shippingPrice,
-  });
   const orderData = {
     orderItems: bag,
     estimatedTax,
@@ -37,6 +29,7 @@ export default function PapmentButton() {
   };
   const dispatch = useDispatch();
   const handleApprove = (orderId) => {
+    console.log(orderId);
     // Call backend function to fulfill order
     dispatch(createCustomersOrder(orderData));
     // Refresh user's account or subscription status
@@ -78,6 +71,7 @@ export default function PapmentButton() {
       }}
       onApprove={async function(data, actions) {
         await actions.order.capture();
+        handleApprove(data);
       }}
     />
   );

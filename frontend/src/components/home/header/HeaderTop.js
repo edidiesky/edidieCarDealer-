@@ -193,7 +193,7 @@ const HeaderTopContainer = styled.div`
       align-items: center;
       gap: 3rem;
       @media (max-width: 1280px) {
-        gap: 1.9rem;
+        gap: 3rem;
       }
       @media (max-width: 880px) {
         display: none;

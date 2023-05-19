@@ -30,9 +30,6 @@ export default function PaymentIndex() {
             Subtotal <span className="subspan">${totalPrice}</span>
           </h4>
           <h4 className="subtotal">
-            shippingPrice <span className="subspan">${shippingPrice}</span>
-          </h4>
-          <h4 className="subtotal">
             Tax <span className="subspan">${estimatedTax}</span>
           </h4>
           <h4 className="subtotal">
