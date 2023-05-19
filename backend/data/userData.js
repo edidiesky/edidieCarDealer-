@@ -23,7 +23,7 @@ const users = [
     postalCode: "16005",
     createdAt: "8/6/2022",
     password: bcrypt.hashSync("eAdg145%1", 10),
-    isAdmin: true,
+    isAdmin: false,
   },
   {
     lastname: "McRobert",
