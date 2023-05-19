@@ -10,7 +10,7 @@ export default function Newsindex() {
     <NewsContainer>
       <Banner title="Auto News" step1={"Home"} step2={"Auto-news  "} />
       <Services />
-      <div className="blogCardContainer">
+      <div className="blogCardContainer w-90 auto">
         {/* {blogData.map(x=> {
           return <BlogCard x={x} key={x.id}/>
         })} */}
@@ -23,8 +23,6 @@ const NewsContainer = styled.div`
   width: 100%;
   .blogCardContainer {
     padding: 8rem 0;
-    width: 90%;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     grid-gap: 3rem;

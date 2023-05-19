@@ -70,9 +70,6 @@ const Banner4Container = styled.div`
   }
   .banner4Wrapper {
     width: 100%;
-    margin: 0 auto;
-    z-index: 1000;
-    max-width: 1600px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     @media (max-width: 760px) {

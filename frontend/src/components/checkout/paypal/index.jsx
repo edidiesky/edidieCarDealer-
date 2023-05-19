@@ -1,8 +1,54 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createCustomersOrder } from "../../../Features";
 
 export default function PapmentButton() {
   const amount = "2";
   const currency = "USD";
+  const {
+    bag,
+    totalPrice,
+    shippingPrice,
+    estimatedTax,
+    TotalShoppingPrice,
+  } = useSelector((store) => store.bag);
+  const [payment, setPayment] = useState("Paypal");
+  const { addressData } = useSelector((store) => store.user);
+  const { order, successPay } = useSelector((store) => store.order);
+  const [paidFor, setPaidFor] = useState(false);
+
+  console.log({
+    orderItems: bag,
+    estimatedTax,
+    shippingAddress: addressData,
+    TotalShoppingPrice,
+    paymentMethod: payment,
+    shippingPrice,
+  });
+  const orderData = {
+    orderItems: bag,
+    estimatedTax,
+
+    shippingAddress: addressData,
+    TotalShoppingPrice,
+    paymentMethod: payment,
+    shippingPrice,
+  };
+  const dispatch = useDispatch();
+  const handleApprove = (orderId) => {
+    // Call backend function to fulfill order
+    dispatch(createCustomersOrder(orderData));
+    // Refresh user's account or subscription status
+    // if response is error
+    // alert("Your payment was processed successfully. However, we are unable to fulfill your purchase. Please contact us at support@designcode.io for assistance.");
+  };
+
+  if (successPay) {
+    // Display success message, modal or redirect user to success page
+    alert("Thank you for your purchase!");
+  }
+
   return (
     <PayPalButtons
       style={{
@@ -20,7 +66,7 @@ export default function PapmentButton() {
               {
                 amount: {
                   currency_code: currency,
-                  value: amount,
+                  value: TotalShoppingPrice,
                 },
               },
             ],

@@ -62,7 +62,6 @@ const CreateOrder = async (req, res) => {
     orderItems,
     shippingAddress,
     paymentMethod,
-    paymentResult,
     estimatedTax,
     shippingPrice,
     TotalShoppingPrice,

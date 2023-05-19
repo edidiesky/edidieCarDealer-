@@ -147,8 +147,8 @@ const bagSlice = createSlice({
       state.totalQuantity = totalBagQty;
       localStorage.setItem("totalPrice", state.totalPrice);
       localStorage.setItem("totalQuantity", state.totalQuantity);
-      state.shippingPrice = totalBagPrice > 100 ? 100 : 0;
-      state.estimatedTax = totalBagPrice * 0.15;
+      state.shippingPrice = TotalShoppingPrice > 10000 ? 100 : 0;
+      state.estimatedTax = TotalShoppingPrice * 0.15;
       state.TotalShoppingPrice =
         state.shippingPrice + state.estimatedTax + state.totalPrice;
       localStorage.setItem("TotalShoppingPrice", state.TotalShoppingPrice);
