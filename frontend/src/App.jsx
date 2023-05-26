@@ -56,8 +56,6 @@ export default function App() {
     
   }, []);
 
-  console.log(process.env.PAYPAL_CLIENT_ID,keys);
-
   const [height, setHeight] = useState(0);
 
   const initialOptions = {

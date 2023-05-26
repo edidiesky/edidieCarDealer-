@@ -69,8 +69,11 @@ const ProductIndexContainer = styled.div`
       .productCardContainer {
         display: grid;
         width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 1.5rem;
+        @media (max-width: 580px) {
+          grid-template-columns: 1fr;
+        }
       }
     }
   }

@@ -69,6 +69,12 @@ const productSlice = createSlice({
     getColor: (state, action) => {
       state.colors = action.payload;
     },
+    getMaxPrice: (state, action) => {
+      state.maxprice = action.payload;
+    },
+    getMinPrice: (state, action) => {
+      state.minprice = action.payload;
+    },
     getSort: (state, action) => {
       state.sort = action.payload;
     },
@@ -282,6 +288,8 @@ export const {
   getSearch,
   getProduct,
   clearProductDetails,
+  getMaxPrice,
+  getMinPrice
 } = productSlice.actions;
 
 export default productSlice.reducer;
