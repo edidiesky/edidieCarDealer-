@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
 import Product from "../models/Product.js";
 import mongoose from "mongoose";
-import moment from "moment/moment.js";  
+import moment from "moment/moment.js";
 // GET All Product
 //  Private
 const GetAllProduct = asyncHandler(async (req, res) => {
@@ -11,19 +11,17 @@ const GetAllProduct = asyncHandler(async (req, res) => {
   const sort = req.query.sort;
   const colors = req.query.colors;
   const minprice = req.query.minprice;
-  const category = req.query.category;
   const maxprice = req.query.maxprice;
   const queryObject = {};
   let result = Product.find(queryObject);
 
-
   // minimum price
   if (minprice) {
-    queryObject.price = { $gt: minprice }
+    queryObject.price = { $gt: minprice };
   }
   // maxprice
   if (maxprice) {
-    queryObject.price = { $gt: maxprice }
+    queryObject.price = { $gt: maxprice };
   }
   if (search) {
     queryObject.title = { $regex: search, $options: "i" };
@@ -56,7 +54,6 @@ const GetAllProduct = asyncHandler(async (req, res) => {
   const noOfPages = Math.ceil(totalProduct / limit);
 
   res.status(200).json({ product, noOfPages, totalProduct });
-
 });
 
 // GET SINGLE Product
@@ -90,7 +87,7 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
     tags,
     qualities,
     capacity,
-    discount
+    discount,
   } = req.body;
   const { userId } = req.user;
   // console.log(...tags);
@@ -110,12 +107,11 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
     tags,
     qualities,
     capacity,
-    discount
+    discount,
   });
 
   res.status(200).json({ product });
 });
-
 
 //PRIVATE
 // ADMIN
@@ -135,7 +131,7 @@ const UpdateProduct = asyncHandler(async (req, res) => {
     tags,
     qualities,
     capacity,
-    discount
+    discount,
   } = req.body;
   const product = await Product.findById({ _id: req.params.id });
 
@@ -146,7 +142,7 @@ const UpdateProduct = asyncHandler(async (req, res) => {
 
   const updatedproduct = await Product.findByIdAndUpdate(
     { _id: req.params.id },
-     {
+    {
       title,
       image,
       brand,
@@ -160,7 +156,7 @@ const UpdateProduct = asyncHandler(async (req, res) => {
       tags,
       qualities,
       capacity,
-      discount
+      discount,
     },
     { new: true }
   );
@@ -251,7 +247,7 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
             $month: "$createdAt",
           },
         },
-        count: { $sum: 1 }
+        count: { $sum: 1 },
       },
     },
     { $sort: { "_id.year": -1, "_id.month": -1 } },

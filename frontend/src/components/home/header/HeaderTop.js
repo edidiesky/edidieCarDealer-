@@ -55,7 +55,12 @@ export default function HeaderTop() {
         <div className="headerTopWrapper">
           {data.map((x) => {
             return (
-              <Link className="link" to={`${x.path}`} key={x.id}>
+              <Link
+                target="_blank"
+                className="link"
+                to={`${x.path}`}
+                key={x.id}
+              >
                 {x.title}
               </Link>
             );
@@ -79,10 +84,10 @@ export default function HeaderTop() {
 
               {userInfo?.isAdmin ? (
                 <div className="profileList ">
-                  <Link className="link" to={"/car-dealership/profile"}>
+                  <Link target="_blank" className="link" to={"/car-dealership/profile"}>
                     Profile
                   </Link>
-                  <Link className="link" to={"/car-dealership/dashboard"}>
+                  <Link target="_blank" className="link" to={"/car-dealership/dashboard"}>
                     Dashboard
                   </Link>
                   <div className="logOut link" onClick={handleLogOut}>
@@ -91,7 +96,7 @@ export default function HeaderTop() {
                 </div>
               ) : (
                 <div className="profileList list1">
-                  <Link className="link" to={"profile"}>
+                  <Link target="_blank" className="link" to={"profile"}>
                     Profile
                   </Link>
                   <div className="link logOut" onClick={handleLogOut}>
