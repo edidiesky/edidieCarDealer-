@@ -13,7 +13,7 @@ export default function SliderSizes({
       <div className=" w-100">
         <MultiRangeSlider
           min={0}
-          max={100000}
+          max={maxValue}
           step={5}
           minValue={minValue}
           maxValue={maxValue}

@@ -25,10 +25,12 @@ const initialState = {
   noOfPages: 0,
   category: "",
   search: "",
-  color: "",
+  colors: "",
   sort: "",
   limit: "",
   rating: 0,
+  maxprice:0,
+  minprice:0,
   topRatedProducts: [],
   categories: null,
   reviewLoading: false,
@@ -65,7 +67,7 @@ const productSlice = createSlice({
       state.rating = action.payload;
     },
     getColor: (state, action) => {
-      state.color = action.payload;
+      state.colors = action.payload;
     },
     getSort: (state, action) => {
       state.sort = action.payload;
