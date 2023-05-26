@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import process from 'process'
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -42,14 +43,18 @@ export default function App() {
   const { keys } = useSelector((store) => store.order);
 
   useEffect(() => {
+    dispatch(handlePaypalKey());
     AOS.init({
       once: true,
     });
-    dispatch(handlePaypalKey());
+
     const container = document.querySelector(".based");
     const height = container.getBoundingClientRect().height;
     setHeight(height);
+    
   }, []);
+
+  console.log(process.env.PAYPAL_CLIENT_ID,keys);
 
   const [height, setHeight] = useState(0);
 
