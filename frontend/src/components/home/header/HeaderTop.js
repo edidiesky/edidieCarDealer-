@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FaSun, FaPhoneAlt } from "react-icons/fa";
 import { Bar, SmallSidebar, ToggleBtn } from "../../common";
 import { BiCart, BiSearch } from "react-icons/bi";
-import { CgMenuRight } from "react-icons/cg";
+import { HiBars4 } from "react-icons/hi2";
 
 import {
   toggleStorageTheme,
@@ -120,7 +120,7 @@ export default function HeaderTop() {
           <SmallSidebar side={side} toggleSidebar={toggleSidebar} />
           <HeaderTopLeft />
           <div className="barWrapper">
-            <CgMenuRight onClick={toggleSidebar} />
+            <HiBars4 onClick={toggleSidebar} />
           </div>
         </div>
         <HeaderTopRight />
@@ -150,8 +150,6 @@ const HeaderTopContainer = styled.div`
       padding: 2rem 3rem;
       width: 100%;
       gap: 2rem;
-      flex-direction: column;
-      align-items: flex-start;
     }
     .headerTopWrapperContent {
       display: flex;
@@ -174,7 +172,6 @@ const HeaderTopContainer = styled.div`
         width: 5rem;
         height: 5rem;
         border-radius: 50%;
-        border: 1px solid var(--grey-2);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -183,11 +180,6 @@ const HeaderTopContainer = styled.div`
         @media (min-width: 880px) {
           display: none;
         }
-        &:hover {
-          transform: scale(1.01);
-          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-        }
-
         svg {
           width: 70%;
           height: 70%;
@@ -201,7 +193,7 @@ const HeaderTopContainer = styled.div`
       align-items: center;
       gap: 3rem;
       @media (max-width: 1280px) {
-        gap: 1.9rem;
+        gap: 3rem;
       }
       @media (max-width: 880px) {
         display: none;
@@ -224,6 +216,7 @@ const HeaderTopContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 1rem;
+      z-index: 300000;
       .headerTopProfile {
         position: relative;
         display: flex;
@@ -240,16 +233,16 @@ const HeaderTopContainer = styled.div`
           display: flex;
           align-items: center;
           position: relative;
+          z-index: 300000;
           &:hover .profileList {
             visibility: visible;
             opacity: 1;
-            transform: translate3d(0,0px, 0);
+            transform: translate3d(0, 0px, 0);
           }
           .profileList {
             background: #fff;
             position: absolute;
             bottom: -380%;
-            z-index: 1000;
             right: -20%;
             display: flex;
             flex-direction: column;
@@ -260,19 +253,8 @@ const HeaderTopContainer = styled.div`
             transition: all 0.2s;
             min-width: 200px;
             z-index: 2341000;
-            /* &::after {
-              position: absolute;
-              width: 3rem;
-              height: 3rem;
-              content: '';
-              right: 5%;
-              top: -5%;
-              background-color: #fff;
-              transform: rotate(45deg);
-            } */
             &.list1 {
               bottom: -240%;
-              
             }
             .link {
               padding: 1.4rem 3rem;

@@ -32,7 +32,7 @@ export default function Services() {
           tempor adispecing
         </span>
       </h2>
-      <div className="headerWrapper">
+      <div className="headerWrapper w-90 auto">
         {data.map((x) => {
           return (
             <header key={x.id}>

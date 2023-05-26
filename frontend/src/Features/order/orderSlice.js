@@ -31,7 +31,8 @@ const initialState = {
   isStatError: false,
   isStatSuccess: false,
   keys: "",
-  keys: "",
+  isloadingPayalKey:'',
+  isSuccessPayalKey:'',
   orderpage: 1,
   ordernoOfpage: 0,
   totalorder: 0,
@@ -110,14 +111,14 @@ const orderSlice = createSlice({
 
     // get stripe Key
     [handlePaypalKey.pending]: (state) => {
-      state.isLoading = true;
+      state.isloadingPayalKey = true;
     },
     [handlePaypalKey.fulfilled]: (state, action) => {
-      state.isLoading = false;
+      state.isloadingPayalKey = false;
       state.keys = action.payload;
     },
     [handlePaypalKey.rejected]: (state, action) => {
-      state.isLoading = false;
+      state.isloadingPayalKey = false;
       state.showAlert = true;
       state.isError = true;
       state.alertText = action.payload;
@@ -211,7 +212,11 @@ const orderSlice = createSlice({
 });
 
 // console.log(orderSlice);
-export const { clearAlert, orderPayReset, orderDelieveredReset, getOrderPage } =
-  orderSlice.actions;
+export const {
+  clearAlert,
+  orderPayReset,
+  orderDelieveredReset,
+  getOrderPage,
+} = orderSlice.actions;
 
 export default orderSlice.reducer;

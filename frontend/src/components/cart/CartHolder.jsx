@@ -1,15 +1,35 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
-import { calculateBagItem } from "../../Features";
+import { calculateBagItem, createCustomersOrder } from "../../Features";
 export default function CartHolder() {
-  const dispatch = useDispatch();
   const { productDetails } = useSelector((store) => store.product);
-  const { bag, totalPrice, TotalShoppingPrice } = useSelector(
-    (store) => store.bag
-  );
+  const {
+    bag,
+    totalPrice,
+    shippingPrice,
+    estimatedTax,
+    TotalShoppingPrice,
+  } = useSelector((store) => store.bag);
+  const [payment, setPayment] = useState("Paypal");
+  const { addressData } = useSelector((store) => store.user);
 
+  const orderData = {
+    orderItems: bag,
+    estimatedTax,
+    shippingAddress: addressData,
+    TotalShoppingPrice,
+    paymentMethod: payment,
+    shippingPrice,
+  };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleCreateOrder = () => {
+    // Call backend function to fulfill order
+    dispatch(createCustomersOrder(orderData));
+    navigate("/car-dealership/billing");
+  };
   useEffect(() => {
     dispatch(calculateBagItem());
   }, [productDetails?.quantity, bag]);
@@ -23,9 +43,9 @@ export default function CartHolder() {
         Total <span className="subspan span1">${TotalShoppingPrice}</span>
       </h4>
       <div className="btnWrapper">
-        <Link to={"/car-dealership/billing"} className="editBtn">
+        <button onClick={handleCreateOrder} className="editBtn">
           Place Order
-        </Link>
+        </button>
       </div>
     </CartHolderContainer>
   );

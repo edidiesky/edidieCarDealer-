@@ -63,6 +63,7 @@ export default function SmallSidebar() {
   );
 }
 
+
 const SmallSidebarContent = styled.div`
   position: fixed;
   left: 0;
@@ -81,7 +82,7 @@ const SmallSidebarContent = styled.div`
     display: none;
   }
   .gradient1 {
-    background: rgba(0, 0, 0, 0.1);
+    background-color: #3f3f3fc2;
     position: absolute;
     width: 100%;
     height: 100%;

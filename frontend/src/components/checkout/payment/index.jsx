@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { savePaymentType } from "../../../Features";
+import { calculateBagItem, savePaymentType } from "../../../Features";
 import { useDispatch, useSelector } from "react-redux";
 import PapmentButton from "../paypal";
 import CartSummary from "./summary";
@@ -15,14 +15,22 @@ export default function PaymentIndex() {
     estimatedTax,
     TotalShoppingPrice,
   } = useSelector((store) => store.bag);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(calculateBagItem());
+  }, []);
+
   return (
     <PaymentIndexContainer>
       <h2>Payment Method</h2>
       <div className="w-100 paymentWrapper flex item-end column gap-3">
         <CartSummary />
-        <div className="flex payment column gap-2">
+        <div className="flex payment column">
           <h4 className="subtotal">
             Subtotal <span className="subspan">${totalPrice}</span>
+          </h4>
+          <h4 className="subtotal">
+            Tax <span className="subspan">${estimatedTax}</span>
           </h4>
           <h4 className="subtotal">
             Total <span className="subspan span1">${TotalShoppingPrice}</span>
