@@ -155,6 +155,9 @@ const Banner4Container = styled.div`
             width: 100%;
             padding-right: 3rem;
           }
+          @media (max-width: 480px) {
+            font-size: 3rem;
+          }
         }
       }
     }

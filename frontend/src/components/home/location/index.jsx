@@ -176,6 +176,9 @@ const LocationContainer = styled.div`
           font-size: 5rem;
           width: 100%;
         }
+        @media (max-width: 480px) {
+          font-size: 3rem;
+        }
       }
     }
   }

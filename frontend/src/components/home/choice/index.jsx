@@ -124,6 +124,9 @@ const ChoiceContainer = styled.div`
         width: 100%;
         text-align: center;
         z-index: 5900;
+        @media (max-width: 480px) {
+          font-size: 4rem;
+        }
       }
 
       p {
@@ -138,6 +141,7 @@ const ChoiceContainer = styled.div`
         @media (max-width: 780px) {
           line-height: 1.7;
           width: 95%;
+          font-size: 1.8rem;
         }
       }
     }
@@ -180,6 +184,9 @@ const ChoiceContainer = styled.div`
           color: #fff;
           flex: 1;
           text-align: start;
+          @media (max-width: 480px) {
+            text-align: center;
+          }
 
           .choiceSpan {
             display: block;
@@ -189,6 +196,9 @@ const ChoiceContainer = styled.div`
             font-family: "Barlow", sans-serif;
             line-height: 30.45px;
             color: rgba(255, 255, 255, 0.75);
+            @media (max-width: 480px) {
+              text-align: center;
+            }
           }
         }
       }
