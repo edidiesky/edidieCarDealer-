@@ -12,7 +12,7 @@ export default function Auth() {
   const navigate = useNavigate();
 
   const [formdata, setFormData] = useState({
-    email: "",
+    email: "edidie@gmail.com",
     password: "",
   });
 
@@ -37,6 +37,13 @@ export default function Auth() {
       required: true,
     },
   ];
+
+  useEffect(() => {
+    setFormData({
+      email: "edidie@gmail.com",
+      password: "eAdg145%1",
+    });
+  }, [setFormData]);
 
   const onChange = (e) => {
     setFormData({ ...formdata, [e.target.name]: e.target.value });

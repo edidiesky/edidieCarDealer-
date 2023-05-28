@@ -48,7 +48,7 @@ mongoose.connect(
     console.log("mongo has been connected");
   }
 );
-const buildIndex = path.join(__dirname, "../frontend/build/index.html");
+const buildIndex = path.join(__dirname, "../frontend/build");
 // production mode process
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/build")));

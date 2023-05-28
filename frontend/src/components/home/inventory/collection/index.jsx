@@ -8,7 +8,7 @@ export default function CollectionIndex() {
 
   return (
     <CollectionContainer>
-      {product?.map((x, index) => {
+      {product?.slice(0,6)?.map((x, index) => {
         return <Card x={x} key={index} index={index} />;
       })}
     </CollectionContainer>
