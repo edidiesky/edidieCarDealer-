@@ -61,7 +61,7 @@ const SidebarWrapper = styled.div`
       }
       .nav-link {
         padding: 8px 16px;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         height: 4.2rem;
         border-radius: 30px;
         font-weight: 600;
@@ -72,7 +72,6 @@ const SidebarWrapper = styled.div`
         align-items: center;
         justify-content: flex-start;
         gap: 1.4rem;
-        font-family: "Barlow", sans-serif;
 
         &:hover {
           background: var(--blue-2);
