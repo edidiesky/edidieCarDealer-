@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Chart from "react-apexcharts";
-import { FaEye } from "react-icons/fa";
 
 import { useSelector, useDispatch } from "react-redux";
-import TableCard from "./TableCard";
-import Links from "./Links";
-import Pagination from "./Pagination";
-import { Table } from "../pages/styles";
-import Message from "../../../components/loaders/Message";
 import LoaderIndex from "../../../components/loaders/index";
 
 export default function Visuals() {

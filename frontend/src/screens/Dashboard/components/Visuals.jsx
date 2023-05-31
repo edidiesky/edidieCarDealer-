@@ -85,7 +85,7 @@ export default function Visuals() {
         height: 350,
         type: "line",
         fontFamily: "Barlow",
-        foreColor: "#081b36",
+        foreColor: "var(--blue-1)",
         fontSize: "30px",
         textTransform: "capitalize",
         zoom: {
@@ -95,6 +95,7 @@ export default function Visuals() {
       dataLabels: {
         enabled: false,
       },
+      colors: ["var(--blue-1)"],
       stroke: {
         curve: "straight",
       },
