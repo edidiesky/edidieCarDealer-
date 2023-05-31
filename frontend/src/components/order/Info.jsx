@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 export default function Info() {
+  const { bag } = useSelector((store) => store.bag);
   return (
     <div className=" w-90 auto py-3">
       <h2
@@ -18,26 +20,28 @@ export default function Info() {
               <h4 className="fs-18 family1 text-bold text-dark">Sub Total</h4>
             </div>
             {/* order content */}
-            <div className="w-100 flex item-center gap-3">
-              {/* order image */}
-              <div className="w-100 flex item-center product">
-                <img
-                  src="https://avada.theme-fusion.com/classic-shop/wp-content/uploads/sites/48/2015/10/spring_printed_dress.jpg"
-                  alt=""
-                  style={{ height: "15rem" }}
-                />
-                <div className="flex column gap-1">
-                  <h6 className="fs-14 text-bold family1 text-dark">
-                    Women Sport Kit - Large × 1
-                  </h6>
-                  <h6 className="fs-14 text-bold family1 text-dark">
-                    Colors: Blue Grey
-                  </h6>
+            {bag?.map((x) => {
+              return (
+                <div className="w-100 flex item-center gap-3">
+                  {/* order image */}
+                  <div className="w-100 flex item-center product gap-1">
+                    <img src={x?.image[0]} alt="" style={{ height: "15rem" }} />
+                    <div className="flex column gap-1">
+                      <h6 className="fs-16 text-bold family1 text-dark">
+                        {x?.title} × {x?.quantity}
+                      </h6>
+                      <h6 className="fs-16 text-bold family1 text-dark">
+                        Colors: Blue Grey
+                      </h6>
+                    </div>
+                  </div>
+                  {/* total qty price */}
+                  <h5 className="fs-24 text-light family1 text-dark py-3">
+                    ${x?.price}
+                  </h5>
                 </div>
-              </div>
-              {/* total qty price */}
-              <h5 className="fs-24 text-light family1 text-dark py-3">$40</h5>
-            </div>
+              );
+            })}
           </div>
         </div>
         <div className="flex summary center py-2">
@@ -78,6 +82,7 @@ const RightWrapper = styled.div`
     justify-content: flex-end;
   }
   .product {
+    gap: 1.5rem;
     @media (max-width: 480px) {
       flex-direction: column;
       align-items: flex-start;

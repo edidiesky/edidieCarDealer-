@@ -12,7 +12,9 @@ import { CopyRight } from "../components/common";
 import LoaderIndex from "../components/loaders";
 export default function ProductList() {
   const dispatch = useDispatch();
-  const { sort, colors, page, limit } = useSelector((store) => store.product);
+  const { sort, colors, page, limit, maxprice, minprice } = useSelector(
+    (store) => store.product
+  );
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -22,7 +24,7 @@ export default function ProductList() {
     dispatch(clearProductDetails());
     dispatch(clearProductAlert());
     dispatch(getAllProduct());
-  }, [sort, colors, page, limit]);
+  }, [sort, colors, page, limit, maxprice, minprice]);
 
   return (
     <>

@@ -240,18 +240,18 @@ h1 {
   padding-right: 6rem;
 }
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
   background: #ccc;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--dark-2);
+  background: var(--dark-1);
   border-radius: 10px;
   transition: all 0.5s;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-2);
+  background: var(--dark-1);
 }
 .a:hover {
   text-decoration: underline;

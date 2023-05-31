@@ -288,7 +288,7 @@ export const {
   getSearch,
   getProduct,
   clearProductDetails,
-  
+  getMaxPrice,
   getMinPrice
 } = productSlice.actions;
 
