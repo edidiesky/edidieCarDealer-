@@ -266,8 +266,14 @@ const AggregateUserProductStats = asyncHandler(async (req, res) => {
 
     return { date, count };
   });
+  const counts = stats.map((x) => {
+    return x.count;
+  });
+  const dates = stats.map((x) => {
+    return x.date;
+  });
 
-  res.status(200).json({ stats });
+  res.status(200).json({ dates, counts });
 });
 
 export {

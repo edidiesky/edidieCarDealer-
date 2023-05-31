@@ -5,81 +5,27 @@ import { getCustomerOrderStats } from "../../../Features";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function Visuals() {
-  const dispatch = useDispatch();
-  const { orderStats, isStatLoading } = useSelector((store) => store.order);
+  // const { orderStats, isStatLoading } = useSelector((store) => store.order);
 
-  console.log(orderStats);
-  const OrderStatdate = orderStats?.map((stats) => {
-    const { date, totalQuantity, averageOrderQuantity } = stats;
-    return date;
-  });
-
-  const OrderStatQuantity = orderStats?.map((stats) => {
-    const { date, totalQuantity, averageOrderQuantity } = stats;
-    return totalQuantity;
-  });
-  const OrderStatAQuantity = orderStats?.map((stats) => {
-    const { date, totalQuantity, averageOrderQuantity } = stats;
-    return averageOrderQuantity;
-  });
-
-  // const [data, setData] = useState({
-  //   series: [
-  //     {
-  //       name: "Net Profit",
-  //       data: OrderStatQuantity,
-  //     },
-  //   ],
-  //   options: {
-  //     chart: {
-  //       type: "bar",
-  //       height: 450,
-  // fontFamily: "Montserrat",
-  // foreColor: "#081b36",
-  // fontSize: "20px",
-  //     },
-  //     plotOptions: {
-  //       bar: {
-  //         horizontal: false,
-  //         columnWidth: "55%",
-  //         endingShape: "rounded",
-  //       },
-  //     },
-  //     dataLabels: {
-  //       enabled: false,
-  //     },
-  //     stroke: {
-  //       show: true,
-  //       width: 2,
-  //       colors: ["transparent"],
-  //     },
-  //     xaxis: {
-  //       categories: OrderStatdate,
-  //     },
-  //     yaxis: {
-  //       title: {
-  //         text: "Total Order",
-  //       },
-  //     },
-  //     fill: {
-  //       opacity: 1,
-  //     },
-  //     tooltip: {
-  //       y: {
-  //         formatter: function(val) {
-  //           return "$" + val;
-  //         },
-  //       },
-  //     },
-  //   },
+  // console.log(orderStats);
+  // const OrderStatdate = orderStats?.map((stats) => {
+  //   const { date, totalQuantity, averageOrderQuantity } = stats;
+  //   return date;
   // });
+
+  // const OrderStatQuantity = orderStats?.map((stats) => {
+  //   const { date, totalQuantity, averageOrderQuantity } = stats;
+  //   return totalQuantity;
+  // });
+  // const OrderStatAQuantity = orderStats?.map((stats) => {
+  //   const { date, totalQuantity, averageOrderQuantity } = stats;
+  //   return averageOrderQuantity;
+  // });
+  const dispatch = useDispatch();
+
+  const { counts, dates, isLoading } = useSelector((store) => store.product);
   const [data, setData] = useState({
-    series: [
-      {
-        name: "Cars",
-        data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
-      },
-    ],
+    series: [{ data: counts, name: "Cars" }],
     options: {
       chart: {
         height: 350,
@@ -99,10 +45,6 @@ export default function Visuals() {
       stroke: {
         curve: "straight",
       },
-      // title: {
-      //   text: "Product Trends by Month",
-      //   align: "left",
-      // },
       grid: {
         row: {
           colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
@@ -110,20 +52,11 @@ export default function Visuals() {
         },
       },
       xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-        ],
+        categories: dates,
       },
     },
   });
+ 
 
   return (
     <>
@@ -132,7 +65,7 @@ export default function Visuals() {
         <Chart
           options={data.options}
           series={data.series}
-          type="line"
+          type="bar"
           width={"100%"}
           height={450}
         />

@@ -241,7 +241,7 @@ export const getProductStats = createAsyncThunk(
         },
       };
       const { data } = await axios.get(`/api/v1/product/stats`, config);
-      return data.stats;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message

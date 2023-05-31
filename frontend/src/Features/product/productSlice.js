@@ -29,15 +29,16 @@ const initialState = {
   sort: "",
   limit: "",
   rating: 0,
-  maxprice:0,
-  minprice:0,
+  maxprice: 0,
+  minprice: 0,
   topRatedProducts: [],
   categories: null,
   reviewLoading: false,
   reviewSuccess: false,
   reviewError: false,
   productAlert: false,
-  productStat: [],
+  dates: null,
+  counts: null,
 };
 
 const productSlice = createSlice({
@@ -260,7 +261,8 @@ const productSlice = createSlice({
     },
     [getProductStats.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.productStat = action.payload;
+      state.counts = action.payload?.counts;
+      state.dates = action.payload?.dates;
     },
     [getProductStats.rejected]: (state, action) => {
       state.isLoading = false;
@@ -289,7 +291,7 @@ export const {
   getProduct,
   clearProductDetails,
   getMaxPrice,
-  getMinPrice
+  getMinPrice,
 } = productSlice.actions;
 
 export default productSlice.reducer;
