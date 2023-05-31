@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Styled from "styled-components";
+import styled from "styled-components";
 import Chart from "react-apexcharts";
 import { FaEye } from "react-icons/fa";
 
@@ -57,7 +57,7 @@ export default function Visuals() {
       },
       tooltip: {
         y: {
-          formatter: function (val) {
+          formatter: function(val) {
             return "$" + val;
           },
         },
@@ -75,7 +75,7 @@ export default function Visuals() {
     <>
       <VisualsWrapper>
         {isLoading && <LoaderIndex />}
-        <h3>Product Statistics</h3>
+        <h3>Order Trends by Month</h3>
         <Chart
           options={data.options}
           series={data.series}
@@ -88,19 +88,18 @@ export default function Visuals() {
   );
 }
 
-const VisualsWrapper = Styled.div`
-width:100%;
-padding:2rem;
-background:var(--white);
-display:flex;
-border-radius:6px;
-flex-direction:column;
+const VisualsWrapper = styled.div`
+  width: 100%;
+  padding: 2rem;
+  background: var(--white);
+  display: flex;
+  border-radius: 6px;
+  flex-direction: column;
   h3 {
-    font-size:2.5rem;
-    color:var(--text-color);
-    font-weight:600;
-    text-transform: uppercase;
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 600;
+    text-transform: capitalize;
     font-family: "Barlow", sans-serif;
   }
-
 `;

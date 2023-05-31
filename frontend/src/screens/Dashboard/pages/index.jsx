@@ -3,7 +3,7 @@ import AdminProductList from "./Products";
 
 import OrderList from "./Order";
 import Sidebar from "./Sidebar";
-// import Statistics from './Statistics'
+import Statistics from './Statistics'
 import LayoutList from "./Layout";
 import EditUser from "./EditUser";
 import ProfileList from "./Profile";
@@ -19,5 +19,6 @@ export {
   Customers,
   EditUser,
   EditProductIndex,
-  CreateProductIndex
+  CreateProductIndex,
+  Statistics
 };

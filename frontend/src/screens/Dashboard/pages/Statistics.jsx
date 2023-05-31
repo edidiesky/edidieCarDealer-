@@ -7,8 +7,9 @@ import {
   getCustomerOrderStats,
 } from "../../../Features";
 import styled from "styled-components";
-import { Widget, Visuals, Header, Chart, Orders, Alert } from "../components";
+import { Widget, Visuals, Header, Chart, Orders } from "../components";
 import Products from "./Products";
+import Message from "../../../components/loaders/Message";
 
 const StatisticsWrapper = styled.div`
   width: 95%;
@@ -40,7 +41,7 @@ export default function Statistics() {
 
   return (
     <>
-      <Alert />
+      <Message />
       <Header
         subtext={"Here is what is happening with your store today"}
         text={`Edidiong Essien`}
@@ -51,7 +52,7 @@ export default function Statistics() {
           <Chart title="Analytics" />
           <Visuals />
         </div>
-        <Orders />
+        {/* <Orders /> */}
       </StatisticsWrapper>
     </>
   );

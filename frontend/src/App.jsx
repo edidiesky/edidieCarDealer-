@@ -35,6 +35,7 @@ import {
   EditUser,
   EditProductIndex,
   CreateProductIndex,
+  Statistics
 } from "./screens/Dashboard/pages";
 import Billing from "./screens/Checkout";
 import { handlePaypalKey } from "./Features";
@@ -120,7 +121,7 @@ export default function App() {
                 path={"/car-dealership/dashboard"}
                 element={<LayoutList />}
               >
-                <Route index element={<Home />} />
+                <Route index element={<Statistics />} />
                 <Route path="product" element={<AdminProductList />} />
                 <Route path="create-product" element={<CreateProductIndex />} />
                 <Route path="product/:id" element={<EditProductIndex />} />

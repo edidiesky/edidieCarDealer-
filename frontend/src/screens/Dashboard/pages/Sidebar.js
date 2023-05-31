@@ -91,12 +91,12 @@ const SidebarWrapper = styled.div`
 `;
 
 export const sidebarData = [
-  // {
-  //   id: 1,
-  //   icon1: <MdDashboard />,
-  //   title: "Dashboard",
-  //   path: "statistics",
-  // },
+  {
+    id: 1,
+    icon1: <MdDashboard />,
+    title: "Dashboard",
+    path: "",
+  },
   {
     id: 2,
     icon1: <HiOutlineShoppingCart />,
