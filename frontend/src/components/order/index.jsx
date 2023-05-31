@@ -11,12 +11,9 @@ import { BiChevronRight } from "react-icons/bi";
 // ];
 export default function OrderIndex() {
   return (
-    <div
-      className="py-3 w-90 auto"
-      style={{ border: "1px solid rgba(0,0,0,.1)", padding: "3rem" }}
-    >
+    <div className="py-3 w-90 auto">
       <h2
-        className="py-2 fs-35 text-bold text-dark"
+        className="py-2 text-bold text-dark"
         style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
       >
         Thank you. Your order has been received.
@@ -30,10 +27,13 @@ export default function OrderIndex() {
               width: "1.8rem",
               height: "1.8rem",
               borderRadius: "50%",
-              background: "var(--primary)",
+              background: "var(--gradient1)",
             }}
           >
-            <BiChevronRight className="text-white fs-12" style={{color:"#fff"}}/>
+            <BiChevronRight
+              className="text-white fs-12"
+              style={{ color: "#fff" }}
+            />
           </div>
           <div className="fs-18 family1 text-light text-dark">
             Order number: <strong className="text-bold">4282</strong>
@@ -48,10 +48,13 @@ export default function OrderIndex() {
               width: "1.8rem",
               height: "1.8rem",
               borderRadius: "50%",
-              background: "var(--primary)",
+              background: "var(--gradient1)",
             }}
           >
-            <BiChevronRight className="text-white fs-12" style={{color:"#fff"}}/>
+            <BiChevronRight
+              className="text-white fs-12"
+              style={{ color: "#fff" }}
+            />
           </div>
           <div className="fs-18 family1 text-light text-dark">
             Date: <strong className="text-bold">March 7, 1823</strong>
@@ -66,10 +69,13 @@ export default function OrderIndex() {
               width: "1.8rem",
               height: "1.8rem",
               borderRadius: "50%",
-              background: "var(--primary)",
+              background: "var(--gradient1)",
             }}
           >
-            <BiChevronRight className="text-white fs-12" style={{color:"#fff"}}/>
+            <BiChevronRight
+              className="text-white fs-12"
+              style={{ color: "#fff" }}
+            />
           </div>
           <div className="fs-18 family1 text-light text-dark">
             Total: <strong className="text-bold">$90.00</strong>
@@ -84,10 +90,13 @@ export default function OrderIndex() {
               width: "1.8rem",
               height: "1.8rem",
               borderRadius: "50%",
-              background: "var(--primary)",
+              background: "var(--gradient1)",
             }}
           >
-            <BiChevronRight className="text-white fs-12" style={{color:"#fff"}}/>
+            <BiChevronRight
+              className="text-white fs-12"
+              style={{ color: "#fff" }}
+            />
           </div>
           <div className="fs-18 family1 text-light text-dark">
             Payment method:{" "}

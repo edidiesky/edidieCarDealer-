@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import process from 'process'
+import process from "process";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -23,6 +23,7 @@ import {
   Blog,
   Offer,
   Services,
+  Order,
 } from "./screens";
 
 import {
@@ -53,7 +54,6 @@ export default function App() {
     const container = document.querySelector(".based");
     const height = container.getBoundingClientRect().height;
     setHeight(height);
-    
   }, []);
 
   const [height, setHeight] = useState(0);
@@ -102,6 +102,15 @@ export default function App() {
                     <ProtectRoute>
                       {" "}
                       <Billing />
+                    </ProtectRoute>
+                  }
+                />
+                <Route
+                  path="car-dealership/order-success"
+                  element={
+                    <ProtectRoute>
+                      {" "}
+                      <Order />
                     </ProtectRoute>
                   }
                 />

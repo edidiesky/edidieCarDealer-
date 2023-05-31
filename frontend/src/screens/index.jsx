@@ -9,6 +9,7 @@ import Checkout from "./Checkout";
 import Login from './Login';
 import Register from './Register'
 import Profile from './Profile'
+import Order from './Order'
 import {ProtectRoute} from './ProtectRoute'
 import {ProtectAdmin} from './ProtectAdmin'
 import Success from './Success'
@@ -34,5 +35,6 @@ export {
     About,
     Blog,
     Offer,
-    Services
+    Services,
+    Order
 }
