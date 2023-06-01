@@ -30,7 +30,7 @@ export default function LocationIndex() {
     <LocationContainer>
       <div className="LocationWrapper w-90 auto">
         <div className="LocationTop flex item-center gap-2">
-          <h1 className="flex-1">
+          <h2 className="flex-1">
             Dealer Locations
             <span>
               <img
@@ -39,7 +39,7 @@ export default function LocationIndex() {
                 className="titleIcon"
               />
             </span>
-          </h1>
+          </h2>
           <p className="family1 fs-20 flex-1 text-light">
             Incididunt labore dolore magna aliqua enim veniam quis nostrud
             tempor tempor adispecing miny exercitation ullamco laboris nisiut
@@ -160,7 +160,7 @@ const LocationContainer = styled.div`
         flex-direction: column;
         gap: 4rem;
       }
-      h1 {
+      h2 {
         font-size: 5rem;
         font-weight: 700;
         color: var(--dark-1);
@@ -175,9 +175,6 @@ const LocationContainer = styled.div`
         @media (max-width: 980px) {
           font-size: 5rem;
           width: 100%;
-        }
-        @media (max-width: 480px) {
-          font-size: 3rem;
         }
       }
     }

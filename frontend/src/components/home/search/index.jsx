@@ -86,6 +86,9 @@ const SearchContainer = styled.div`
       @media (max-width: 480px) {
         text-align: center;
       }
+      @media (max-width: 480px) {
+        font-size: 3rem !important;
+      }
     }
     .searchinputcontainer {
       width: 95%;

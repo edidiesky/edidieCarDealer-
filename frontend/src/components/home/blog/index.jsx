@@ -8,7 +8,8 @@ const blogData = [
     tags: ["Buy Sell Guide", "Car", "Fuel"],
     description:
       "Incididunt labs dolore mags aliqua enim veniam quis noste miniys exc eation ullamco laboris.",
-    image: "https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/03/buying-awd-hybrid-cars-800x505.jpg",
+    image:
+      "https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/03/buying-awd-hybrid-cars-800x505.jpg",
   },
   {
     id: 2,
@@ -16,7 +17,8 @@ const blogData = [
     tags: ["Buy Sell Guide", "Electric Car", "Fuel"],
     description:
       "Incididunt labs dolore mags aliqua enim veniam quis noste miniys exc eation ullamco laboris.",
-    image: "https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/03/compact-suvs-rank-800x505.jpg",
+    image:
+      "https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/03/compact-suvs-rank-800x505.jpg",
   },
 ];
 export default function Blogindex() {
@@ -25,7 +27,7 @@ export default function Blogindex() {
       <div className="blogWrapper w-90 auto">
         <div className="blogTopWrapper">
           <div className="hidden flex-1">
-            <h1
+            <h2
               data-aos="fade-right"
               data-aos-duration="1200"
               className="flex-1"
@@ -38,7 +40,7 @@ export default function Blogindex() {
                   className="titleIcon"
                 />
               </span>
-            </h1>
+            </h2>
           </div>
           <div className="hidden flex-1">
             <p
@@ -87,19 +89,20 @@ const BlogContainer = styled.div`
         flex-direction: column;
         gap: 4rem;
       }
-      h1 {
+      .hidden {
+        width: 100%;
+      }
+      h2 {
         font-size: 5rem;
         font-weight: 700;
         color: var(--dark-1);
         width: 100%;
+
         span {
           display: block;
           .titleIcon {
             width: 9rem;
           }
-        }
-        @media (max-width: 980px) {
-          font-size: 5rem;
         }
       }
     }

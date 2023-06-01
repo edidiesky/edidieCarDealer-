@@ -134,6 +134,9 @@ const HeroContainer = styled.section`
             line-height: 1.3;
             font-size: 27px;
           }
+          @media (max-width: 480px) {
+            font-size: 2.8rem !important;
+          }
         }
       }
       .btnwrapper {

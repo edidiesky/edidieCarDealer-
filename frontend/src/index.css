@@ -560,12 +560,23 @@ html {
 
 @media (max-width: 480px) {
   h1 {
-    font-size: 4.5rem;
+    font-size: 5rem !important;
+  }
+  h2 {
+    font-size: 35px !important;
+    line-height: 1.1;
+    width: 100% !important;
+  }
+  h2 span {
+    line-height: 0.7 !important;
   }
   .w-85 {
     width: 90%;
   }
   .w-90 {
-    width: 95%;
+    width: 90%;
+  }
+  .fs-20 {
+    font-size: 16px !important;
   }
 }

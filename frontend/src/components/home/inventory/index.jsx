@@ -9,7 +9,7 @@ export default function InventoryIndex() {
     <InventoryContainer>
       <div className="inventoryWrapper w-90 auto">
         <div className="inventoryTop flex item-center gap-2">
-          <h1 data-aos="fade-right " className="flex-1">
+          <h2 data-aos="fade-right " className="flex-1">
             Latest Inventory
             <span>
               <img
@@ -18,7 +18,7 @@ export default function InventoryIndex() {
                 className="titleIcon"
               />
             </span>
-          </h1>
+          </h2>
           <p className="family1 fs-20 flex-1 text-light">
             Incididunt labore dolore magna aliqua enim veniam quis nostrud
             tempor tempor adispecing miny exercitation ullamco laboris nisiut
@@ -78,18 +78,15 @@ const InventoryContainer = styled.div`
         flex-direction: column;
         gap: 4rem;
       }
-      h1 {
+      h2 {
         font-size: 5rem;
         font-weight: 700;
         color: var(--dark-1);
         span {
           display: block;
           .titleIcon {
-            width: 9rem;
+            width: 5rem;
           }
-        }
-        @media (max-width: 980px) {
-          font-size: 5rem;
         }
       }
     }

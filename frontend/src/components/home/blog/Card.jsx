@@ -108,10 +108,13 @@ const CardContainer = styled.div`
       }
     }
     h2 {
-      font-size: 2.4rem;
+      font-size: 2.4rem !important;
       font-weight: 700;
       line-height: 1.6;
       color: var(--text-color);
+      @media (max-width:480px) {
+        font-size: 2.4rem !important;
+      }
     }
     p {
       font-size: 1.8rem;

@@ -62,6 +62,9 @@ const BrandContainer = styled.div`
   width: 100%;
   padding: 16rem 0;
   background: #081b36;
+  @media (max-width: 580px) {
+    padding: 8rem 0;
+  }
   .brandWrapper {
     display: flex;
     flex-direction: column;
@@ -73,6 +76,9 @@ const BrandContainer = styled.div`
       flex-direction: column;
       width: 100%;
       gap: 2rem;
+      @media (max-width: 580px) {
+        gap: 1rem;
+      }
       justify-content: center;
       .sidebarIcon {
         width: 10rem;
@@ -83,9 +89,6 @@ const BrandContainer = styled.div`
         color: var(--white);
         width: 100%;
         text-align: center;
-        @media (max-width: 780px) {
-          font-size: 5rem;
-        }
       }
       p {
         color: var(--grey-1);
@@ -96,7 +99,6 @@ const BrandContainer = styled.div`
         font-family: "Barlow", sans-serif;
         text-align: center;
         @media (max-width: 780px) {
-          line-height: 1.7;
           width: 95%;
         }
       }
@@ -108,12 +110,19 @@ const BrandContainer = styled.div`
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         width: 90%;
       }
+      @media (max-width: 480px) {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        width: 90%;
+      }
       .iconwrapper {
         border: 1px solid rgba(255, 255, 255, 0.1);
         height: 20rem;
         display: flex;
         align-items: center;
         justify-content: center;
+        @media (max-width: 480px) {
+          height: 15rem;
+        }
         &:hover {
           .iconWrapperimage {
             filter: brightness(100%);
@@ -124,6 +133,9 @@ const BrandContainer = styled.div`
           color: #333;
           transition: all 0.4s ease;
           filter: brightness(40%);
+          @media (max-width: 480px) {
+            width: 7rem;
+          }
         }
       }
     }
