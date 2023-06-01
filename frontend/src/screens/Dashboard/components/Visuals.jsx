@@ -56,7 +56,43 @@ export default function Visuals() {
       },
     },
   });
- 
+
+  useEffect(() => {
+    if (dates || counts) {
+      setData({
+        series: [{ data: counts, name: "Cars" }],
+        options: {
+          chart: {
+            height: 350,
+            type: "line",
+            fontFamily: "Barlow",
+            foreColor: "var(--blue-1)",
+            fontSize: "30px",
+            textTransform: "capitalize",
+            zoom: {
+              enabled: false,
+            },
+          },
+          dataLabels: {
+            enabled: false,
+          },
+          colors: ["var(--blue-1)"],
+          stroke: {
+            curve: "straight",
+          },
+          grid: {
+            row: {
+              colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+              opacity: 0.5,
+            },
+          },
+          xaxis: {
+            categories: dates,
+          },
+        },
+      });
+    }
+  }, [dates, counts]);
 
   return (
     <>
