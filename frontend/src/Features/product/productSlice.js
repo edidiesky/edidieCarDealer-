@@ -156,7 +156,7 @@ const productSlice = createSlice({
     },
     [CreateSingleProductDetails.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.product = action.payload;
+      state.productDetails = action.payload;
       state.isSuccess = true;
       state.showAlert = true;
       state.alertText = `${action.payload.title} has been successfully addded to your product data base`;
