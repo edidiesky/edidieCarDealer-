@@ -1,10 +1,12 @@
 {
-  "name": "edidiecardealer-",
+  "name": "fiverrclone_1-",
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
-    "start": "node backend/server.js"
+    "build-client": "cd frontend && npm run build",
+    "install-frontend": "cd frontend && npm install --legacy-peer-deps",
+    "setup-production": "npm run install-frontend && npm run build-client && npm install --legacy-peer-deps",
+    "server": "node backend/server.js"
   },
   "author": "",
   "license": "ISC"
