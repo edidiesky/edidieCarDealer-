@@ -171,6 +171,9 @@ const DetailsTopLeftContainer = styled.div`
         position: relative;
         transition: all 0.6s ease-in-out;
         height: 50rem;
+        @media (max-width: 780px) {
+        height: 100%;
+      }
 
         img {
           width: 100%;
