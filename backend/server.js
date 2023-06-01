@@ -12,7 +12,7 @@ import mongoose from "mongoose";
 
 // middlewares
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(express.json())
 
 import productRoute from "./routes/productRoute.js";
 import userRoute from "./routes/userRoute.js";
