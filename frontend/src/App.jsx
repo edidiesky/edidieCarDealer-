@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import process from "process";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -112,6 +111,15 @@ export default function App() {
                     <ProtectRoute>
                       {" "}
                       <Order />
+                    </ProtectRoute>
+                  }
+                />
+                 <Route
+                  path="car-dealership/profile"
+                  element={
+                    <ProtectRoute>
+                      {" "}
+                      <Profile />
                     </ProtectRoute>
                   }
                 />

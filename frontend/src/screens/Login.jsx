@@ -5,8 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/forms/Input";
 import { loginCustomer, clearUserAlertError } from "../Features";
 import LoaderIndex from "../components/loaders";
-import Message from "../components/loaders/Message";
 import { CopyRight, Meta } from "../components/common";
+import Message from "../components/modals/Message";
 
 export default function Auth() {
   const navigate = useNavigate();
@@ -53,11 +53,12 @@ export default function Auth() {
   const dispatch = useDispatch();
   const {
     isLoading,
-    isSuccess,
+    loginSuccess,
     userInfo,
     isError,
     alertText,
     alertType,
+    showAlert
   } = useSelector((store) => store.user);
 
   // performing form submission to backend
@@ -68,35 +69,23 @@ export default function Auth() {
 
   // navigate if success to the billing page
   useEffect(() => {
-    if (isSuccess && userInfo) {
+    if (loginSuccess && userInfo) {
       setTimeout(() => {
         clearUserAlertError();
-        navigate(`/car-dealership/billing`);
+        navigate(`/car-dealership/inventory`);
       }, 3000);
     }
-  }, [navigate, isSuccess, userInfo]);
+  }, [navigate, loginSuccess, userInfo]);
 
-  // clear the state if the request is failed or successfull
-  useEffect(() => {
-    if (isSuccess) {
-      setTimeout(() => {
-        dispatch(clearUserAlertError());
-      }, 4000);
-    }
-  }, [isSuccess]);
+  // console.log(alertText, alertType);
 
   return (
     <>
-      <Meta title="Login" />
+      <Meta title="Login | Car Dealership" />
       {isLoading && <LoaderIndex loading={isLoading} />}
       <AuthContent>
-        <div className="authContentWrapper">
+        <div className="authContentWrapper w-90 auto">
           <div className="authContentForm">
-            <Message
-              alertText={alertText}
-              alertType={alertType}
-              handleClearAlert={clearUserAlertError}
-            />
             <img
               src="/images/dealer1.png"
               alt="dealer-image"
@@ -107,6 +96,12 @@ export default function Auth() {
               Let's get to Business
               <span className="userSpan">Signup to get free discount!</span>
             </h2>
+            <Message
+              showAlert={showAlert}
+              alertText={alertText}
+              alertType={alertType}
+              handleClearAlert={clearUserAlertError}
+            />
             <form className="authContentFormWrapper" onSubmit={handleSubmit}>
               {inputData.map((input) => {
                 return (
@@ -141,9 +136,7 @@ export default function Auth() {
 const AuthContent = styled.div`
   width: 100%;
   .authContentWrapper {
-    width: 100%;
     display: flex;
-    max-width: 1600px;
     align-items: center;
     position: relative;
     background-color: var(--white);
@@ -162,6 +155,7 @@ const AuthContent = styled.div`
       flex-direction: column;
       gap: 2rem;
       z-index: 400;
+      overflow: hidden;
       background-color: var(--white);
       @media (max-width: 1090px) {
         width: 50%;

@@ -16,15 +16,15 @@ export default function Message({
     <MessageContent
       className={
         showAlert
-          ? "family1 gap-1 flex item-center justify-space active"
+          ? "gap-1 flex item-center justify-space active"
           : alertType === "danger"
-          ? "family1 gap-1 flex item-center danger justify-space"
-          : "family1 gap-1 flex item-center justify-space"
+          ? "gap-1 flex item-center danger justify-space"
+          : "gap-1 flex item-center justify-space"
       }
     >
       <div className="flex w-100 item-center gap-1">
         {alertType === "danger" && <CgDanger className="fs-24" />}
-        <div className="flex">{alertText}</div>
+        <h4 className="flex">{alertText}</h4>
       </div>
       <div className="flex-1">
         <div
@@ -71,8 +71,8 @@ const MessageContent = styled.div`
   }
   .icon1 {
     cursor: pointer;
-    width: 4rem;
-    height: 4rem;
+    width: 3rem !important;
+    height: 3rem !important;
     border-radius: 50%;
     transition: all 0.4s;
     &:hover {

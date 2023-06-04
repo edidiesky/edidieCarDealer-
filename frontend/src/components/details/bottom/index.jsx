@@ -11,7 +11,7 @@ export default function DetailsBottomindex() {
   const [tabIndex, setTabIndex] = useState(0);
   return (
     <DetailsBottomContainer>
-      <div className="detailsBottomWrapper">
+      <div className="detailsBottomWrapper w-85 auto">
         <div className="tabContent">
           <Links
             type={"Details"}
@@ -33,8 +33,6 @@ const DetailsBottomContainer = styled.div`
   padding: 3rem 0;
   background: rgb(0 0 0 / 7%);
   .detailsBottomWrapper {
-    width: 85%;
-    margin: 0 auto;
     max-width: 1600px;
     position: relative;
     height: 100%;

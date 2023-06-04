@@ -83,6 +83,7 @@ export default function Auth() {
     isError,
     alertText,
     alertType,
+    showAlert,
   } = useSelector((store) => store.user);
 
   // performing form submission to backend
@@ -114,9 +115,10 @@ export default function Auth() {
     <>
       {isLoading && <LoaderIndex loading={isLoading} />}
       <AuthContent>
-        <div className="authContentWrapper">
+        <div className="authContentWrapper w-90 auto">
           <div className="authContentForm">
             <Message
+              showAlert={showAlert}
               alertText={alertText}
               alertType={alertType}
               handleClearAlert={clearUserAlertError}
@@ -166,9 +168,7 @@ export default function Auth() {
 const AuthContent = styled.div`
   width: 100%;
   .authContentWrapper {
-    width: 100%;
     display: flex;
-    max-width: 1600px;
     align-items: center;
     position: relative;
     background-color: var(--white);

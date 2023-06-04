@@ -10,7 +10,7 @@ export default function RecentProductindex() {
       <div className="recentProductWrapper">
         <h2 className="recentTitle">Recently Added Cars</h2>
 
-        <div className="recentProductCardWrapper">
+        <div className="recentProductCardWrapper w-90 auto">
           {product?.slice(0, 3).map((x, index) => {
             return <Card x={x} key={x._id} index={index} />;
           })}
@@ -23,9 +23,6 @@ export default function RecentProductindex() {
 const RecentProductindexContainer = styled.div`
   width: 100%;
   .recentProductWrapper {
-    width: 90%;
-    max-width: 1600px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 7rem;

@@ -65,6 +65,6 @@ if (process.env.NODE_ENV === "production") {
 app.use(NotFound);
 app.use(errorHandler);
 
-app.listen(5001, () => {
+app.listen(4000, () => {
   console.log("server is listening on port 6000");
 });

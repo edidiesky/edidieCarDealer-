@@ -56,7 +56,6 @@ export default function HeaderTop() {
           {data.map((x) => {
             return (
               <Link
-                target="_blank"
                 className="link"
                 to={`${x.path}`}
                 key={x.id}
@@ -108,7 +107,7 @@ export default function HeaderTop() {
           </div>
         ) : (
           <div className="headerTopProfile">
-            <Link to={"/auth/signin"} className="callBtn">
+            <Link to={"/car-dealership/auth/login"} className="callBtn">
               <FaPhoneAlt />
               Call (202) 115-2099
             </Link>

@@ -14,8 +14,6 @@ const registerUser = asyncHandler(async (req, res) => {
     password,
     phone,
     country,
-    specialization,
-    isAdmin,
   } = req.body;
   //
   if (!firstname || !lastname || !email || !password) {
@@ -99,6 +97,9 @@ const GetUser = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("The user does not exist");
   }
+  const {
+
+  } = user
   res.status(200).json({ user });
 });
 
