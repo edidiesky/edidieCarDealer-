@@ -66,5 +66,5 @@ app.use(NotFound);
 app.use(errorHandler);
 
 app.listen(4000, () => {
-  console.log("server is listening on port 6000");
+  console.log("server is listening on port 4000");
 });

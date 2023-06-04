@@ -22,13 +22,14 @@ export default function Order() {
 
 const OrderWrapper = styled.div`
   .py-3 {
-    padding: 2rem 1.2rem;
+    padding: 0;
     @media (max-width: 480px) {
       padding: 2rem 1rem;
     }
   }
   h2 {
     font-size: 35px;
+
     @media (max-width: 680px) {
       font-size: 2.8rem !important;
     }

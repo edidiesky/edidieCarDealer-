@@ -5,8 +5,13 @@ export const createCustomersOrder = createAsyncThunk(
   "/create/order",
   async (orderData, thunkAPI) => {
     const state = thunkAPI.getState();
+    const config = {
+      headers: {
+        authorization: `Bearer ${state.user.token}`,
+      },
+    };
     try {
-      const { data } = await axios.post("/api/v1/order/", orderData);
+      const { data } = await axios.post("/api/v1/order", orderData, config);
 
       return data.order;
     } catch (error) {
@@ -89,7 +94,7 @@ export const handlePaypalKey = createAsyncThunk(
 
 export const getCustomerOrderById = createAsyncThunk(
   "/get/order",
-  async (id, thunkAPI) => {
+  async (orderId, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
       const config = {
@@ -97,7 +102,7 @@ export const getCustomerOrderById = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/order/${id}`, config);
+      const { data } = await axios.get(`/api/v1/order/${orderId}`, config);
 
       return data.order;
     } catch (error) {

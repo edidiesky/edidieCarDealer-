@@ -34,11 +34,6 @@ const orderSchema = mongoose.Schema(
       type: Number,
       default: 0.0,
     },
-    // shippingPrice: {
-    //   type: Number,
-    //   required: true,
-    //   default: 0.0,
-    // },
     TotalShoppingPrice: {
       type: Number,
       required: true,
@@ -46,8 +41,8 @@ const orderSchema = mongoose.Schema(
     },
     status: {
       type: String,
-      required: true,
       enum: ["Pending", "Delivered", "Not Delivered"],
+      default: "Pending",
     },
     isPaid: {
       type: Boolean,

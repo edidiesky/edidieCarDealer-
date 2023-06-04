@@ -14,8 +14,8 @@ export default function CartSummary() {
             <h4 className="sub">SubTotal</h4>
           </div>
         </div>
-        <div className="w-100 py-2 flex column gap-2">
-          {bag.slice(0, 1)?.map((x) => {
+        <div className="w-100 py-2 flex column">
+          {bag?.map((x) => {
             return <Card key={x.id} x={x} type={"payment"} />;
           })}
         </div>
@@ -63,7 +63,7 @@ const CartContentContainer = styled.div`
     }
   }
   .card {
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
   .title {
     font-size: 1.6rem;

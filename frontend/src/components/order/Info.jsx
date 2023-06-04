@@ -3,15 +3,16 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 export default function Info() {
   const { bag } = useSelector((store) => store.bag);
+  const { order } = useSelector((store) => store.order);
   return (
     <div className=" w-90 auto py-3">
       <h2
-        className="py-2 text-bold text-dark"
+        className="py-2 family1 text-bold text-dark"
         style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
       >
         Order details
       </h2>
-      <RightWrapper className="py-2">
+      <RightWrapper className="py-2 w-90 auto">
         <div className="top flex column w-100 gap-4">
           <div className="w-100 flex column gap-4">
             {/* head of the table */}
@@ -36,7 +37,7 @@ export default function Info() {
                     </div>
                   </div>
                   {/* total qty price */}
-                  <h5 className="fs-24 text-light family1 text-dark py-3">
+                  <h5 className="fs-20 text-light family1 text-dark py-3">
                     ${x?.price}
                   </h5>
                 </div>
@@ -49,15 +50,16 @@ export default function Info() {
           <div className="w-50 flex gap-2 column">
             <h5 className="text-bold family1 fs-18 text-dark w-100 flex item-center justify-space">
               Subtotal
-              <span className="text-light">$45.00</span>
+              <span className="text-light">${bag?.totalPrice}</span>
             </h5>
+
             <h5 className="text-bold family1 fs-18 text-dark w-100 flex item-center justify-space">
               Payment method
-              <span className="text-light">Cash on delivery</span>
+              <span className="text-light">{order?.paymentMethod}</span>
             </h5>
             <h5 className="text-bold family1 fs-18 text-dark w-100 flex gap-2 item-center justify-space">
               Total
-              <span className="text-light">$45.00</span>
+              <span className="text-light">${order?.TotalShoppingPrice}</span>
             </h5>
           </div>
         </div>

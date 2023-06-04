@@ -14,7 +14,7 @@ import {
   authMiddleware,
 } from "../middleware/authentication.js";
 
-router.route("/").post(CreateOrder);
+router.route("/").post(authMiddleware, CreateOrder);
 router
   .route("/stats")
   .get(authMiddleware, adminMiddleware, AggregateUserOrderStats);
