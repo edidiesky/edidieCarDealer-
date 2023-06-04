@@ -15,13 +15,6 @@ const orderSchema = mongoose.Schema(
         price: { type: Number, required: true },
       },
     ],
-    shippingAddress: {
-      address: { type: String, required: false },
-      city: { type: String, required: false },
-      postalCode: { type: String, required: false },
-      country: { type: String, required: false },
-      phone: { type: String, required: false },
-    },
     paymentMethod: {
       type: String,
       required: true,
@@ -50,6 +43,11 @@ const orderSchema = mongoose.Schema(
       type: Number,
       required: true,
       default: 0.0,
+    },
+    status: {
+      type: String,
+      required: true,
+      enum: ["Pending", "Delivered", "Not Delivered"],
     },
     isPaid: {
       type: Boolean,
