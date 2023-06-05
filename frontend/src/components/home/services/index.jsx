@@ -43,7 +43,7 @@ export default function ServicesIndex() {
               <header
                 key={x.id}
                 data-aos="fade-up"
-                data-aos-duration="1100"
+                data-aos-duration="900"
                 data-aos-delay={index * 300}
               >
                 <div className="iconImage flex column item-center justify-center">
@@ -90,7 +90,6 @@ const ServicesContainer = styled.div`
         margin: 0 auto;
         .icon {
           width: 70px;
-          height: 75px;
           margin: 0 auto;
           filter: brightness(0%);
           transition: all 0.4s ease;

@@ -102,12 +102,12 @@ export default function Products() {
             <table className="tableWrapper">
               <thead>
                 <tr>
-                  <th>Product id</th>
-                  <th>Product Image</th>
-                  <th>Product Name</th>
-                  <th>Product Price</th>
-                  <th>Product CountInStock</th>
-                  <th>Product Brand</th>
+                  <th> Id</th>
+                  <th> Image</th>
+                  <th> Name</th>
+                  <th> Price</th>
+                  <th> CountInStock</th>
+                  <th> Brand</th>
                   <th>Actions</th>
                 </tr>
               </thead>

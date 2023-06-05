@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import DeatailsTopindex from "../components/details/top";
 import DetailsBottomindex from "../components/details/bottom";
 import RecentProductindex from "../components/details/recent";
-import { CopyRight } from "../components/common";
-import { Footer, Newsletter, Meta } from "../components/common";
+import { Meta } from "../components/common";
 import LoaderIndex from "../components/loaders";
-import Message from "../components/loaders/Message";
 import {
   getSingleProductDetails,
   getAllProduct,
@@ -25,15 +23,9 @@ export default function Details() {
 
   const dispatch = useDispatch();
 
-  const {
-    isLoading,
-    isError,
-    size,
-    alertText,
-    alertType,
-    reviewSuccess,
-    productDetails,
-  } = useSelector((store) => store.product);
+  const { isLoading, reviewSuccess, productDetails } = useSelector(
+    (store) => store.product
+  );
 
   useEffect(() => {
     if (reviewSuccess) {
@@ -48,25 +40,19 @@ export default function Details() {
   return (
     <>
       <Meta title={`${productDetails?.title}`} />
-      <DetailsContainer>
-        <DeatailsTopindex />
-        <DetailsBottomindex />
-        <RecentProductindex />
+      <DetailsContainer style={{ minHeight: "100vh" }}>
+        {isLoading ? (
+          <LoaderIndex />
+        ) : (
+          <div style={{ minHeight: "100vh" }}>
+            <DeatailsTopindex />
+            <DetailsBottomindex />
+            <RecentProductindex />
+          </div>
+        )}
       </DetailsContainer>
     </>
   );
-
-  // return (
-  //   <>
-  //   <Meta title={`${productDetails?.title}`}/>
-  //   <DetailsContainer>
-  //     <DeatailsTopindex/>
-  //     <DetailsBottomindex/>
-  //     <RecentProductindex/>
-  //     <CopyRight/>
-  //   </DetailsContainer>
-  //   </>
-  // )
 }
 
 const DetailsContainer = styled.div`

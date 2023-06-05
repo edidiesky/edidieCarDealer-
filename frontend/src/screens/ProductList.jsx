@@ -8,8 +8,6 @@ import {
   clearProductDetails,
 } from "../Features";
 import Productindex from "../components/product";
-import { CopyRight } from "../components/common";
-import LoaderIndex from "../components/loaders";
 export default function ProductList() {
   const dispatch = useDispatch();
   const { sort, colors, page, limit, maxprice, minprice } = useSelector(

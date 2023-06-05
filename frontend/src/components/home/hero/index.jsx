@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { gsap } from "gsap";
 import styled from "styled-components";
 
 export default function Heroindex() {
+  useEffect(() => {
+    gsap.to(".text1", {
+      transform: "none",
+      duration: 1,
+      delay: 0.5,
+      stagger: {
+        amount: 0.5,
+      },
+    });
+  }, []);
   return (
     <HeroContainer>
       <div className="herowrapper">
@@ -17,21 +28,16 @@ export default function Heroindex() {
         />
         <div className="gradient"></div>
         <div className="heroSection">
-          <h3 className="fs-24 text1 text-white text-center">
-            WORLD-CLASS PERFORMANCE
-          </h3>
           <div className="hidden">
-            <h1
-              data-aos="fade-up"
-              data-aos-duration="1300"
-              data-aos-delay="300"
-              className="text2"
-            >
-              Luxury Sports Cars
-            </h1>
+            <h3 className="fs-24 text1 text-white text-center">
+              WORLD-CLASS PERFORMANCE
+            </h3>
           </div>
           <div className="hidden">
-            <h2 className="family1 text3 text-white text-center">
+            <h1 className="text2 text1">Luxury Sports Cars</h1>
+          </div>
+          <div className="hidden">
+            <h2 className="family1 text3 text1 text-white text-center">
               We Make Dreams Come True
             </h2>
           </div>
@@ -43,6 +49,11 @@ export default function Heroindex() {
 
 const HeroContainer = styled.section`
   width: 100%;
+  .text1,
+  .text2,
+  .text3 {
+    transform: translate3d(0, 100px, 0);
+  }
   .gradient {
     z-index: 400;
     background-image: linear-gradient(
@@ -104,7 +115,7 @@ const HeroContainer = styled.section`
         width: 90%;
         align-items: flex-start;
       }
-      .text1 {
+      h3 {
         font-weight: normal;
         text-transform: uppercase;
         font-size: 26px;
@@ -126,17 +137,15 @@ const HeroContainer = styled.section`
         }
       }
       h2 {
-        &.text3 {
-          font-size: 39px;
-          font-weight: normal;
-          @media (max-width: 580px) {
-            text-align: start;
-            line-height: 1.3;
-            font-size: 27px;
-          }
-          @media (max-width: 480px) {
-            font-size: 2.8rem !important;
-          }
+        font-size: 39px;
+        font-weight: normal;
+        @media (max-width: 580px) {
+          text-align: start;
+          line-height: 1.3;
+          font-size: 27px;
+        }
+        @media (max-width: 480px) {
+          font-size: 2.8rem !important;
         }
       }
       .btnwrapper {

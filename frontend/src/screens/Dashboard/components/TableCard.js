@@ -98,9 +98,12 @@ export default function TableCards({ x, type }) {
         </td>
         <td>
           <div className="action">
-            <h4 className="details" onClick={handleOrderNav}>
+            <Link
+              className="details"
+              to={`/car-dealership/order-success?orderId=${x?._id}`}
+            >
               See Details
-            </h4>
+            </Link>
           </div>
         </td>
       </tr>

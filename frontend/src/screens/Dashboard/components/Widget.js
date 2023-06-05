@@ -105,7 +105,7 @@ const WidgetWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--blue-2);
+      background:#d76f2d;
       border-radius: 6px;
       svg {
         width: 70%;
@@ -115,11 +115,11 @@ const WidgetWrapper = styled.div`
     }
     &.active,
     &:hover {
-      background: var(--blue-2);
+      background:#d76f2d;
       .Icons {
         background: #fff;
         svg {
-          color: var(--blue-2);
+          color:#d76f2d;
         }
       }
 

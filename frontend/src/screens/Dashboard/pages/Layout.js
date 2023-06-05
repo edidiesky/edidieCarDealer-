@@ -1,21 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Routes, Route, Outlet } from "react-router-dom";
-import { Header, Smallsidebar, Message } from "../components";
+import { Outlet } from "react-router-dom";
+import { Smallsidebar, Message } from "../components";
 import Sidebar from "./Sidebar";
 const LayoutWrapper = styled.div`
-  background: var(--grey-4);
   min-height: 100vh;
   width: 100%;
   display: flex;
-  align-items: flex-start;
-  /* display: grid;
-  grid-template-columns: auto 1fr;
-  @media (max-width:780px) {
-    grid-template-columns: 1fr;
-  } */
+  background-color: var(--grey-3);
   .LayoutContainer {
-    flex: 1;
+    width: 100%;
     .OutletWrapper {
       width: 100%;
       padding-bottom: 3.5rem;

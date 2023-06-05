@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FiLogOut } from "react-icons/fi";
-
+import { useDispatch } from "react-redux";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
+import { ClearUserInfo, ClearauthInfo, ClearBagData } from "../../../Features";
 import { HiUsers } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import { MdDashboard, MdAddBusiness } from "react-icons/md";
 import { BsCollection } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 const SidebarWrapper = styled.div`
-  width: 247px;
+  width: 24rem;
   background: var(--white);
   height: 100vh;
   top: 0%;
@@ -61,7 +62,7 @@ const SidebarWrapper = styled.div`
       }
       .nav-link {
         padding: 8px 16px;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         height: 4.2rem;
         border-radius: 30px;
         font-weight: 600;
@@ -118,6 +119,13 @@ export const sidebarData2 = [
   { id: 2, icon1: <FiLogOut />, title: "Log Out", path: "" },
 ];
 export default function Sidebar() {
+  const dispatch = useDispatch();
+  const handleLogOut = () => {
+    dispatch(ClearBagData());
+    dispatch(ClearUserInfo());
+    dispatch(ClearauthInfo());
+    window.location.reload();
+  };
   return (
     <SidebarWrapper>
       <div className="sidebarContainer">
@@ -132,10 +140,9 @@ export default function Sidebar() {
           {sidebarData.map((x) => {
             return (
               <NavLink
-                className={({ isActive }) =>
-                  isActive ? "nav-link active" : "nav-link"
-                }
-                to={`${x.path}`}
+                className="nav-link"
+                activeClassName="active"
+                to={`/car-dealership/dashboard/${x.path}`}
                 key={x.id}
               >
                 {x.icon1}
@@ -148,7 +155,7 @@ export default function Sidebar() {
         <div className="list List1">
           {sidebarData2.map((x) => {
             return (
-              <div className="nav-link" key={x.id}>
+              <div className="nav-link" onClick={handleLogOut} key={x.id}>
                 {x.icon1} {x.title}
               </div>
             );

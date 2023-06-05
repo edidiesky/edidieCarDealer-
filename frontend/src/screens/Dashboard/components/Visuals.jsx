@@ -31,7 +31,7 @@ export default function Visuals() {
         height: 350,
         type: "line",
         fontFamily: "Barlow",
-        foreColor: "var(--blue-1)",
+        foreColor: "#333",
         fontSize: "30px",
         textTransform: "capitalize",
         zoom: {
@@ -41,15 +41,9 @@ export default function Visuals() {
       dataLabels: {
         enabled: false,
       },
-      colors: ["var(--blue-1)"],
+      colors: ["#333"],
       stroke: {
         curve: "straight",
-      },
-      grid: {
-        row: {
-          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-          opacity: 0.5,
-        },
       },
       xaxis: {
         categories: dates,
@@ -66,7 +60,7 @@ export default function Visuals() {
             height: 350,
             type: "line",
             fontFamily: "Barlow",
-            foreColor: "var(--blue-1)",
+            foreColor: "#333",
             fontSize: "30px",
             textTransform: "capitalize",
             zoom: {
@@ -76,15 +70,9 @@ export default function Visuals() {
           dataLabels: {
             enabled: false,
           },
-          colors: ["var(--blue-1)"],
+          colors: ["#d76f2d"],
           stroke: {
             curve: "straight",
-          },
-          grid: {
-            row: {
-              colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-              opacity: 0.5,
-            },
           },
           xaxis: {
             categories: dates,

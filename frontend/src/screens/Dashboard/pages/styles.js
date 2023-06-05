@@ -168,7 +168,6 @@ export const Table = styled.div`
             text-align: start;
             padding: 1.5rem;
             color: var(--dark-1);
-            font-family: "Barlow", sans-serif;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             .true {
               color: e72d2d;

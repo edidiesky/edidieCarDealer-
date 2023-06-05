@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Meta } from "../components/common";
 import OrderIndex from "../components/order";
 import Info from "../components/order/Info";
 import styled from "styled-components";
 
 export default function Order() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
   return (
     <>
       <Meta title={"My Orders"} />

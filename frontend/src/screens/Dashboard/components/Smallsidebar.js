@@ -68,12 +68,11 @@ const SmallSidebarContent = styled.div`
   position: fixed;
   left: 0;
   z-index: 2200;
-  transition: all 0.6s;
+  transition: all 1s;
   width: 100%;
-  background: var(--white);
   height: 100vh;
   top: 0%;
-  left: -100%;
+  left: -1000%;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
   &.active {
     left: 0;
@@ -82,10 +81,10 @@ const SmallSidebarContent = styled.div`
     display: none;
   }
   .gradient1 {
-    background-color: #3f3f3fc2;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
   }
   .barWrapper1 {
     width: 100%;

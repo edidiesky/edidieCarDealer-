@@ -12,7 +12,6 @@ import Profile from './Profile'
 import Order from './Order'
 import {ProtectRoute} from './ProtectRoute'
 import {ProtectAdmin} from './ProtectAdmin'
-import Success from './Success'
 import About from './About'
 import Blog from './Blog'
 import Offer from './Offer'
@@ -31,7 +30,6 @@ export {
     ProtectRoute,
     ProtectAdmin,
     Profile,
-    Success,
     About,
     Blog,
     Offer,
