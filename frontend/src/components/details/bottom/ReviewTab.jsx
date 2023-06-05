@@ -88,14 +88,6 @@ const ReviewTabContainer = styled.div`
   width: 100%;
   .reviewBottomWrapper {
     width: 100%;
-    h1 {
-      font-size: 6rem;
-      font-weight: 700;
-      color: var(--dark-1);
-      @media (max-width: 980px) {
-        font-size: 5rem;
-      }
-    }
     .reviewInfo {
       width: 100%;
       padding: 1.8rem 0;
@@ -169,15 +161,15 @@ const ReviewTabContainer = styled.div`
       }
 
       h2 {
-        font-size: 3.5rem;
-        font-weight: 600;
+        font-size: 3rem;
+        font-weight: 700;
         color: var(--dark-1);
       }
 
       .noReviewsInfo {
         display: flex;
         flex-direction: column;
-        gap: 5rem;
+        gap: 3rem;
 
         h4 {
           font-weight: normal;

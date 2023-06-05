@@ -21,6 +21,7 @@ import {
   Offer,
   Services,
   Order,
+  Search,
 } from "./screens";
 
 import {
@@ -32,7 +33,7 @@ import {
   EditUser,
   EditProductIndex,
   CreateProductIndex,
-  Statistics
+  Statistics,
 } from "./screens/Dashboard/pages";
 import Billing from "./screens/Checkout";
 import { handlePaypalKey } from "./Features";
@@ -77,6 +78,7 @@ export default function App() {
                   path="car-dealership/inventory"
                   element={<ProductList />}
                 />
+                <Route path="car-dealership/search" element={<Search />} />
                 <Route
                   path="car-dealership/auth/register"
                   element={<Register />}
@@ -112,7 +114,7 @@ export default function App() {
                     </ProtectRoute>
                   }
                 />
-                 <Route
+                <Route
                   path="car-dealership/profile"
                   element={
                     <ProtectRoute>

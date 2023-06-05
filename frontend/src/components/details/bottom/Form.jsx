@@ -69,7 +69,7 @@ export default function Form() {
         />
       </label>
       <div className="w-100 flex">
-        <button type="submit" className="editBtn fs-18">
+        <button type="submit" className="submitReviewBtn fs-18">
           Submit
         </button>
       </div>
@@ -83,19 +83,19 @@ const FormContainer = styled.form`
   gap: 3rem;
   width: 100%;
   .textarea {
-    height: 20rem;
+    height: 8.7rem;
   }
 
   .submitReviewBtn {
     border: none;
     outline: none;
-    padding: 1.4rem 6rem;
+    padding: 1.2rem 3rem;
     background: var(--red);
     color: #fff;
     width: 250px;
     margin-top: 2rem;
     font-size: 1.6rem;
-    border-radius: none;
+    border-radius: 40px;
     color: #fff;
     cursor: pointer;
     &:hover {

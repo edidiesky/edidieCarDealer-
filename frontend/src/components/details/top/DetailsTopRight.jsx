@@ -42,12 +42,19 @@ export default function DetailsTopRight() {
         </h3>
       </div>
       <p>
-        {read
+        {/* {read
           ? productDetails?.description
           : `${productDetails?.description?.substring(0, 180)} ...`}{" "}
         <button onClick={() => setRead(!read)}>
           {read ? "Show less" : "  Read more"}
-        </button>
+        </button> */}
+        Introducing the {productDetails?.title} Car, a game-changer in the
+        automotive industry. This sleek and innovative electric vehicle offers
+        unmatched performance, unrivaled range, and a futuristic driving
+        experience. With its groundbreaking technology and commitment to
+        sustainability, the {productDetails?.title} Car is redefining what it
+        means to drive. Get ready to embrace the future of transportation with
+        the {productDetails?.title} Car.
       </p>
 
       <div className="contentBottom">

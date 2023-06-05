@@ -24,7 +24,7 @@ export default function Productindex() {
         title={"Car Dealership"}
         subtitle="Product"
         step1={"Home"}
-        step2={"Products"}
+        step2={"Inventory"}
         type={"list"}
       />
       <div className="productIndexWrapper w-90 auto">

@@ -1,9 +1,22 @@
 import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 export default function SearchIndex() {
   const carOptions = ["All Cars", "New Cars", "Used Cars"];
-  const [cartype, setCarType] = useState("");
+  const tags = ["Sedan", "Convertible", "Coupe", "SUV"];
+  const [category, setCategory] = useState("");
+  const [tag, setCarTag] = useState("");
+  const navigate = useNavigate();
+  // console.log(tag,category);
+
+  // to hanlde buyer search
+  const handleSearch = () => {
+    navigate(
+      `/car-dealership/search?product_cat=${category}&product_tag=${tag}`
+    );
+  };
+
   return (
     <SearchContainer>
       <div className="searchWrapper w-90 auto">
@@ -18,10 +31,10 @@ export default function SearchIndex() {
             className="input family1"
           />
           <select
-            value={cartype}
+            value={category}
             className="select"
             placeholder="Choose one"
-            onChange={(e) => setCarType(e.target.value)}
+            onChange={(e) => setCategory(e.target.value)}
           >
             {carOptions.map((x, index) => {
               return (
@@ -32,12 +45,12 @@ export default function SearchIndex() {
             })}
           </select>
           <select
-            value={cartype}
+            value={tag}
             className="select"
             placeholder="Choose one"
-            onChange={(e) => setCarType(e.target.value)}
+            onChange={(e) => setCarTag(e.target.value)}
           >
-            {carOptions.map((x, index) => {
+            {tags.map((x, index) => {
               return (
                 <option value={x} key={index}>
                   {x}
@@ -45,7 +58,9 @@ export default function SearchIndex() {
               );
             })}
           </select>
-          <button className="btn">Search</button>
+          <button onClick={handleSearch} className="btn">
+            Search
+          </button>
         </div>
       </div>
     </SearchContainer>

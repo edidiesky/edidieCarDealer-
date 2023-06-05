@@ -17,12 +17,18 @@ export default function DescriptionTab({ tabIndex }) {
       <DescriptionTabContainer>
         <h2>Description</h2>
         <p>
-          {productDetails?.description.substring(0, 300)}... Risus commodo
-          viverra maecenas accumsan lacus vel facilisis. Odio ut enim blandit
-          volutpat maecenas. Nascetur ridiculus mus mauris vitae ultricies leo.
-          Est lorem ipsum dolor sit amet. Fames ac turpis egestas integer eget
-          aliquet. Accumsan sit amet nulla facilisi morbi. Ut diam quam nulla
-          porttitor massa id neque aliquam vestibulum.
+          Introducing the revolutionary {productDetails?.title} Car, a groundbreaking fusion of
+          cutting-edge technology and sustainable transportation. Designed to
+          redefine the concept of driving, the {productDetails?.title} Car offers an unparalleled
+          driving experience that combines exhilarating performance,
+          state-of-the-art features, and an unwavering commitment to
+          environmental responsibility. With its sleek and futuristic design,
+          the {productDetails?.title} Car captivates onlookers and commands attention on the road.
+          The aerodynamic contours and seamless curves not only enhance its
+          aesthetic appeal but also contribute to its exceptional efficiency.
+          Every aspect of the {productDetails?.title} Car's design, from the streamlined body to
+          the advanced materials used, is optimized for maximum performance and
+          energy efficiency.
         </p>
       </DescriptionTabContainer>
     </motion.div>

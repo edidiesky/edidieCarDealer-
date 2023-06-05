@@ -24,6 +24,7 @@ const initialState = {
   page: 1,
   noOfPages: 0,
   category: "",
+  tag: "",
   search: "",
   colors: "",
   sort: "",
@@ -72,6 +73,12 @@ const productSlice = createSlice({
     },
     getMaxPrice: (state, action) => {
       state.maxprice = action.payload;
+    },
+    getCategory: (state, action) => {
+      state.category = action.payload;
+    },
+    getTag: (state, action) => {
+      state.tag = action.payload;
     },
     getMinPrice: (state, action) => {
       state.minprice = action.payload;
@@ -292,6 +299,8 @@ export const {
   clearProductDetails,
   getMaxPrice,
   getMinPrice,
+  getCategory,
+  getTag
 } = productSlice.actions;
 
 export default productSlice.reducer;

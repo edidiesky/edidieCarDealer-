@@ -15,6 +15,7 @@ export const getAllProduct = createAsyncThunk(
         limit,
         minprice,
         maxprice,
+        tag,
       } = thunkAPI.getState().product;
       let productUrl = `/api/v1/product`;
       const config = {
@@ -25,9 +26,11 @@ export const getAllProduct = createAsyncThunk(
       // if (page) {
       //   productUrl = productUrl + `?page=${page}`
       // }
-      // if (category) {
-      //   productUrl = productUrl + `?category=${category}`
-      // }
+      if (category || tag) {
+        productUrl = productUrl + `?category=${category}&tag=${tag}`;
+        const { data } = await axios.get(productUrl, config);
+        return data;
+      }
       // if (sort) {
       //   productUrl = productUrl + `?sort=${sort}`
       // }

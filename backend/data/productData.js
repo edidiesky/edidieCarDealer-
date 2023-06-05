@@ -17,6 +17,8 @@ export const productdata = [
     ],
     colors: ["Blue", "Red", "Black"],
     tags: ["Electric", "Auto", " Blue"],
+    tag: "Convertible",
+    category: "Used Cars",
     rating: "0",
     numReviews: "0",
     reviews: [],
@@ -47,6 +49,7 @@ export const productdata = [
     tags: ["Manual", "Petrol", " Blue"],
     rating: "0",
     numReviews: "0",
+    category: "Used Cars",
     reviews: [],
     shortdescription:
       "This car has the best options and features for a sports car. Inc dunt labore dolore magna aliqua enim veniam quis nostrud mini ys exercitation ullamco sed laboris.",
@@ -74,6 +77,8 @@ export const productdata = [
     tags: ["Manual", "Petrol", " Blue"],
     rating: "0",
     numReviews: "0",
+    tag: "SUV",
+    category: "New Cars",
     reviews: [],
     shortdescription:
       "This car has the best options and features for a sports car. Inc dunt labore dolore magna aliqua enim veniam quis nostrud mini ys exercitation ullamco sed laboris.",
@@ -101,6 +106,7 @@ export const productdata = [
     tags: ["Manual", "Petrol", " Blue"],
     rating: "0",
     numReviews: "0",
+    tag: "Convertible",
     reviews: [],
     shortdescription:
       "This car has the best options and features for a sports car. Inc dunt labore dolore magna aliqua enim veniam quis nostrud mini ys exercitation ullamco sed laboris.",

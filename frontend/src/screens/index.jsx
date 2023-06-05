@@ -16,7 +16,10 @@ import About from './About'
 import Blog from './Blog'
 import Offer from './Offer'
 import Services from './Services'
+import Search from './Search'
+
 export {
+    Search,
     Home,
     Layout,
     ProductList,

@@ -10,6 +10,9 @@ const GetAllProduct = asyncHandler(async (req, res) => {
   const search = req.query.search;
   const sort = req.query.sort;
   const colors = req.query.colors;
+  const category = req.query.category;
+  const tag = req.query.tag;
+
   const minprice = req.query.minprice;
   const maxprice = req.query.maxprice;
   const queryObject = {};
@@ -28,6 +31,12 @@ const GetAllProduct = asyncHandler(async (req, res) => {
   }
   if (colors) {
     queryObject.colors = { $regex: colors, $options: "i" };
+  }
+  if (tag) {
+    queryObject.tag = { $regex: tag, $options: "i" };
+  }
+  if (category) {
+    queryObject.category = { $regex: category, $options: "i" };
   }
   // perform sorting operation
   if (sort === "latest") {
@@ -72,42 +81,12 @@ const GetSingleProduct = asyncHandler(async (req, res) => {
 // GET SINGLE Product
 // Not Private
 const CreateSingleProduct = asyncHandler(async (req, res) => {
-  // get the request body parameters
-  const {
-    title,
-    image,
-    brand,
-    category,
-    description,
-    size,
-    price,
-    countInStock,
-    shortdescription,
-    colors,
-    tags,
-    qualities,
-    capacity,
-    discount,
-  } = req.body;
   const { userId } = req.user;
   // console.log(...tags);
 
   const product = await Product.create({
-    title,
-    image,
-    brand,
-    category,
-    description,
-    size,
-    price,
-    countInStock,
+    ...req.body,
     user: userId,
-    shortdescription,
-    colors,
-    tags,
-    qualities,
-    capacity,
-    discount,
   });
 
   res.status(200).json({ product });
@@ -116,25 +95,9 @@ const CreateSingleProduct = asyncHandler(async (req, res) => {
 //PRIVATE
 // ADMIN
 const UpdateProduct = asyncHandler(async (req, res) => {
-  const { userId, name } = req.user;
-  const {
-    title,
-    image,
-    brand,
-    category,
-    description,
-    size,
-    price,
-    countInStock,
-    shortdescription,
-    colors,
-    tags,
-    qualities,
-    capacity,
-    discount,
-  } = req.body;
+  // find the product
   const product = await Product.findById({ _id: req.params.id });
-
+  // check for existence
   if (!product) {
     res.status(404);
     throw new Error("Product does not exist");
@@ -142,22 +105,7 @@ const UpdateProduct = asyncHandler(async (req, res) => {
 
   const updatedproduct = await Product.findByIdAndUpdate(
     { _id: req.params.id },
-    {
-      title,
-      image,
-      brand,
-      category,
-      description,
-      size,
-      price,
-      countInStock,
-      shortdescription,
-      colors,
-      tags,
-      qualities,
-      capacity,
-      discount,
-    },
+    ...req.body,
     { new: true }
   );
   res.status(200).json({ updatedproduct });
