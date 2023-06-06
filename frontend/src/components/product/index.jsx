@@ -30,12 +30,21 @@ export default function Productindex() {
       <div className="productIndexWrapper w-90 auto">
         <FilterOptionsindex />
         <div className="productCardWrapper">
-          <SelectOptions />
-          <div className="productCardContainer">
-            {product?.map((x, index) => {
-              return <Card x={x} key={x._id} index={index} />;
-            })}
-          </div>
+          {product?.length === 0 ? (
+            <div className="flex column gap-2">
+              <SelectOptions />
+              <h2 className="text">Nothing Found</h2>
+            </div>
+          ) : (
+            <div className="productCardWrapper">
+              <SelectOptions />
+              <div className="productCardContainer">
+                {product?.map((x, index) => {
+                  return <Card x={x} key={x._id} index={index} />;
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </ProductIndexContainer>
@@ -45,6 +54,13 @@ export default function Productindex() {
 const ProductIndexContainer = styled.div`
   width: 100%;
   min-height: 100vh;
+  .text {
+    font-size: 35px;
+    font-weight: 700;
+    @media (max-width: 580px) {
+      font-size: 30px;
+    }
+  }
   .productIndexWrapper {
     padding: 6rem 0;
     display: grid;

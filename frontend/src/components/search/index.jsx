@@ -68,7 +68,7 @@ export default function Productindex() {
 const ProductIndexContainer = styled.div`
   width: 100%;
   h2 {
-    font-size: 38px;
+    font-size: 35px;
     font-weight: 700;
     @media (max-width: 580px) {
       font-size: 30px;
