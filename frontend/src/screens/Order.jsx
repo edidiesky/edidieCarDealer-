@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Meta } from "../components/common";
+import { Banner, Meta } from "../components/common";
 import OrderIndex from "../components/order";
 import Info from "../components/order/Info";
 import styled from "styled-components";
@@ -12,6 +12,7 @@ export default function Order() {
     <>
       <Meta title={"My Orders"} />
       {/* <Banner1/> */}
+      <Banner title="Order Success" step1 />
       <OrderWrapper
         className="py-2 w-90 auto flex column"
         style={{ border: "1px solid rgba(0,0,0,.1)", margin: "2rem auto" }}
