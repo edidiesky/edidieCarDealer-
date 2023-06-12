@@ -4,6 +4,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+
 import {
   Home,
   Layout,
@@ -39,13 +40,18 @@ import Billing from "./screens/Checkout";
 import { handlePaypalKey } from "./Features";
 import { useDispatch, useSelector } from "react-redux";
 import LoaderIndex from "./components/loaders";
+import { handleTokenKey } from "./Features/user/userReducer";
+
 
 export default function App() {
   const dispatch = useDispatch();
   const { keys, isloadingPayalKey } = useSelector((store) => store.order);
+  const { tokenkey } = useSelector((store) => store.user);
+
 
   useEffect(() => {
     dispatch(handlePaypalKey());
+    // dispatch(handleTokenKey())
     AOS.init({
       once: true,
     });
@@ -62,6 +68,7 @@ export default function App() {
     currency: "USD",
     intent: "capture",
   };
+  // console.log(tokenkey);
   return (
     <>
       {isloadingPayalKey ? (

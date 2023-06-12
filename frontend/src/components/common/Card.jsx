@@ -100,18 +100,17 @@ const CardContainer = styled.div`
       width: 100%;
       overflow: hidden;
       transition: all 0.6s var(--transition-1);
-
       display: grid;
       place-items: center;
       position: relative;
       height: 35rem;
-      @media (max-width: 580px) {
-        height: 30rem;
+      @media (max-width: 780px) {
+        min-height: 100%;
       }
       .cardImage {
         width: 100%;
         position: absolute;
-        height: 35rem;
+        height: 100%;
       }
       .cardOptions {
         position: absolute;

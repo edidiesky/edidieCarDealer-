@@ -1,17 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axiosInstance from "../../utils/axiosConfig";
 
 export const createCustomersOrder = createAsyncThunk(
   "/create/order",
   async (orderData, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const config = {
-      headers: {
-        authorization: `Bearer ${state.user.token}`,
-      },
-    };
     try {
-      const { data } = await axios.post("/api/v1/order", orderData, config);
+      const { data } = await axiosInstance.post("/order", orderData);
 
       return data.order;
     } catch (error) {
@@ -29,7 +23,7 @@ export const handleStripeCheckout = createAsyncThunk(
   async (orderItems, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axios.post("/stripe", orderItems);
+      const { data } = await axiosInstance.post("/stripe", orderItems);
 
       return data.url;
     } catch (error) {
@@ -47,12 +41,7 @@ export const handleStripeKey = createAsyncThunk(
   async (orderItems, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
-      const { data } = await axios.get("/stripekey", orderItems, config);
+      const { data } = await axiosInstance.get("/stripekey", orderItems);
 
       return data;
     } catch (error) {
@@ -66,20 +55,11 @@ export const handleStripeKey = createAsyncThunk(
 );
 
 export const handlePaypalKey = createAsyncThunk(
-  "/order/api/config/paypal",
+  "/order/api/paypal",
   async (orderItems, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
-      const { data } = await axios.get(
-        "/api/config/paypal",
-        orderItems,
-        config
-      );
+      const { data } = await axiosInstance.get("/config/paypal", orderItems);
 
       return data;
     } catch (error) {
@@ -97,12 +77,7 @@ export const getCustomerOrderById = createAsyncThunk(
   async (orderId, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
-      const { data } = await axios.get(`/api/v1/order/${orderId}`, config);
+      const { data } = await axiosInstance.get(`/order/${orderId}`);
 
       return data.order;
     } catch (error) {
@@ -120,12 +95,7 @@ export const getCustomerOrderStats = createAsyncThunk(
   async (id, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
-      const { data } = await axios.get(`/api/v1/order/stats`, config);
+      const { data } = await axiosInstance.get(`/order/stats`);
 
       return data.totalOrder;
     } catch (error) {
@@ -143,12 +113,7 @@ export const getCustomerOrder = createAsyncThunk(
   async (id, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
-      const { data } = await axios.get(`/api/v1/order/customer/order`, config);
+      const { data } = await axiosInstance.get(`/order/customer/order`);
 
       return data.order;
     } catch (error) {
@@ -166,16 +131,8 @@ export const getAllCustomersOrder = createAsyncThunk(
   async (id, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
       const { orderpage } = state.order;
-      const { data } = await axios.get(
-        `/api/v1/order?page=${orderpage}`,
-        config
-      );
+      const { data } = await axiosInstance.get(`/order?page=${orderpage}`);
 
       return data;
     } catch (error) {
@@ -193,17 +150,8 @@ export const updateCustomersOrderToPaid = createAsyncThunk(
   async (details, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
       const { _id } = state.order.order;
-      const { data } = await axios.put(
-        `/api/v1/order/${_id}/pay`,
-        details,
-        config
-      );
+      const { data } = await axiosInstance.put(`/order/${_id}/pay`, details);
 
       return data.updatedOrder;
     } catch (error) {
@@ -221,17 +169,8 @@ export const updateCustomersOrderToIsDelivered = createAsyncThunk(
   async (name, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
       const { _id } = state.order.order;
-      const { data } = await axios.put(
-        `/api/v1/order/${_id}/delivered`,
-        name,
-        config
-      );
+      const { data } = await axiosInstance.put(`/order/${_id}/delivered`, name);
 
       return data.updatedOrder;
     } catch (error) {

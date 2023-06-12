@@ -17,25 +17,19 @@ export default function Delete({ handleRemoveBagItem, offDeleteModal }) {
           <RxCross2 />
         </div>
         <div className="deleteCardTop">
-          <h3>Delete Media?</h3>
+          <h3>Delete Car?</h3>
           <p className="family1">
             Are you sure you want to delete "{bagDetails?.title}"?
             <br /> You can't undo this action.
           </p>
         </div>
-        {/*<div className='deleteCardCenter'>
-            <AiFillWarning/>
-            <h4><span className='deleteSpan'>Warning</span>
-             By deleting this media "{bagDetails?.title}" will also be deleted
-            </h4>
-          </div>*/}
         <div className="deleteCardBottom family1">
           <button onClick={() => dispatch(clearCartAlert())}>Cancel</button>
           <button
             className="deleteBtn"
             onClick={() => dispatch(removeBagItem(bagDetails))}
           >
-            Delete Media
+            Delete Car
           </button>
         </div>
       </div>

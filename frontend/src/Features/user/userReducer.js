@@ -1,177 +1,177 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axiosInstance from "../../utils/axiosConfig";
 
-
-const Registerurl = '/api/v1/auth/register';
-const Loginurl = '/api/v1/auth/login';
+const Registerurl = "/auth/register";
+const Loginurl = "/auth/login";
 
 export const registerCustomer = createAsyncThunk(
-  'registerUser',
+  "registerUser",
   async (registerData, thunkAPI) => {
     try {
-      const { data } = await axios.post(Registerurl, registerData);
-      localStorage.setItem('customer', JSON.stringify(data.user))
-      localStorage.setItem('customertoken', data.token)
+      const { data } = await axiosInstance.post(Registerurl, registerData);
       return data;
-
     } catch (error) {
-
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
 export const loginCustomer = createAsyncThunk(
-  'loginCustomer',
+  "loginCustomer",
   async (loginData, thunkAPI) => {
     try {
-      const { data } = await axios.post(Loginurl, loginData);
-      localStorage.setItem('customer', JSON.stringify(data.user))
-      localStorage.setItem('customertoken', data.token)
+      const { data } = await axiosInstance.post(Loginurl, loginData, {
+        withCredentials: true,
+      });
+      localStorage.setItem("customer", JSON.stringify(data.user));
+      // localStorage.setItem("customertoken", data.token);
       return data;
-
     } catch (error) {
-
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
 // get all user for the admin
 export const getAllCustomer = createAsyncThunk(
-  'getAllCustomer',
+  "getAllCustomer",
   async (name, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
-      const { userpage } = state.user
+      const { userpage } = state.user;
 
-      const { data } = await axios.get(`/api/v1/auth?page=${userpage}`, config);
+      const { data } = await axiosInstance.get(`/auth?page=${userpage}`);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
 // get all user for the admin
 export const getUserStats = createAsyncThunk(
-  'getStats',
+  "getStats",
   async (name, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
-      const { data } = await axios.get(`/api/v1/auth/stats`, config);
+      const { data } = await axiosInstance.get(`/auth/stats`);
       return data.usersStats;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
 // get a single user for the admin
 export const getSingleCustomer = createAsyncThunk(
-  'getSingleCustomer',
+  "getSingleCustomer",
   async (name, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
-
-      const { data } = await axios.get(`/api/v1/auth/admin/profile/${name}`, config);
+      const { data } = await axiosInstance.get(`/auth/admin/profile/${name}`);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
-
 
 // Update a single user for the admin
 export const adminUpdateCustomer = createAsyncThunk(
-  'adminUpdateCustomer',
+  "adminUpdateCustomer",
   async (Userformdata, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
-      const { _id } = state.user.userDetails
-      const { data } = await axios.put(`/api/v1/auth/admin/profile/${_id}`, Userformdata, config);
+      const { _id } = state.user.userDetails;
+      const { data } = await axiosInstance.put(
+        `/auth/admin/profile/${_id}`,
+        Userformdata
+      );
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
-
 // Update a single user for the admin
 export const UpdateProfile = createAsyncThunk(
-  'UpdateProfile',
+  "UpdateProfile",
   async (profiledata, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
-      const { _id } = state.user.userInfo
-      const { data } = await axios.put(`/api/v1/auth/profile/${_id}`, profiledata, config);
-      localStorage.setItem('customer', JSON.stringify(data.updatedUser))
+      const { _id } = state.user.userInfo;
+      const { data } = await axiosInstance.put(
+        `/auth/profile/${_id}`,
+        profiledata
+      );
+      localStorage.setItem("customer", JSON.stringify(data.updatedUser));
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
 // Delete a single user for the admin
 export const adminDeleteCustomer = createAsyncThunk(
-  'adminDeleteCustomer',
+  "adminDeleteCustomer",
   async (name, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
-
-      const { data } = await axios.delete(`/api/v1/auth/admin/profile/${name}`, config);
+      const { data } = await axiosInstance.delete(`/auth/admin/profile/${name}`);
       return name;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
+  }
+);
+
+export const handleTokenKey = createAsyncThunk(
+  "/api/config/token",
+  async (orderItems, thunkAPI) => {
+    const state = thunkAPI.getState();
+    try {
+      const { data } = await axiosInstance.get("/api/config/token");
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );

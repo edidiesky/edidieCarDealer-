@@ -10,28 +10,26 @@ import {
   adminDeleteCustomer,
   UpdateProfile,
   getUserStats,
+  handleTokenKey,
 } from "./userReducer";
 import { users } from "../../data/userData";
 
-// Local Storage Data
 const customerData = JSON.parse(localStorage.getItem("customer"));
-const customerToken = localStorage.getItem("customertoken");
-const addressData = JSON.parse(localStorage.getItem("address"));
-const paymentData = localStorage.getItem("payment");
+
 
 const initialState = {
   isSuccess: false,
   isError: false,
   userInfo: customerData ? customerData : null,
   userDetails: null,
+  tokenkey: "",
   isLoading: false,
-  token: customerToken ? customerToken : "",
   showAlert: false,
   users: users,
   alertText: "",
   alertType: "",
-  addressData: addressData ? addressData : null,
-  paymentData: paymentData ? paymentData : null,
+  addressData: null,
+  paymentData: null,
   userpage: 1,
   usernoOfpage: 0,
   totalUser: 0,
@@ -123,7 +121,6 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.loginSuccess = true;
       state.userInfo = action.payload.user;
-      state.token = action.payload.token;
       state.showAlert = true;
       state.alertText = "Login successfull. ...Redirecting soon!";
       state.alertType = "success";
@@ -254,6 +251,24 @@ const userSlice = createSlice({
       state.alertType = "success";
     },
     [UpdateProfile.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.showAlert = true;
+      state.alertText = action.payload;
+      state.alertType = "danger";
+    },
+
+
+    [handleTokenKey.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [handleTokenKey.fulfilled]: (state, action) => {
+      //
+      state.isLoading = false;
+      state.showAlert = true;
+      state.tokenkey = action.payload;
+    },
+    [handleTokenKey.rejected]: (state, action) => {
       state.isLoading = false;
       state.isError = true;
       state.showAlert = true;

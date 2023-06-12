@@ -89,11 +89,11 @@ const DetailsTopLeftContainer = styled.div`
     padding-top: 2rem;
     grid-gap: 1rem;
     @media (max-width: 680px) {
-      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       width: 100%;
     }
     @media (max-width: 350px) {
-      grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       width: 280px;
     }
     .imageWrapper {
@@ -172,8 +172,8 @@ const DetailsTopLeftContainer = styled.div`
         transition: all 0.6s ease-in-out;
         height: 50rem;
         @media (max-width: 780px) {
-        height: 100%;
-      }
+          min-height: 100%;
+        }
 
         img {
           width: 100%;
@@ -184,9 +184,6 @@ const DetailsTopLeftContainer = styled.div`
           @media (min-width: 1600px) {
             height: 100%;
             object-fit: cover;
-          }
-          @media (min-width: 780px) {
-            height: 100%;
           }
         }
       }

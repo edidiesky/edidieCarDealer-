@@ -7,14 +7,7 @@ import User from "../models/User.js";
 //register user
 // Not Private
 const registerUser = asyncHandler(async (req, res) => {
-  const {
-    firstname,
-    lastname,
-    email,
-    password,
-    phone,
-    country,
-  } = req.body;
+  const { firstname, lastname, email, password, phone, country } = req.body;
   //
   if (!firstname || !lastname || !email || !password) {
     res.status(404);
@@ -38,7 +31,7 @@ const registerUser = asyncHandler(async (req, res) => {
     country,
     isAdmin,
   };
-  const user = await User.create(Tempuser);
+  let user = await User.create(Tempuser);
   //
   const token = jwt.sign(
     {
@@ -48,10 +41,30 @@ const registerUser = asyncHandler(async (req, res) => {
       lastname: user.lastname,
     },
     process.env.JWT_CODE,
-    { expiresIn: "2d" }
+    { expiresIn: "30d" }
   );
 
-  res.status(200).json({ user, token });
+  // destructure the user onject sent to the clien
+  user = {
+    _id: user?._id,
+    firstname: user?.firstname,
+    lastname: user?.lastname,
+    phone: user?.phone,
+    email: user?.email,
+    isAdmin: user?.isAdmin,
+    country: user?.country,
+    state: user?.state,
+    postalCode: user?.postalCode,
+  };
+
+  res
+    .cookie(process.env.token, token, {
+      httpOnly: "true",
+      maxAge:30 * 24 * 3600 * 1000,
+      secure: process.env.NODE_ENV !== 'development',
+    })
+    .status(200)
+    .json({ user });
 });
 
 //Login the  user
@@ -65,7 +78,7 @@ const LoginUser = asyncHandler(async (req, res) => {
   }
   // Find the user in the database
 
-  const user = await User.findOne({ email });
+  let user = await User.findOne({ email });
   if (!user) {
     res.status(404);
     throw new Error("The user does not exist");
@@ -84,10 +97,30 @@ const LoginUser = asyncHandler(async (req, res) => {
       lastname: user.lastname,
     },
     process.env.JWT_CODE,
-    { expiresIn: "2d" }
+    { expiresIn: "30d" }
   );
 
-  res.status(200).json({ user, token });
+  // destructure the user onject sent to the clien
+  user = {
+    _id: user?._id,
+    firstname: user?.firstname,
+    lastname: user?.lastname,
+    phone: user?.phone,
+    email: user?.email,
+    isAdmin: user?.isAdmin,
+    country: user?.country,
+    state: user?.state,
+    postalCode: user?.postalCode,
+  };
+
+  res
+    .cookie(process.env.token, token, {
+      httpOnly: "true",
+      maxAge:30 * 24 * 3600 * 1000,
+      secure: process.env.NODE_ENV !== 'development',
+    })
+    .status(200)
+    .json({ user });
 });
 //PRIVATE/ADMIN
 const GetUser = asyncHandler(async (req, res) => {
@@ -97,23 +130,36 @@ const GetUser = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("The user does not exist");
   }
-  const {
-
-  } = user
+  const {} = user;
   res.status(200).json({ user });
 });
 
 //PRIVATE/USER
 const UpdateUser = asyncHandler(async (req, res) => {
+  // const { passoword } = req.body;
   const { userId, username } = req.user;
   const Loginuser = await User.findById({ _id: req.params.id });
   if (!Loginuser) {
     res.status(404);
     throw new Error("The user does not exist");
   }
+  const salt = await bcrypt.genSalt(10);
+  const hashedpassword = await bcrypt.hash(req.body.password, salt);
+
   const updatedUser = await User.findByIdAndUpdate(
     { _id: req.params.id },
-    req.body,
+    {
+      _id: Loginuser?._id,
+      firstname: Loginuser?.firstname,
+      lastname: Loginuser?.lastname,
+      phone: Loginuser?.phone,
+      email: Loginuser?.email,
+      isAdmin: Loginuser?.isAdmin,
+      country: Loginuser?.country,
+      state: Loginuser?.state,
+      postalCode: Loginuser?.postalCode,
+      password: hashedpassword,
+    },
     { new: true }
   );
   res.status(200).json({ updatedUser });
@@ -126,9 +172,23 @@ const AdminUpdateUser = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("The user does not exist");
   }
+  const salt = await bcrypt.genSalt(10);
+  const hashedpassword = await bcrypt.hash(req.body.password, salt);
+
   const updatedUser = await User.findByIdAndUpdate(
     { _id: req.params.id },
-    req.body,
+    {
+      _id: Loginuser?._id,
+      firstname: Loginuser?.firstname,
+      lastname: Loginuser?.lastname,
+      phone: Loginuser?.phone,
+      email: Loginuser?.email,
+      isAdmin: Loginuser?.isAdmin,
+      country: Loginuser?.country,
+      state: Loginuser?.state,
+      postalCode: Loginuser?.postalCode,
+      password: hashedpassword,
+    },
     { new: true }
   );
   res.status(200).json({ updatedUser });
@@ -147,7 +207,7 @@ const DeleteUser = asyncHandler(async (req, res) => {
 
 // PRIVATE/ADMIN
 const GetAllUser = asyncHandler(async (req, res) => {
-  const limit = req.query.limit || 3;
+  const limit = req.query.limit || 5;
   const page = req.query.page || 1;
   const skip = (page - 1) * limit;
 
@@ -159,6 +219,13 @@ const GetAllUser = asyncHandler(async (req, res) => {
   res.status(200).json({ user, noOfPages, totalUser });
 });
 
+// PRIVATE
+const LogoutUser = asyncHandler(async (req, res) => {
+  res
+    .clearCookie(process.env.token, { sameSite: "none", secure: true })
+    .status(200)
+    .send("You have been logged out successfull");
+});
 // PRIVATE/ADMIN
 const AggregateUserStats = asyncHandler(async (req, res) => {
   let usersStats = await User.aggregate([
@@ -208,4 +275,5 @@ export {
   DeleteUser,
   AdminUpdateUser,
   AggregateUserStats,
+  LogoutUser,
 };

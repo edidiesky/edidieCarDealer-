@@ -9,9 +9,6 @@ import Blogindex from "../components/home/blog";
 import Styled from "styled-components";
 import Brandindex from "../components/home/brands";
 import ChoiceIndex from "../components/home/choice";
-import LoaderIndex from "../components/loaders";
-import Message from "../components/loaders/Message";
-import CartSidebar from "../components/cart/CartSidebar";
 import {
   getAllProduct,
   clearProductAlert,
@@ -28,6 +25,10 @@ import {
 export default function Home() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+  useEffect(() => {
+    const cookies = document.cookie;
+    console.log(cookies);
   }, []);
   const {} = useSelector((store) => store.product);
 
@@ -54,7 +55,6 @@ export default function Home() {
           <Banner3 />
           <Banner4 />
           <Blogindex />
-          
         </>
       </HomeContainer>
     </>
@@ -63,5 +63,6 @@ export default function Home() {
 
 const HomeContainer = Styled.div`
 width:100%;
+
 background:#fff;
 `;
