@@ -12,7 +12,7 @@ export default function Order() {
     <>
       <Meta title={"My Orders"} />
       {/* <Banner1/> */}
-      <Banner title="Order Success" step1 />
+      <Banner title="Order Success" />
       <OrderWrapper
         className="py-2 w-90 auto flex column"
         style={{ border: "1px solid rgba(0,0,0,.1)", margin: "2rem auto" }}
