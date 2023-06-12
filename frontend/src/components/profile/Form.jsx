@@ -241,6 +241,7 @@ const ProfileFormContainer = styled.div`
   width: 100%;
   border: 1px solid var(--grey-2);
   padding: 2rem;
+  padding-top: 4rem;
   h2 {
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--grey-2);
