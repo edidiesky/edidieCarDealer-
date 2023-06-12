@@ -26,14 +26,10 @@ export default function Home() {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
-  useEffect(() => {
-    const cookies = document.cookie;
-    console.log(cookies);
-  }, []);
-  const {} = useSelector((store) => store.product);
 
   const dispatch = useDispatch();
   useEffect(() => {
+    
     dispatch(clearProductDetails());
     dispatch(clearProductAlert());
     dispatch(getAllProduct());

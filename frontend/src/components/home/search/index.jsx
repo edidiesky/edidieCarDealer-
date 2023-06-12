@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -12,10 +12,20 @@ export default function SearchIndex() {
 
   // to hanlde buyer search
   const handleSearch = () => {
-    navigate(
-      `/car-dealership/search?product_cat=${category}&product_tag=${tag}`
-    );
+    setTimeout(() => {
+      navigate(
+        `/car-dealership/search?product_cat=${category}&product_tag=${tag}`
+      );
+    }, 1000);
   };
+
+  useEffect(() => {
+    if (category || tag) {
+      setCarTag("");
+      setCategory("");
+      // return;
+    }
+  }, []);
 
   return (
     <SearchContainer>
@@ -32,6 +42,7 @@ export default function SearchIndex() {
           />
           <select
             value={category}
+            name="category"
             className="select"
             placeholder="Choose one"
             onChange={(e) => setCategory(e.target.value)}
@@ -46,6 +57,7 @@ export default function SearchIndex() {
           </select>
           <select
             value={tag}
+            name="tag"
             className="select"
             placeholder="Choose one"
             onChange={(e) => setCarTag(e.target.value)}

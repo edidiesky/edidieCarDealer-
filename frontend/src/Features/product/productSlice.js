@@ -101,6 +101,7 @@ const productSlice = createSlice({
       state.isError = false;
       state.category = "";
       state.search = "";
+      state.tag = "";
       state.productAlert = false;
     },
     clearProductDetails: (state, action) => {
