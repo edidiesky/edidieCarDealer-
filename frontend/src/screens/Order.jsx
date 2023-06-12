@@ -27,7 +27,7 @@ const OrderWrapper = styled.div`
   .py-3 {
     padding: 0;
     @media (max-width: 480px) {
-      padding: 2rem 1rem;
+      padding: 2rem 0rem;
     }
   }
   h2 {
