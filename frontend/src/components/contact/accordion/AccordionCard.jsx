@@ -10,10 +10,10 @@ export default function AccordionCard({x}) {
         <div className="toggleBtn">
           {toggle?<BiMinus/>:<BiPlus/>}
         </div>
-        <h3>{x.title}</h3>
+        <h3>{x.head}</h3>
       </div>
       <div className={toggle?"accordionBottom active":"accordionBottom"}>
-        <p>{x.description}</p>
+        <p className='family1'>{x.text}</p>
       </div>
     </AccordionCardWrapper>
   )
@@ -46,8 +46,8 @@ overflow:hidden;
   max-height:28rem;
   }
   p {
-    font-size:1.6rem;
-    line-height:2;
+    font-size:1.8rem;
+    line-height:1.4;
     color:var(--grey);
     font-weight:400;
     width:80%;

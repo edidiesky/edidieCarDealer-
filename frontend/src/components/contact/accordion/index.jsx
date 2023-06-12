@@ -1,17 +1,18 @@
 import React from "react";
 import Styled from "styled-components";
 import Accordion from "./Accordion";
+import { accordiondata } from "../../../data/faq";
 export default function Accordionindex() {
   return (
     <AccordionIndexContainer>
       <div className="accordionWrapper">
         <div className="accordionLeft">
           <h2>Read Our FAQ'S</h2>
-          {/* <Accordion /> */}
+          <Accordion AccordionData={accordiondata} />
         </div>
         <div className="accordionRight">
           <img
-            src="../images/tes4.jpg"
+            src="https://avada.website/car-dealership/wp-content/uploads/sites/165/2022/02/audi-1-600x483.jpg"
             alt="tesla-images"
             className="accordionImage"
           />
