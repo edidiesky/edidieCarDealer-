@@ -20,7 +20,7 @@ const data = [
   { id: 2, title: "Inventory", path: "car-dealership/inventory" },
   { id: 3, title: "About Us", path: "car-dealership/about" },
   { id: 3, title: "Latest Offers", path: "car-dealership/latest-offers" },
-  { id: 4, title: "Auto News", path: "car-dealership/auto-news" },
+  // { id: 4, title: "Auto News", path: "car-dealership/auto-news" },
   { id: 5, title: "Contact", path: "car-dealership/contact" },
 ];
 export default function HeaderTop() {
@@ -195,9 +195,9 @@ const HeaderTopContainer = styled.div`
     .headerTopWrapper {
       display: flex;
       align-items: center;
-      gap: 3rem;
+      gap: 5rem;
       @media (max-width: 1280px) {
-        gap: 3rem;
+        gap: 4rem;
       }
       @media (max-width: 880px) {
         display: none;
