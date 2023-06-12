@@ -49,7 +49,7 @@ export default function PapmentButton() {
       // Display success message, modal or redirect user to success page
       navigate(`/car-dealership/order-success?orderId=${order?._id}`);
     }
-  }, [successPay]);
+  }, [successPay,navigate]);
 
   return (
     <PayPalButtons

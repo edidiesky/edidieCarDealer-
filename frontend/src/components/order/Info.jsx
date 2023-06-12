@@ -49,8 +49,8 @@ export default function Info() {
           {/* order summary */}
           <div className="w-50 flex gap-2 column">
             <h5 className="text-bold family1 fs-18 text-dark w-100 flex item-center justify-space">
-              Subtotal
-              <span className="text-light">${bag?.totalPrice}</span>
+            EstimatedTax
+              <span className="text-light">${order?.estimatedTax}</span>
             </h5>
 
             <h5 className="text-bold family1 fs-18 text-dark w-100 flex item-center justify-space">
