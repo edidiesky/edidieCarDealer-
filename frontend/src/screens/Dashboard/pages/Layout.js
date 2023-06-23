@@ -15,6 +15,11 @@ const LayoutWrapper = styled.div`
       padding-bottom: 3.5rem;
     }
   }
+  h2 {
+    @media (max-width:480px) {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export default function Layout() {

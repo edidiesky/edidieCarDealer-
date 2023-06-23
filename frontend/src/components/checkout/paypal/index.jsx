@@ -25,15 +25,6 @@ export default function PapmentButton() {
   const { addressData } = useSelector((store) => store.user);
   const { successPay, order } = useSelector((store) => store.order);
 
-  const orderData = {
-    orderItems: bag,
-    estimatedTax,
-
-    shippingAddress: addressData,
-    TotalShoppingPrice,
-    paymentMethod: payment,
-    shippingPrice,
-  };
   const dispatch = useDispatch();
   const handleApprove = (details) => {
     console.log(details);
@@ -55,7 +46,6 @@ export default function PapmentButton() {
     <PayPalButtons
       style={{
         color: "silver",
-        layout: "horizontal",
         height: 48,
         tagline: false,
         shape: "pill",

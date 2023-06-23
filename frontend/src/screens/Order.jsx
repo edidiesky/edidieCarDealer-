@@ -32,10 +32,10 @@ const OrderWrapper = styled.div`
     }
   }
   h2 {
-    font-size: 35px;
+    font-size: 28px;
 
     @media (max-width: 680px) {
-      font-size: 2.8rem !important;
+      font-size: 2.6rem !important;
     }
   }
 `;

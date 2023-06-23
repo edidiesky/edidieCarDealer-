@@ -68,7 +68,7 @@ const SidebarWrapper = styled.div`
         font-weight: 600;
         margin: 0 auto;
         width: 100%;
-        color: var(--dark-1);
+        color: var(--grey-1);
         display: flex;
         align-items: center;
         justify-content: flex-start;
